@@ -21,6 +21,24 @@ updated: 2026-04-07
 - [AI and LLMs](../topics/ai-and-llms.md)
 - [Software Engineering](../topics/software-engineering.md)
 
+## Recent Ingest
+
+- [Agent Workflows](../topics/agent-workflows.md)
+- [LLM Systems and Training](../topics/llm-systems-and-training.md)
+- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
+- [Self-Hosting and Home Lab](../topics/self-hosting-and-home-lab.md)
+- [Maker and 3D Printing](../topics/maker-and-3d-printing.md)
+
+## Active Reading Batches
+
+- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
+- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
+- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
+- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
+- [Bookmarks Self-Hosting and Home Lab Batch 1](../syntheses/bookmarks-self-hosting-home-lab-batch-1.md)
+- [Bookmarks Maker 3D Batch 1](../syntheses/bookmarks-maker-3d-batch-1.md)
+- [Bookmarks Next Batches](../questions/bookmarks-next-batches.md)
+
 ## Core Areas
 
 - [Personal Life](../areas/personal-life.md)

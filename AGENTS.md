@@ -17,6 +17,7 @@ Codex 在这个仓库里应遵循以下分工：
 - 默认视为不可变
 - 可做文件移动、重命名、归档
 - 不应把总结性内容直接写进原始资料里
+- `sources/` 中的资料既可以是用户手动放入的 markdown / PDF，也可以是从外部系统同步来的链接清单，例如生成到 `bookmarks.md` 的收藏列表
 
 ### 2. `wiki/`
 
@@ -127,6 +128,18 @@ updated: 2026-04-07
 7. 更新 `wiki/index.md`
 8. 追加 `wiki/log.md`
 9. 如已完成归档，再将原始资料从 `inbox/` 移到 `library/`
+
+如果输入是 bookmarks 导出的链接清单：
+
+1. 先更新 `sources/library/bookmarks/bookmarks.md`
+2. 从中筛选与当前主题相关的链接
+3. 必要时把单条链接进一步转存为独立 markdown 原始资料
+4. 再按常规 ingest 流程并入 `wiki/`
+
+补充约定：
+
+- `sources/library/bookmarks/bookmarks.md` 是脚本生成文件，默认不手工编辑
+- 实例地址和 API key 只允许出现在本地忽略配置中，不允许写入仓库文档
 
 ### Query
 

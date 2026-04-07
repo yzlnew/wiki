@@ -51,17 +51,24 @@
 
 ### 1. 加资料
 
-把新材料先放进 `sources/inbox/`，例如：
+把新材料先放进 `sources/inbox/`，或者从 bookmarks 服务同步到本地 markdown，例如：
 
 - 一篇网页导出的 markdown
 - 一份 PDF
 - 一张图表或截图
 - 一组会议纪要
+- 一批来自 bookmarks 列表的链接
 
 然后告诉 Codex：
 
 ```text
 请 ingest sources/inbox/xxx.md，把重要结论并入现有 wiki。
+```
+
+如果资料来自 bookmarks：
+
+```text
+先更新 sources/library/bookmarks/bookmarks.md，然后从里面挑出和 AI agent tooling 相关的链接做一轮 ingest。
 ```
 
 ### 2. 问问题
@@ -98,3 +105,36 @@
 - 初始化 git：`git init`
 - 用 Obsidian 打开本目录，直接浏览 `wiki/`
 - 后续补一个本地搜索脚本，用于快速检索 `wiki/` 和 `sources/`
+
+## Bookmarks 同步
+
+仓库内置了一个同步脚本：
+
+```text
+python3 scripts/update_bookmarks.py
+```
+
+它会读取本地忽略的 `.env.bookmarks.local`，然后更新：
+
+```text
+sources/library/bookmarks/bookmarks.md
+```
+
+建议流程：
+
+1. 复制 `.env.bookmarks.example` 为 `.env.bookmarks.local`
+2. 在本地填入 bookmarks 服务地址和 API key
+3. 运行同步脚本
+4. 再让 Codex 基于 `bookmarks.md` 选择值得 ingest 的链接
+
+示例定时任务：
+
+```cron
+15 * * * * cd /root/wiki && python3 scripts/update_bookmarks.py >> /tmp/bookmarks-sync.log 2>&1
+```
+
+注意：
+
+- 实例地址和 API key 只放在 `.env.bookmarks.local`，不会进入 git
+- 生成的 `bookmarks.md` 默认会进入仓库；如果你不想让收藏链接进入 git，可以额外把该文件加入 `.gitignore`
+- 如果你的实例有 IP / 证书兼容问题，可在 `.env.bookmarks.local` 里补 `BOOKMARKS_FORCE_IPV4=1`、`BOOKMARKS_FORCE_IPV6=1` 或 `BOOKMARKS_VERIFY_TLS=0`

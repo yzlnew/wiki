@@ -17,6 +17,7 @@ updated: 2026-04-07
 - [Wiki Index](../index.md)
 - [Wiki Log](../log.md)
 - [Repo Architecture Baseline](../syntheses/repo-architecture-baseline.md)
+- [Taste and Interest Profile](../syntheses/taste-and-interest-profile.md)
 - [Knowledge Management](../topics/knowledge-management.md)
 - [AI and LLMs](../topics/ai-and-llms.md)
 - [Software Engineering](../topics/software-engineering.md)

@@ -33,6 +33,7 @@
 - [Projects](projects/README.md): 项目页入口，按需创建
 - [Syntheses](syntheses/README.md): 综合分析入口
 - [Repo Architecture Baseline](syntheses/repo-architecture-baseline.md): 当前仓库结构的起始综合判断
+- [Taste and Interest Profile](syntheses/taste-and-interest-profile.md): 从已收录内容提炼出的兴趣画像，可作为后续 RSS 过滤的起点
 - [Bookmarks Agent Workflows Batch 1](syntheses/bookmarks-agent-workflows-batch-1.md): 从 bookmarks 列表抽出的 agent workflow / prompting / deep research 线索
 - [Bookmarks LLM Systems Batch 1](syntheses/bookmarks-llm-systems-batch-1.md): 从 bookmarks 列表抽出的训练系统、优化与可解释性线索
 - [Bookmarks LLM Systems Batch 2](syntheses/bookmarks-llm-systems-batch-2.md): 从 bookmarks 列表抽出的系统余量、数学底座和实验型训练线索

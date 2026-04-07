@@ -21,3 +21,15 @@
 - 继续消费剩余链接，新增 [Reinforcement Learning and Post-Training](topics/reinforcement-learning-and-post-training.md) 与对应来源摘要页
 - 为 [LLM Systems and Training](topics/llm-systems-and-training.md) 补入第二批 residuals，并新增 [Bookmarks LLM Systems Batch 2](syntheses/bookmarks-llm-systems-batch-2.md)
 - 更新 `wiki/index.md`、`wiki/maps/home.md`、`wiki/topics/ai-and-llms.md`、`wiki/areas/learning-and-research.md` 与 backlog 页，明确剩余低信号尾项
+
+## [2026-04-07] query | taste-and-interest-profile
+
+- 基于已 ingest 的 topic 与 synthesis 页面，整理出一页 [Taste and Interest Profile](syntheses/taste-and-interest-profile.md)
+- 将当前稳定兴趣、偏好的内容形态、弱信号主题和默认降权项整理为后续 RSS 过滤的起始规则
+- 更新 `wiki/index.md` 与 `wiki/maps/home.md`，确保该画像页可直接从导航进入
+
+## [2026-04-07] query | rss-filter-prompt-template
+
+- 新增脚本可直接调用的模板 [rss-filter-prompt](../system/templates/rss-filter-prompt.md)
+- 明确了候选 RSS 条目的输入字段、判定规则、评分区间与 JSON 输出结构
+- 在 [Taste and Interest Profile](syntheses/taste-and-interest-profile.md) 中补入模板入口，区分解释层和执行层

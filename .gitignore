@@ -2,6 +2,8 @@
 Thumbs.db
 .codex
 .env.bookmarks.local
+.env.freshrss.local
+__pycache__/
 .obsidian/cache/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json

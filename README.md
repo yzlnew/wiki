@@ -138,3 +138,39 @@ sources/library/bookmarks/bookmarks.md
 - 实例地址和 API key 只放在 `.env.bookmarks.local`，不会进入 git
 - 生成的 `bookmarks.md` 默认会进入仓库；如果你不想让收藏链接进入 git，可以额外把该文件加入 `.gitignore`
 - 如果你的实例有 IP / 证书兼容问题，可在 `.env.bookmarks.local` 里补 `BOOKMARKS_FORCE_IPV4=1`、`BOOKMARKS_FORCE_IPV6=1` 或 `BOOKMARKS_VERIFY_TLS=0`
+
+## FreshRSS 同步
+
+仓库内置了一个 FreshRSS 来源脚本：
+
+```text
+python3 scripts/update_freshrss.py
+```
+
+它会读取本地忽略的 `.env.freshrss.local`，然后执行两阶段流程：
+
+1. 从 FreshRSS 拉最近的订阅消息元数据
+2. 仅根据 `来源 + 标题` 按兴趣做第一轮过滤
+3. 只对入选条目抓网页正文
+4. 更新 `sources/library/freshrss/freshrss-latest.md`
+5. 把入选文章写入 `sources/inbox/freshrss/`，等待后续 ingest
+
+建议流程：
+
+1. 复制 `.env.freshrss.example` 为 `.env.freshrss.local`
+2. 在本地填入 FreshRSS 地址、用户名和 API password
+3. 运行同步脚本
+4. 再让 Codex ingest `sources/inbox/freshrss/` 中的新材料
+
+可选参数：
+
+```text
+python3 scripts/update_freshrss.py --limit 80
+python3 scripts/update_freshrss.py --include-maybe
+```
+
+注意：
+
+- FreshRSS 地址和 token 只放在 `.env.freshrss.local`，不会进入 git
+- 第一轮过滤默认偏保守，优先拒绝泛 AI 新闻、低上下文讨论和资源大合集
+- 如果某些来源命中率长期偏低，应该继续迭代兴趣规则，而不是直接抓全文

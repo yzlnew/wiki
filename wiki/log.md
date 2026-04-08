@@ -33,3 +33,10 @@
 - 新增脚本可直接调用的模板 [rss-filter-prompt](../system/templates/rss-filter-prompt.md)
 - 明确了候选 RSS 条目的输入字段、判定规则、评分区间与 JSON 输出结构
 - 在 [Taste and Interest Profile](syntheses/taste-and-interest-profile.md) 中补入模板入口，区分解释层和执行层
+
+## [2026-04-08] scaffold | freshrss-source-pipeline
+
+- 新增 `scripts/update_freshrss.py`，通过 FreshRSS Google Reader API 拉最近订阅项
+- 在抓全文前先用 `来源 + 标题` 做兴趣过滤，并把过滤报告写到 `sources/library/freshrss/freshrss-latest.md`
+- 将入选条目正文写入 `sources/inbox/freshrss/`，供后续 ingest 使用
+- 新增 `.env.freshrss.example` 与本地忽略的 `.env.freshrss.local` 约定，并更新仓库说明

@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-04-10T16:04:47+08:00",
+  "papers": {
+    "2604.08172": {
+      "title": "On the Global Photometric Alignment for Low-Level Vision",
+      "filter_result": {
+        "decision": "reject",
+        "score": 4,
+        "reason": "This is a low-level vision loss paper with no clear relevance to RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "optimization analysis",
+          "generalization",
+          "loss design"
+        ],
+        "downrank_signals": [
+          "low-level vision",
+          "pixel-wise supervision",
+          "photometric alignment",
+          "no agent or post-training content"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-10T16:04:47+08:00"
+    },
+    "2604.08064": {
+      "title": "ImplicitMemBench: Measuring Unconscious Behavioral Adaptation in Large Language Models",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 72,
+        "reason": "A technically grounded agent-evaluation benchmark on automatic behavioral adaptation, but it is adjacent rather than core RL/post-training work.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "implicit memory as behavioral adaptation",
+          "first-attempt scoring protocol",
+          "benchmark with human baseline comparison"
+        ],
+        "downrank_signals": [
+          "not directly RLHF/post-training",
+          "not mechanistic interpretability",
+          "benchmark rather than new training method"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-10T16:04:47+08:00"
+    },
+    "2604.07427": {
+      "title": "Personalizing Text-to-Image Generation to Individual Taste",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 48,
+        "reason": "It introduces a personalized reward model and preference data, which is methodologically relevant to reward modeling and alignment, but the application is text-to-image aesthetics.",
+        "matched_interests": [
+          "reward-modeling",
+          "post-training",
+          "preference-modeling",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "personalized reward model",
+          "prompt optimization",
+          "user-preference prediction",
+          "dataset for subjective evaluation"
+        ],
+        "downrank_signals": [
+          "text-to-image",
+          "vision",
+          "aesthetic-assessment",
+          "not-rlhf",
+          "domain-specific application"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-10T16:04:47+08:00"
+    },
+    "2604.06938": {
+      "title": "POS-ISP: Pipeline Optimization at the Sequence Level for Task-aware ISP",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "Uses RL for pipeline optimization, but the method is specific to image signal processing rather than agents, post-training, or interpretability.",
+        "matched_interests": [
+          "reinforcement-learning"
+        ],
+        "weak_signals": [
+          "sequence-level RL",
+          "terminal reward",
+          "computational efficiency"
+        ],
+        "downrank_signals": [
+          "vision-specific application",
+          "not about LLMs or agents",
+          "not mechanistic or post-training work"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-10T16:04:47+08:00"
+    },
+    "2604.08168": {
+      "title": "ViVa: A Video-Generative Value Model for Robot Reinforcement Learning",
+      "filter_result": {
+        "decision": "accept",
+        "score": 88,
+        "reason": "A value-model method for robot RL that uses generative temporal prediction is directly relevant to reinforcement learning and environment-interaction methods.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "value-modeling",
+          "agent-environment-interaction"
+        ],
+        "weak_signals": [
+          "robot-manipulation",
+          "video-generation-for-rl"
+        ],
+        "downrank_signals": [
+          "robotics-specific",
+          "not-focused-on-llm-agents",
+          "not-mechanistic-interpretability"
+        ]
+      },
+      "extraction_result": {
+        "one_sentence_summary": "ViVa repurposes a pretrained video generator as a robot value model that predicts future proprioception and a scalar state value, improving reinforcement-learning guidance for long-horizon manipulation.",
+        "key_points": [
+          "The paper targets robot reinforcement learning under partial observability and delayed feedback, where value functions are needed to estimate task progress and support policy improvement.",
+          "ViVa is a video-generative value model: it takes the current observation plus robot proprioception and jointly predicts future proprioception and a scalar value for the current state.",
+          "The core idea is to use spatiotemporal priors from a pretrained video generator so value estimation is grounded in anticipated embodiment dynamics rather than static snapshots.",
+          "Integrated into RECAP, ViVa reportedly gives substantial gains on real-world box assembly tasks.",
+          "Qualitative analysis suggests the model produces more reliable value signals and can generalize to novel objects."
+        ],
+        "why_relevant": "It is directly relevant to reinforcement learning and post-training because it studies value modeling for agent-environment interaction, with a mechanistic twist on using generative video priors for better credit assignment in robotics.",
+        "open_questions": [
+          "What exact pretrained video generator architecture is reused, and which components are fine-tuned versus frozen?",
+          "How is the scalar value supervised or trained, and what reward or return target is used?",
+          "What are the three tasks mentioned in the qualitative analysis, and how much of the improvement is due to better value estimation versus the surrounding RECAP setup?",
+          "How well does ViVa compare with non-generative value baselines on held-out or harder long-horizon tasks?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "value-modeling",
+          "robotics",
+          "video-generation",
+          "long-horizon"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-08168-viva-a-video-generative-value-model-for-robot-reinforcement-learning.md",
+      "source_url_used": "https://arxiv.org/abs/2604.08168",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-10T16:04:47+08:00"
+    }
+  }
+}

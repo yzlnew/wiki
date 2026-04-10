@@ -40,3 +40,16 @@
 - 在抓全文前先用 `来源 + 标题` 做兴趣过滤，并把过滤报告写到 `sources/library/freshrss/freshrss-latest.md`
 - 将入选条目正文写入 `sources/inbox/freshrss/`，供后续 ingest 使用
 - 新增 `.env.freshrss.example` 与本地忽略的 `.env.freshrss.local` 约定，并更新仓库说明
+
+## [2026-04-10] scaffold | hf-daily-papers-source-pipeline
+
+- 新增 `scripts/update_hf_daily_papers.py`，通过 Hugging Face 官方 `daily_papers` API 拉最近论文
+- 用便宜的 `codex exec` 子代理先做兴趣相关性过滤，再基于原始论文页 / arXiv abstract 提炼知识点
+- 将报告写到 `sources/library/hf-daily-papers/hf-daily-papers-latest.md`，将入选论文写入 `sources/inbox/hf-daily-papers/`
+- 新增 `.env.hf-daily-papers.example`、两份 prompt 模板与 README 中的 cron 约定
+
+## [2026-04-10] scaffold | daily-source-digest-email
+
+- 新增 `scripts/send_daily_digest.py`，串行运行 `bookmarks`、`freshrss`、`hf-daily-papers` 三条 update
+- 每日汇总三份来源报告的关键计数、入选项与 staged 文件，再通过本机 `sendmail` 发送摘要邮件
+- 新增 `.env.daily-digest.example` 与 README 中的日更邮件说明

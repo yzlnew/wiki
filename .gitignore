@@ -3,6 +3,8 @@ Thumbs.db
 .codex
 .env.bookmarks.local
 .env.freshrss.local
+.env.hf-daily-papers.local
+.env.daily-digest.local
 __pycache__/
 .obsidian/cache/
 .obsidian/workspace.json

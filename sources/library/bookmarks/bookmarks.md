@@ -2,8 +2,8 @@
 type: source-summary
 status: active
 tags: [bookmarks, generated]
-source_count: 60
-updated: 2026-04-07
+source_count: 61
+updated: 2026-04-10
 generator: scripts/update_bookmarks.py
 ---
 
@@ -11,8 +11,8 @@ generator: scripts/update_bookmarks.py
 
 ## Summary
 
-- generated_at: 2026-04-07T11:17:14+08:00
-- total_links: 60
+- generated_at: 2026-04-10T18:08:49+08:00
+- total_links: 61
 - archived_links: 2
 - favourited_links: 0
 - source: local bookmarks sync
@@ -23,6 +23,11 @@ generator: scripts/update_bookmarks.py
 - Instance URL and API key are read from local ignored config and are not stored here.
 
 ## Links
+
+### 2026-04
+
+- [Streamlit](https://advanced-theming-anthropic.streamlit.app/)
+  - added: `2026-04-10T09:18:36.000Z`
 
 ### 2026-03
 

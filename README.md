@@ -174,3 +174,83 @@ python3 scripts/update_freshrss.py --include-maybe
 - FreshRSS 地址和 token 只放在 `.env.freshrss.local`，不会进入 git
 - 第一轮过滤默认偏保守，优先拒绝泛 AI 新闻、低上下文讨论和资源大合集
 - 如果某些来源命中率长期偏低，应该继续迭代兴趣规则，而不是直接抓全文
+
+## Hugging Face Daily Papers 同步
+
+仓库内置了一个 Hugging Face Daily Papers 来源脚本：
+
+```text
+python3 scripts/update_hf_daily_papers.py
+```
+
+它会读取本地忽略的 `.env.hf-daily-papers.local`，然后执行这条流水线：
+
+1. 调 Hugging Face 官方 `daily_papers` API，抓最近几天的论文条目
+2. 用便宜的 `codex exec` 子代理按兴趣做相关性过滤
+3. 对入选论文优先抓原始论文页 / arXiv abstract，再用便宜子代理提炼知识点
+4. 更新 `sources/library/hf-daily-papers/hf-daily-papers-latest.md`
+5. 把入选论文写入 `sources/inbox/hf-daily-papers/`，等待后续 ingest
+
+建议流程：
+
+1. 复制 `.env.hf-daily-papers.example` 为 `.env.hf-daily-papers.local`
+2. 按需调整抓取窗口、`codex` 模型和 `reasoning_effort`
+3. 确保本机 `codex` CLI 已登录
+4. 运行同步脚本
+5. 再让 Codex ingest `sources/inbox/hf-daily-papers/` 中的新材料
+
+可选参数：
+
+```text
+python3 scripts/update_hf_daily_papers.py --days-back 5
+python3 scripts/update_hf_daily_papers.py --limit 40
+python3 scripts/update_hf_daily_papers.py --refresh-known
+```
+
+示例定时任务：
+
+```cron
+40 9 * * * cd /root/wiki && python3 scripts/update_hf_daily_papers.py >> /tmp/hf-daily-papers-sync.log 2>&1
+```
+
+注意：
+
+- 来源抓取使用 Hugging Face 官方 `https://huggingface.co/api/daily_papers`
+- 默认模型配置是 `gpt-5.4-mini` + `model_reasoning_effort=low`，用于降低定时任务成本
+- 过滤与抽取都依赖本机 `codex` CLI 凭证；如果 CLI 未登录，脚本会直接失败
+- 去重状态保存在 `sources/library/hf-daily-papers/hf-daily-papers-state.json`，避免重复处理同一篇论文
+- 知识点抽取优先使用原始论文页文本；抓不到时才回退到 Hugging Face 返回的 abstract / AI summary
+
+## Daily Digest
+
+如果希望三条来源在每日更新后统一发一封摘要邮件，可以使用：
+
+```text
+python3 scripts/send_daily_digest.py
+```
+
+它会按顺序运行：
+
+1. `scripts/update_bookmarks.py`
+2. `scripts/update_freshrss.py`
+3. `scripts/update_hf_daily_papers.py`
+4. 读取三份最新报告并整理成一封邮件
+5. 通过本机 `sendmail` 发到 `.env.daily-digest.local` 配置的收件人
+
+本地配置：
+
+1. 复制 `.env.daily-digest.example` 为 `.env.daily-digest.local`
+2. 确认 `DAILY_DIGEST_TO`
+3. 如有需要，覆盖 `DAILY_DIGEST_FROM` 或 `DAILY_DIGEST_SENDMAIL_BIN`
+
+示例定时任务：
+
+```cron
+40 9 * * * cd /root/wiki && python3 scripts/send_daily_digest.py >> /tmp/wiki-daily-digest.log 2>&1
+```
+
+注意：
+
+- `update` 只负责同步和筛选，不会自动 ingest 到 `wiki/`
+- 这封邮件是“来源更新摘要”，不是自动知识整理
+- 如果本机 `sendmail` 没有正确配置外发，脚本会在发信阶段失败

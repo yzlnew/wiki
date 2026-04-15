@@ -4,9 +4,7 @@ Your task is to read one accepted or borderline paper candidate and extract conc
 
 ## User Focus
 
-- Reinforcement learning and post-training
-- Agents and tool-using systems
-- Mechanistic interpretability and internal model analysis
+{{USER_FOCUS}}
 
 ## Input
 

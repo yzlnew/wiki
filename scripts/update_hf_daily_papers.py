@@ -22,6 +22,9 @@ from typing import Any
 from urllib import parse, request
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from interests import load_interests, get_related_topic_links, render_prompt
+
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_ENV_FILE = ROOT / ".env.hf-daily-papers.local"
 DEFAULT_REPORT = ROOT / "sources/library/hf-daily-papers/hf-daily-papers-latest.md"
@@ -31,15 +34,11 @@ DEFAULT_FILTER_PROMPT = ROOT / "system/templates/hf-paper-filter-prompt.md"
 DEFAULT_EXTRACTION_PROMPT = ROOT / "system/templates/hf-paper-knowledge-prompt.md"
 DEFAULT_API_BASE = "https://huggingface.co/api"
 
-RELATED_TOPIC_LINKS = {
-    "reinforcement-learning": "../../../wiki/topics/reinforcement-learning-and-post-training.md",
-    "post-training": "../../../wiki/topics/reinforcement-learning-and-post-training.md",
-    "agents": "../../../wiki/topics/agent-workflows.md",
-    "agent-evals": "../../../wiki/topics/agent-workflows.md",
-    "mechanistic-interpretability": "../../../wiki/topics/llm-systems-and-training.md",
-    "llm-systems": "../../../wiki/topics/llm-systems-and-training.md",
-    "ai-and-llms": "../../../wiki/topics/ai-and-llms.md",
-}
+# Loaded from system/interests.json (or .example.json as fallback).
+_interests = load_interests()
+_raw_links = get_related_topic_links(_interests)
+# Convert repo-root-relative paths to paths relative from sources/inbox/hf-daily-papers/
+RELATED_TOPIC_LINKS = {k: f"../../../{v}" for k, v in _raw_links.items()}
 
 
 @dataclass
@@ -984,8 +983,8 @@ def main() -> int:
     extraction_prompt_path = resolve_root_path(
         Path(env("HF_DAILY_PAPERS_EXTRACTION_PROMPT", required=False, default=str(DEFAULT_EXTRACTION_PROMPT)))
     )
-    filter_prompt = read_text_if_exists(filter_prompt_path)
-    extraction_prompt = read_text_if_exists(extraction_prompt_path)
+    filter_prompt = render_prompt(read_text_if_exists(filter_prompt_path), _interests)
+    extraction_prompt = render_prompt(read_text_if_exists(extraction_prompt_path), _interests)
 
     papers = collect_recent_papers(days_back)
     if limit > 0:

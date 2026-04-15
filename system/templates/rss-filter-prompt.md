@@ -13,31 +13,19 @@ Your task is to evaluate one candidate item against the user's taste profile and
 
 ### High-Priority Interests
 
-- AI agents, Claude Code, slash commands, agent skills, context engineering, tool use, deep research, reasoning workflows
-- LLM systems and training: scaling, parallelism, GPU / NCCL, optimizers, normalization, loss behavior, interpretability, circuit tracing
-- Post-training: RLHF, GRPO, reasoning data, chat templates, behavior shaping
-- Personal infrastructure: bookmarks, paperless, code-server, n8n, memos, self-hosted knowledge and automation systems
-- Home lab and networking: AdGuard Home, mosdns, OpenClash, sing-box, transparent proxy routing, Linux / VPS setup, virtualization, SR-IOV, Home Assistant, edge devices
-- Maker and 3D printing: Gridfinity, generative modeling, functional printable parts, home organization, workshop organization
+{{HIGH_PRIORITY_INTERESTS}}
 
 ### Preferred Content Style
 
-- Setup guides, playbooks, implementation details, architecture trade-offs, experiment notes, benchmarks, reusable workflows
-- Material that connects theory with practice
-- Material that helps build, operate, maintain, or evaluate a system
+{{PREFERRED_CONTENT_STYLE}}
 
 ### Weak Signals
 
-- Creative asset directories
-- Generic resource collections
-- Single-use entertainment or low-context consumer links
+{{WEAK_SIGNALS}}
 
 ### Default Downrank Signals
 
-- Generic AI news or launch coverage without technical depth
-- Prompt tips without workflow, evaluation, or system context
-- Consumer electronics reviews unrelated to personal systems
-- Lifestyle or entertainment content with no clear operational value
+{{DEFAULT_DOWNRANKS}}
 
 ## Input
 

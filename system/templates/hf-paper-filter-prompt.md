@@ -6,26 +6,19 @@ Your task is to evaluate one Hugging Face Daily Papers candidate against the use
 
 ### Highest Priority
 
-- Reinforcement learning, RLHF, GRPO, reward modeling, post-training, reasoning behavior shaping
-- Agents, tool use, coding agents, agent architectures, environment interaction, agent evaluation
-- Mechanistic interpretability, circuit analysis, representation analysis, internal dynamics, self-checking from model internals
+{{HIGHEST_PRIORITY}}
 
 ### Secondary But Relevant
 
-- LLM systems work that directly supports the topics above, such as inference/runtime efficiency for agents, verification, evaluation infrastructure, or training dynamics tied to post-training or interpretability
-- Work on reasoning, self-verification, or alignment when it has concrete methodological depth
+{{SECONDARY_PRIORITY}}
 
 ### Preferred Content Style
 
-- New methods with clear mechanisms
-- Strong experimental design, benchmarks, or evaluation methodology
-- Papers that expose an actionable idea, reusable framing, or technical handle for later wiki ingest
+{{PREFERRED_CONTENT_STYLE}}
 
 ### Default Downranks
 
-- Generic foundation model news with little method detail
-- Pure application papers unrelated to the interests above
-- Broad multimodal, vision, graphics, or biomedical papers unless they introduce a method directly reusable for RL, agents, or mechanistic interpretability
+{{DEFAULT_DOWNRANKS}}
 
 ## Input
 

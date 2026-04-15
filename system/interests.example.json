@@ -1,0 +1,178 @@
+{
+  "_comment": "Copy this file to system/interests.json and customize to your own interests. Scripts and prompt templates read from interests.json to personalize filtering and knowledge extraction.",
+
+  "rss_filter": {
+    "_comment": "Rules used by update_freshrss.py for keyword-based pre-filtering of RSS items. Each rule has a label, a score delta, and a list of keyword patterns matched against title+source.",
+    "primary_interests": [
+      {
+        "label": "agent-workflows",
+        "weight": 34,
+        "keywords": [
+          "agent", "agents", "coding agent", "tool use", "tool call",
+          "deep research", "reasoning workflow"
+        ]
+      },
+      {
+        "label": "llm-systems",
+        "weight": 32,
+        "keywords": [
+          "llm system", "training system", "parallelism", "gpu",
+          "optimizer", "normalization", "interpretability", "attention",
+          "kv cache", "inference engine"
+        ]
+      },
+      {
+        "label": "post-training",
+        "weight": 30,
+        "keywords": [
+          "rlhf", "post-training", "reasoning data", "chat template",
+          "preference optimization", "reward model"
+        ]
+      }
+    ],
+    "style_signals": [
+      {
+        "label": "operational-depth",
+        "weight": 16,
+        "keywords": [
+          "guide", "playbook", "setup", "how to", "workflow",
+          "benchmark", "experiment", "deep dive", "architecture",
+          "trade-off", "implementation", "postmortem", "runbook"
+        ]
+      }
+    ],
+    "source_boosts": [
+      {
+        "label": "high-signal-source",
+        "weight": 12,
+        "keywords": [
+          "anthropic", "openai", "pytorch", "hugging face"
+        ]
+      }
+    ],
+    "weak_signals": [
+      {
+        "label": "generic-resource-list",
+        "weight": -12,
+        "keywords": [
+          "awesome", "directory", "resource list", "curated list",
+          "template pack", "asset pack", "free download", "roundup"
+        ]
+      }
+    ],
+    "downranks": [
+      {
+        "label": "generic-ai-news",
+        "weight": -18,
+        "keywords": [
+          "breaking", "launch", "launches", "announced",
+          "release notes", "just shipped", "top 10", "best tools"
+        ]
+      },
+      {
+        "label": "low-context-discussion",
+        "weight": -14,
+        "keywords": [
+          "what do you think", "is it worth", "how good is",
+          "anyone else", "help me choose", "question"
+        ]
+      },
+      {
+        "label": "consumer-lifestyle",
+        "weight": -18,
+        "keywords": [
+          "review", "unboxing", "deal", "coupon", "lifestyle",
+          "celebrity", "movie", "tv show", "gaming"
+        ]
+      },
+      {
+        "label": "promo-pricing",
+        "weight": -22,
+        "keywords": [
+          "coupon", "discount", "promo", "cheap"
+        ]
+      }
+    ]
+  },
+
+  "rss_taste_profile": {
+    "_comment": "Natural-language taste profile injected into the LLM-based RSS filter prompt (system/templates/rss-filter-prompt.md). Edit these lists to match your interests.",
+    "high_priority": [
+      "AI agents, tool use, context engineering, reasoning workflows",
+      "LLM systems and training: scaling, parallelism, GPU, optimizers, interpretability",
+      "Post-training: RLHF, GRPO, reasoning data, behavior shaping",
+      "Personal infrastructure: self-hosted knowledge and automation systems"
+    ],
+    "preferred_style": [
+      "Setup guides, playbooks, implementation details, architecture trade-offs, benchmarks",
+      "Material that connects theory with practice",
+      "Material that helps build, operate, maintain, or evaluate a system"
+    ],
+    "weak_signals": [
+      "Creative asset directories",
+      "Generic resource collections",
+      "Single-use entertainment or low-context consumer links"
+    ],
+    "default_downranks": [
+      "Generic AI news or launch coverage without technical depth",
+      "Prompt tips without workflow, evaluation, or system context",
+      "Consumer electronics reviews unrelated to personal systems",
+      "Lifestyle or entertainment content with no clear operational value"
+    ]
+  },
+
+  "paper_filter": {
+    "_comment": "Research interest profile injected into the HF paper filter prompt (system/templates/hf-paper-filter-prompt.md).",
+    "highest_priority": [
+      "Reinforcement learning, RLHF, GRPO, reward modeling, post-training, reasoning behavior shaping",
+      "Agents, tool use, coding agents, agent architectures, environment interaction, agent evaluation",
+      "Mechanistic interpretability, circuit analysis, representation analysis, internal dynamics"
+    ],
+    "secondary": [
+      "LLM systems work that directly supports the topics above",
+      "Work on reasoning, self-verification, or alignment with concrete methodological depth"
+    ],
+    "preferred_style": [
+      "New methods with clear mechanisms",
+      "Strong experimental design, benchmarks, or evaluation methodology",
+      "Papers that expose an actionable idea or reusable framing"
+    ],
+    "default_downranks": [
+      "Generic foundation model news with little method detail",
+      "Pure application papers unrelated to the interests above",
+      "Broad multimodal, vision, graphics, or biomedical papers unless method is reusable"
+    ]
+  },
+
+  "paper_knowledge": {
+    "_comment": "Focus areas injected into the HF paper knowledge extraction prompt (system/templates/hf-paper-knowledge-prompt.md).",
+    "user_focus": [
+      "Reinforcement learning and post-training",
+      "Agents and tool-using systems",
+      "Mechanistic interpretability and internal model analysis"
+    ]
+  },
+
+  "related_topic_links": {
+    "_comment": "Mapping from interest labels to wiki topic page paths (relative to repo root). Used by update_hf_daily_papers.py to add cross-links in generated source files.",
+    "reinforcement-learning": "wiki/topics/reinforcement-learning-and-post-training.md",
+    "post-training": "wiki/topics/reinforcement-learning-and-post-training.md",
+    "agents": "wiki/topics/agent-workflows.md",
+    "agent-evals": "wiki/topics/agent-workflows.md",
+    "mechanistic-interpretability": "wiki/topics/llm-systems-and-training.md",
+    "llm-systems": "wiki/topics/llm-systems-and-training.md",
+    "ai-and-llms": "wiki/topics/ai-and-llms.md"
+  },
+
+  "default_topic_buckets": {
+    "_comment": "Default topic slugs that CLAUDE.md suggests as starting points. Adjust to your own areas of interest.",
+    "buckets": [
+      "knowledge-management",
+      "ai-and-llms",
+      "software-engineering",
+      "writing-and-communication",
+      "health-and-energy",
+      "personal-finance"
+    ]
+  }
+}

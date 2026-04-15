@@ -1,6 +1,8 @@
-# 个人知识库 Wiki
+# Wiki — AI-Maintained Personal Knowledge Base
 
-这是一个面向 Codex 协作的个人知识库仓库。它采用类似 Andrej Karpathy 在 `llm-wiki` 中描述的模式：把原始资料、LLM 维护的 wiki、以及 agent 的维护规则分开管理，让知识不是“每次问都临时检索”，而是被持续整理、交叉链接和累积沉淀。
+一个面向 AI agent 协作的个人知识库模板。它采用类似 Andrej Karpathy 在 `llm-wiki` 中描述的模式：把原始资料、LLM 维护的 wiki、以及 agent 的维护规则分开管理，让知识不是”每次问都临时检索”，而是被持续整理、交叉链接和累积沉淀。
+
+Fork 或 clone 这个仓库后，根据自己的兴趣配置 `system/interests.json`，就可以开始使用。
 
 参考思路：
 - Karpathy, `llm-wiki`: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
@@ -13,13 +15,58 @@
 2. `query`：基于已经整理过的 wiki 回答问题，并把高价值回答沉淀回仓库。
 3. `lint`：周期性检查知识库是否存在断链、重复、过时或缺失的页面。
 
+## 组织示意图
+
+```mermaid
+flowchart LR
+    U[用户]
+
+    subgraph S["sources/ 原始资料层"]
+        Inbox["inbox/ 待处理资料"]
+        Library["library/ 已归档资料"]
+        Assets["assets/ 图片 / 附件 / 数据"]
+    end
+
+    subgraph Sys["system/ 规则层"]
+        Agents["AGENTS.md 工作流约定"]
+        Templates["templates/ 模板与规范"]
+    end
+
+    subgraph W["wiki/ 知识页层"]
+        Index["index.md 内容索引"]
+        Log["log.md 时间日志"]
+        Maps["maps/ 导航页"]
+        Pages["areas / topics / entities /\nprojects / syntheses /\nquestions / timelines / glossary"]
+    end
+
+    Archive["archive/ 冷存档"]
+
+    U -->|放入新资料| Inbox
+    U -->|发起 ingest / query / lint| Sys
+    Sys -->|约束命名、落点、链接与维护方式| W
+    Inbox -->|ingest 后归档| Library
+    Inbox -->|抽取信息| Pages
+    Assets -->|补充附件与上下文| Pages
+    Pages --> Maps
+    Pages --> Index
+    Pages --> Log
+    W -->|query 时优先读取| U
+    Pages -->|废弃或冷存放| Archive
+```
+
+可以把它理解成一条很简单的流水线：
+
+- `sources/` 负责存原始输入，尽量不直接改写。
+- `wiki/` 负责存整理后的知识页，回答问题时优先读这里。
+- `system/` 负责告诉 Codex 应该怎么整理、命名、链接和维护。
+
 ## 仓库结构
 
 ```text
 .
 ├── AGENTS.md              # Codex 的协作规范与工作流
 ├── README.md              # 仓库总说明
-├── system/                # 规则、模板、约定
+├── system/                # 规则、模板、约定、兴趣配置
 ├── sources/               # 原始资料，默认不可变
 │   ├── inbox/             # 待处理入口
 │   ├── library/           # 已归档原始资料
@@ -93,6 +140,33 @@
 - 页面正文可以用中文，也可以中英混写
 - 一类信息一个页面，不把不相干内容堆进大杂烩页面
 - 优先写“可链接页面”，而不是只写一次性的聊天答案
+
+## 兴趣配置
+
+仓库中所有与个人兴趣相关的过滤规则和 LLM prompt 都集中在一个配置文件中管理：
+
+```text
+system/interests.json
+```
+
+首次使用时：
+
+1. 复制 `system/interests.example.json` 为 `system/interests.json`
+2. 按照自己的兴趣修改其中的关键词、偏好描述和主题桶
+3. 如果不创建 `interests.json`，脚本会自动回退使用 `.example.json` 中的示例配置
+
+配置文件结构：
+
+| 字段 | 用途 |
+|------|------|
+| `rss_filter` | FreshRSS 同步时基于关键词的预过滤规则（标签、权重、匹配词） |
+| `rss_taste_profile` | RSS LLM 过滤 prompt 中的自然语言兴趣描述 |
+| `paper_filter` | HF Daily Papers LLM 过滤 prompt 中的研究兴趣描述 |
+| `paper_knowledge` | 论文知识抽取 prompt 中的关注方向 |
+| `related_topic_links` | 生成的论文源文件中自动添加的 wiki 交叉链接 |
+| `default_topic_buckets` | CLAUDE.md 中建议的默认主题起点 |
+
+prompt 模板文件（`system/templates/*.md`）中使用 `{{PLACEHOLDER}}` 标记，脚本运行时会自动替换为配置中对应的内容。
 
 ## 起步建议
 
@@ -235,13 +309,24 @@ python3 scripts/send_daily_digest.py
 2. `scripts/update_freshrss.py`
 3. `scripts/update_hf_daily_papers.py`
 4. 读取三份最新报告并整理成一封邮件
-5. 通过本机 `sendmail` 发到 `.env.daily-digest.local` 配置的收件人
+5. 通过 SMTP 或本机 `sendmail` 发到 `.env.daily-digest.local` 配置的收件人
 
 本地配置：
 
 1. 复制 `.env.daily-digest.example` 为 `.env.daily-digest.local`
 2. 确认 `DAILY_DIGEST_TO`
-3. 如有需要，覆盖 `DAILY_DIGEST_FROM` 或 `DAILY_DIGEST_SENDMAIL_BIN`
+3. 如果使用 Gmail SMTP + OAuth2，填写：
+   `DAILY_DIGEST_SMTP_HOST=smtp.gmail.com`
+   `DAILY_DIGEST_SMTP_PORT=465`
+   `DAILY_DIGEST_SMTP_SECURITY=ssl`
+   `DAILY_DIGEST_SMTP_AUTH_METHOD=gmail-oauth2`
+   `DAILY_DIGEST_SMTP_USERNAME=你的 Gmail 地址`
+   `DAILY_DIGEST_FROM=你的 Gmail 地址`
+   `DAILY_DIGEST_GMAIL_OAUTH_CLIENT_ID=你的 Google OAuth client id`
+   `DAILY_DIGEST_GMAIL_OAUTH_CLIENT_SECRET=你的 Google OAuth client secret`
+   `DAILY_DIGEST_GMAIL_OAUTH_REFRESH_TOKEN=你的 Google OAuth refresh token`
+4. 如果使用 Gmail SMTP + app password，把 `DAILY_DIGEST_SMTP_AUTH_METHOD=password`，并填写 `DAILY_DIGEST_SMTP_PASSWORD`
+5. 如果不走 SMTP，也可以继续使用本机 `sendmail`
 
 示例定时任务：
 
@@ -253,4 +338,6 @@ python3 scripts/send_daily_digest.py
 
 - `update` 只负责同步和筛选，不会自动 ingest 到 `wiki/`
 - 这封邮件是“来源更新摘要”，不是自动知识整理
-- 如果本机 `sendmail` 没有正确配置外发，脚本会在发信阶段失败
+- 脚本会优先使用 SMTP 配置；只有未设置 `DAILY_DIGEST_SMTP_HOST` 时才回退到 `sendmail`
+- Gmail OAuth2 需要你先在 Google Cloud 创建 OAuth client，并拿到带 `https://mail.google.com/` scope 的 refresh token
+- 如果不用 OAuth2，也可以继续使用 app password；不要直接用账号主密码

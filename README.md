@@ -58,20 +58,20 @@ flowchart LR
 
 - `sources/` 负责存原始输入，尽量不直接改写。
 - `wiki/` 负责存整理后的知识页，回答问题时优先读这里。
-- `system/` 负责告诉 Codex 应该怎么整理、命名、链接和维护。
+- `system/` 负责告诉 Agent 应该怎么整理、命名、链接和维护。
 
 ## 仓库结构
 
 ```text
 .
-├── AGENTS.md              # Codex 的协作规范与工作流
+├── AGENTS.md              # Agent 的协作规范与工作流
 ├── README.md              # 仓库总说明
 ├── system/                # 规则、模板、约定、兴趣配置
 ├── sources/               # 原始资料，默认不可变
 │   ├── inbox/             # 待处理入口
 │   ├── library/           # 已归档原始资料
 │   └── assets/            # 本地图片、附件、数据文件
-├── wiki/                  # Codex 维护的知识页
+├── wiki/                  # Agent 维护的知识页
 │   ├── index.md           # 内容索引
 │   ├── log.md             # 时间日志
 │   ├── maps/              # 导航页 / 主题地图
@@ -90,7 +90,7 @@ flowchart LR
 
 - `sources/` 是事实输入层。这里放原文、PDF、网页转存、截图、附件，默认不直接改写。
 - `wiki/` 是知识编译层。这里放主题总结、实体关系、对比分析、问题追踪和结论。
-- `system/` 是 agent 配置层。这里定义 Codex 应如何命名、落盘、交叉引用和维护一致性。
+- `system/` 是 agent 配置层。这里定义 Agent 应如何命名、落盘、交叉引用和维护一致性。
 - `index.md` 偏内容导航，`log.md` 偏时间顺序。两者都应该持续维护。
 - 高价值对话结论不应只留在聊天记录里，应该沉淀为 `wiki/` 中的新页面或现有页面更新。
 
@@ -106,7 +106,7 @@ flowchart LR
 - 一组会议纪要
 - 一批来自 bookmarks 列表的链接
 
-然后告诉 Codex：
+然后告诉 Agent：
 
 ```text
 请 ingest sources/inbox/xxx.md，把重要结论并入现有 wiki。
@@ -128,7 +128,7 @@ flowchart LR
 
 ### 3. 做体检
 
-定期让 Codex 执行整理，例如：
+定期让 Agent 执行整理，例如：
 
 ```text
 请 lint 一下 wiki，找出孤立页面、重复主题、缺失的实体页和过时结论。
@@ -199,7 +199,7 @@ sources/library/bookmarks/bookmarks.md
 1. 复制 `.env.bookmarks.example` 为 `.env.bookmarks.local`
 2. 在本地填入 bookmarks 服务地址和 API key
 3. 运行同步脚本
-4. 再让 Codex 基于 `bookmarks.md` 选择值得 ingest 的链接
+4. 再让 Agent 基于 `bookmarks.md` 选择值得 ingest 的链接
 
 示例定时任务：
 
@@ -234,7 +234,7 @@ python3 scripts/update_freshrss.py
 1. 复制 `.env.freshrss.example` 为 `.env.freshrss.local`
 2. 在本地填入 FreshRSS 地址、用户名和 API password
 3. 运行同步脚本
-4. 再让 Codex ingest `sources/inbox/freshrss/` 中的新材料
+4. 再让 Agent ingest `sources/inbox/freshrss/` 中的新材料
 
 可选参数：
 
@@ -271,7 +271,7 @@ python3 scripts/update_hf_daily_papers.py
 2. 按需调整抓取窗口、`codex` 模型和 `reasoning_effort`
 3. 确保本机 `codex` CLI 已登录
 4. 运行同步脚本
-5. 再让 Codex ingest `sources/inbox/hf-daily-papers/` 中的新材料
+5. 再让 Agent ingest `sources/inbox/hf-daily-papers/` 中的新材料
 
 可选参数：
 

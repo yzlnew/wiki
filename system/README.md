@@ -2,7 +2,7 @@
 
 这里存放知识库的”元规则”：
 
-- `AGENTS.md` 负责定义 Codex 的总体行为
+- `AGENTS.md` 负责定义 Agent 的总体行为
 - `templates/` 提供常用页面模板和 LLM prompt 模板
 - `interests.json` 集中管理个人兴趣配置（过滤规则、prompt 注入、主题桶等）
 

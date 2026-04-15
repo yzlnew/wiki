@@ -182,13 +182,14 @@ updated: 2026-04-07
 
 ## 当前默认主题桶
 
-当前仓库先提供一组可扩展的默认主题起点：
-
-- `knowledge-management`
-- `ai-and-llms`
-- `software-engineering`
-- `writing-and-communication`
-- `health-and-energy`
-- `personal-finance`
+默认主题起点在 `system/interests.json`（或 `.example.json`）的 `default_topic_buckets` 字段中定义。用户可以根据自己的兴趣自由修改。
 
 如果用户的实际使用范围发生变化，应优先调整 `wiki/topics/` 和 `wiki/areas/`，而不是继续往不合适的桶里堆内容。
+
+## 兴趣配置
+
+所有与个人兴趣相关的过滤规则、关键词、LLM prompt 中的兴趣描述，都集中在 `system/interests.json` 中管理。脚本和 prompt 模板会自动读取该文件。
+
+- 首次使用时，复制 `system/interests.example.json` 为 `system/interests.json`
+- 如果 `interests.json` 不存在，脚本会自动回退到 `.example.json`
+- prompt 模板中的 `{{PLACEHOLDER}}` 标记会在运行时被替换为配置中的内容

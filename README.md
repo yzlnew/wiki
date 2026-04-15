@@ -60,6 +60,14 @@ flowchart LR
 - `wiki/` 负责存整理后的知识页，回答问题时优先读这里。
 - `system/` 负责告诉 Agent 应该怎么整理、命名、链接和维护。
 
+Anthropic 风格的仓库架构图：
+
+![Anthropic themed repo architecture](sources/assets/diagrams/repo-architecture-anthropic.png)
+
+相关文件：
+- [TikZ 源文件](sources/assets/diagrams/repo-architecture-anthropic.tex)
+- [PDF 导出](sources/assets/diagrams/repo-architecture-anthropic.pdf)
+
 ## 仓库结构
 
 ```text

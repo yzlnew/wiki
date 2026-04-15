@@ -112,6 +112,8 @@ flowchart LR
 请 ingest sources/inbox/xxx.md，把重要结论并入现有 wiki。
 ```
 
+处理这类任务时，Agent 默认应先 `spawn subagent` 做 ingest，再由主 Agent 统一检查 `wiki/index.md`、`wiki/log.md` 和交叉链接。
+
 如果资料来自 bookmarks：
 
 ```text

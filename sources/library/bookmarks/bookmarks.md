@@ -2,8 +2,8 @@
 type: source-summary
 status: active
 tags: [bookmarks, generated]
-source_count: 61
-updated: 2026-04-10
+source_count: 64
+updated: 2026-04-17
 generator: scripts/update_bookmarks.py
 ---
 
@@ -11,8 +11,8 @@ generator: scripts/update_bookmarks.py
 
 ## Summary
 
-- generated_at: 2026-04-10T18:08:49+08:00
-- total_links: 61
+- generated_at: 2026-04-17T09:40:01+08:00
+- total_links: 64
 - archived_links: 2
 - favourited_links: 0
 - source: local bookmarks sync
@@ -26,6 +26,14 @@ generator: scripts/update_bookmarks.py
 
 ### 2026-04
 
+- [Pretty Fish — Diagrams That Look Good](https://pretty.fish/)
+  - added: `2026-04-16T05:59:34.000Z`
+  - note: Free, open-source Mermaid diagram editor with live preview, 14+ diagram types, gorgeous themes, multi-page workspaces, and one-click SVG/PNG export. No sign-up required.
+- [Claude Mythos: The System Card](https://thezvi.substack.com/p/claude-mythos-the-system-card)
+  - added: `2026-04-14T03:41:55.000Z`
+  - note: Claude Mythos is different.
+- [https://zhuanlan.zhihu.com/p/2026679461102330722](https://zhuanlan.zhihu.com/p/2026679461102330722)
+  - added: `2026-04-13T07:09:59.000Z`
 - [Streamlit](https://advanced-theming-anthropic.streamlit.app/)
   - added: `2026-04-10T09:18:36.000Z`
 

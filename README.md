@@ -190,6 +190,27 @@ prompt 模板文件（`system/templates/*.md`）中使用 `{{PLACEHOLDER}}` 标�
 - 用 Obsidian 打开本目录，直接浏览 `wiki/`
 - 后续补一个本地搜索脚本，用于快速检索 `wiki/` 和 `sources/`
 
+## 可选 Agent Skills
+
+本仓库的工作流和 Obsidian Flavored Markdown 强相关，推荐安装 [`kepano/obsidian-skills`](https://github.com/kepano/obsidian-skills) 里的一部分 skill，让 Agent 处理 wikilinks、callouts、frontmatter 和 URL 抓取时更稳。
+
+默认安装路径：`.claude/skills/<skill-name>/SKILL.md`。Claude Code 会自动发现这些 skill。
+
+仓库已内置安装的：
+
+- `obsidian-markdown`：覆盖 wikilinks、embeds、callouts、properties、block ID 等 Obsidian 语法
+- `defuddle`：从网页 URL 提取干净 markdown，替代 `WebFetch` 用于 bookmarks / 文章 ingest
+
+如果需要升级到最新版，重新从上游仓库复制对应目录即可：
+
+```sh
+git clone --depth 1 https://github.com/kepano/obsidian-skills.git /tmp/obsidian-skills
+cp -r /tmp/obsidian-skills/skills/obsidian-markdown .claude/skills/
+cp -r /tmp/obsidian-skills/skills/defuddle .claude/skills/
+```
+
+其它按需：`obsidian-bases`（当使用 `.base` 视图时）、`json-canvas`（`.canvas` 白板）、`obsidian-cli`（插件/主题开发）。`defuddle` 需要本机安装 CLI：`npm install -g defuddle`。
+
 ## Bookmarks 同步
 
 仓库内置了一个同步脚本：

@@ -7,6 +7,12 @@ Fork 或 clone 这个仓库后，根据自己的兴趣配置 `system/interests.j
 参考思路：
 - Karpathy, `llm-wiki`: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 
+## 为什么不用 OpenClaw？
+
+其实本质上这个知识库模版可以被 OpenClaw 覆盖，但是它本身有点复杂并且不太可控。出发点在于打造一个简单的由 Markdown 文件和双向链接构建的本地知识库。
+
+在 `llm-wiki` 的原始方案中，一是增加了来源，这里主要是我自己使用的服务，而不仅仅依赖 Obsidian Web Clipper；而是因为 RSS 源、HF Daily Papers 本身量比较大，知识库只会消费根据预生成的兴趣列表过滤的信息。当然这个兴趣其实可以作为可以动态更新的文本。
+
 ## 目标
 
 这个仓库默认服务于三类操作：

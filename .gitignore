@@ -10,3 +10,10 @@ __pycache__/
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .trash/
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz

@@ -5,12 +5,17 @@ from __future__ import annotations
 
 import os
 import re
+import base64
+import json
+import smtplib
+import ssl
 import subprocess
 import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from email.message import EmailMessage
 from pathlib import Path
+from urllib import error, parse, request
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -199,12 +204,12 @@ def build_digest(results: list[CommandResult]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def send_via_sendmail(subject: str, body: str) -> None:
+def build_message(subject: str, body: str) -> EmailMessage:
     to_addr = env("DAILY_DIGEST_TO")
-    sendmail_bin = env("DAILY_DIGEST_SENDMAIL_BIN", required=False, default="/usr/sbin/sendmail")
-    from_addr = env("DAILY_DIGEST_FROM", required=False, default=f"wiki@{os.uname().nodename}")
+    from_addr = env("DAILY_DIGEST_FROM", required=False, default="")
+    if not from_addr:
+        from_addr = env("DAILY_DIGEST_SMTP_USERNAME", required=False, default=f"wiki@{os.uname().nodename}")
     reply_to = env("DAILY_DIGEST_REPLY_TO", required=False, default="")
-    timeout = int(env("DAILY_DIGEST_SEND_TIMEOUT", required=False, default="120"))
 
     msg = EmailMessage()
     msg["To"] = to_addr
@@ -213,6 +218,24 @@ def send_via_sendmail(subject: str, body: str) -> None:
     if reply_to:
         msg["Reply-To"] = reply_to
     msg.set_content(body)
+    return msg
+
+
+def open_smtp_connection(host: str, port: int, security: str, timeout: int) -> smtplib.SMTP:
+    if security == "ssl":
+        return smtplib.SMTP_SSL(host, port, timeout=timeout, context=ssl.create_default_context())
+
+    smtp = smtplib.SMTP(host, port, timeout=timeout)
+    smtp.ehlo()
+    if security == "starttls":
+        smtp.starttls(context=ssl.create_default_context())
+        smtp.ehlo()
+    return smtp
+
+
+def send_via_sendmail(msg: EmailMessage) -> None:
+    sendmail_bin = env("DAILY_DIGEST_SENDMAIL_BIN", required=False, default="/usr/sbin/sendmail")
+    timeout = int(env("DAILY_DIGEST_SEND_TIMEOUT", required=False, default="120"))
 
     completed = subprocess.run(
         [sendmail_bin, "-t", "-oi"],
@@ -225,6 +248,96 @@ def send_via_sendmail(subject: str, body: str) -> None:
     if completed.returncode != 0:
         details = completed.stderr.strip() or completed.stdout.strip() or f"exit code {completed.returncode}"
         raise SystemExit(f"sendmail failed: {details}")
+
+
+def fetch_gmail_oauth_access_token() -> str:
+    client_id = env("DAILY_DIGEST_GMAIL_OAUTH_CLIENT_ID")
+    client_secret = env("DAILY_DIGEST_GMAIL_OAUTH_CLIENT_SECRET")
+    refresh_token = env("DAILY_DIGEST_GMAIL_OAUTH_REFRESH_TOKEN")
+    token_url = env(
+        "DAILY_DIGEST_GMAIL_OAUTH_TOKEN_URL",
+        required=False,
+        default="https://oauth2.googleapis.com/token",
+    )
+    timeout = int(env("DAILY_DIGEST_SEND_TIMEOUT", required=False, default="120"))
+
+    payload = parse.urlencode(
+        {
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "refresh_token": refresh_token,
+            "grant_type": "refresh_token",
+        }
+    ).encode("utf-8")
+    req = request.Request(
+        token_url,
+        data=payload,
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        method="POST",
+    )
+    try:
+        with request.urlopen(req, timeout=timeout) as resp:
+            raw = resp.read().decode("utf-8")
+    except error.HTTPError as exc:
+        details = exc.read().decode("utf-8", errors="replace").strip()
+        raise SystemExit(f"Gmail OAuth token request failed: HTTP {exc.code}: {details}") from exc
+    except error.URLError as exc:
+        raise SystemExit(f"Gmail OAuth token request failed: {exc.reason}") from exc
+
+    try:
+        token_payload = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"Gmail OAuth token response was not valid JSON: {raw[:300]}") from exc
+
+    access_token = str(token_payload.get("access_token", "")).strip()
+    if not access_token:
+        raise SystemExit(f"Gmail OAuth token response missing access_token: {raw[:300]}")
+    return access_token
+
+
+def smtp_auth_xoauth2(smtp: smtplib.SMTP, username: str, access_token: str) -> None:
+    auth_string = f"user={username}\x01auth=Bearer {access_token}\x01\x01"
+    encoded = base64.b64encode(auth_string.encode("utf-8")).decode("ascii")
+    code, response = smtp.docmd("AUTH", f"XOAUTH2 {encoded}")
+    if code != 235:
+        detail = response.decode("utf-8", errors="replace") if isinstance(response, bytes) else str(response)
+        raise SystemExit(f"SMTP XOAUTH2 auth failed: {code} {detail}")
+
+
+def send_via_smtp(msg: EmailMessage) -> None:
+    host = env("DAILY_DIGEST_SMTP_HOST")
+    username = env("DAILY_DIGEST_SMTP_USERNAME")
+    port = int(env("DAILY_DIGEST_SMTP_PORT", required=False, default="465"))
+    security = env("DAILY_DIGEST_SMTP_SECURITY", required=False, default="ssl").strip().lower()
+    auth_method = env("DAILY_DIGEST_SMTP_AUTH_METHOD", required=False, default="password").strip().lower()
+    timeout = int(env("DAILY_DIGEST_SEND_TIMEOUT", required=False, default="120"))
+
+    if security not in {"ssl", "starttls", "none"}:
+        raise SystemExit(
+            "Unsupported DAILY_DIGEST_SMTP_SECURITY; expected one of: ssl, starttls, none"
+        )
+    if auth_method not in {"password", "gmail-oauth2"}:
+        raise SystemExit(
+            "Unsupported DAILY_DIGEST_SMTP_AUTH_METHOD; expected one of: password, gmail-oauth2"
+        )
+
+    with open_smtp_connection(host, port, security, timeout) as smtp:
+        if auth_method == "gmail-oauth2":
+            access_token = fetch_gmail_oauth_access_token()
+            smtp_auth_xoauth2(smtp, username, access_token)
+        else:
+            password = env("DAILY_DIGEST_SMTP_PASSWORD")
+            smtp.login(username, password)
+        smtp.send_message(msg)
+
+
+def send_digest(subject: str, body: str) -> None:
+    msg = build_message(subject, body)
+    smtp_host = env("DAILY_DIGEST_SMTP_HOST", required=False, default="")
+    if smtp_host:
+        send_via_smtp(msg)
+        return
+    send_via_sendmail(msg)
 
 
 def main() -> int:
@@ -240,7 +353,7 @@ def main() -> int:
     subject_prefix = env("DAILY_DIGEST_SUBJECT_PREFIX", required=False, default="[wiki]")
     subject = f"{subject_prefix} daily sources digest {datetime.now(timezone.utc).astimezone().date().isoformat()}"
     body = build_digest(results)
-    send_via_sendmail(subject, body)
+    send_digest(subject, body)
 
     failures = [result.name for result in results if result.returncode != 0]
     if failures:
@@ -261,4 +374,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-    timeout = int(env("DAILY_DIGEST_SEND_TIMEOUT", required=False, default="120"))

@@ -38,9 +38,9 @@ source_path: ../../sources/library/bookmarks/bookmarks.md
 
 ## Related
 
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Learning and Research](../areas/learning-and-research.md)
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[ai-and-llms|AI and LLMs]]
+- [[learning-and-research|Learning and Research]]
 
 ## Follow-ups
 

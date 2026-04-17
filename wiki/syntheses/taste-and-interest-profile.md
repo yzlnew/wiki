@@ -12,7 +12,7 @@ updated: 2026-04-07
 
 基于当前已经 ingest 的书签与主题页，可以先把你的兴趣画像概括为两条主轴：一条是 `AI / agents / LLM engineering`，另一条是 `personal infrastructure / home lab / maker workflows`。你的 taste 明显偏向系统、方法、工作流和可维护性，而不是泛泛新闻、消费导向评测或纯热点转发。
 
-这个画像适合拿来做 RSS 的第一版过滤规则，但它仍是阶段性结论；后续如果 ingest 进来新的高密度主题，应该继续修正。脚本直接调用时，应优先使用 [rss-filter-prompt](../../system/templates/rss-filter-prompt.md) 作为 prompt 模版，把本页视为它背后的解释层。
+这个画像适合拿来做 RSS 的第一版过滤规则，但它仍是阶段性结论；后续如果 ingest 进来新的高密度主题，应该继续修正。脚本直接调用时，应优先使用 [[rss-filter-prompt]] 作为 prompt 模版，把本页视为它背后的解释层。
 
 ## Key Points
 
@@ -72,29 +72,29 @@ updated: 2026-04-07
 
 ## Related
 
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Agent Workflows](../topics/agent-workflows.md)
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
-- [Self-Hosting and Home Lab](../topics/self-hosting-and-home-lab.md)
-- [Maker and 3D Printing](../topics/maker-and-3d-printing.md)
-- [Learning and Research](../areas/learning-and-research.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
+- [[ai-and-llms|AI and LLMs]]
+- [[agent-workflows|Agent Workflows]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
+- [[self-hosting-and-home-lab|Self-Hosting and Home Lab]]
+- [[maker-and-3d-printing|Maker and 3D Printing]]
+- [[learning-and-research|Learning and Research]]
+- [[home-ops-and-systems|Home Ops and Systems]]
 
 ## Sources
 
-- [Agent Workflows](../topics/agent-workflows.md)
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
-- [Self-Hosting and Home Lab](../topics/self-hosting-and-home-lab.md)
-- [Maker and 3D Printing](../topics/maker-and-3d-printing.md)
-- [Bookmarks Agent Workflows Batch 1](bookmarks-agent-workflows-batch-1.md)
-- [Bookmarks LLM Systems Batch 1](bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](bookmarks-llm-systems-batch-2.md)
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](bookmarks-reinforcement-learning-and-post-training-batch-1.md)
-- [Bookmarks Self-Hosting and Home Lab Batch 1](bookmarks-self-hosting-home-lab-batch-1.md)
-- [Bookmarks Maker 3D Batch 1](bookmarks-maker-3d-batch-1.md)
-- [Bookmarks Next Batches](../questions/bookmarks-next-batches.md)
+- [[agent-workflows|Agent Workflows]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
+- [[self-hosting-and-home-lab|Self-Hosting and Home Lab]]
+- [[maker-and-3d-printing|Maker and 3D Printing]]
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
+- [[bookmarks-self-hosting-home-lab-batch-1|Bookmarks Self-Hosting and Home Lab Batch 1]]
+- [[bookmarks-maker-3d-batch-1|Bookmarks Maker 3D Batch 1]]
+- [[bookmarks-next-batches|Bookmarks Next Batches]]
 
 ## Open Questions
 
@@ -105,5 +105,5 @@ updated: 2026-04-07
 
 ## Prompt Template
 
-- 供脚本直接使用的模板在 [rss-filter-prompt](../../system/templates/rss-filter-prompt.md)
+- 供脚本直接使用的模板在 [[rss-filter-prompt]]
 - 本页负责解释“为什么是这些规则”，模板页负责定义“脚本怎么喂输入、模型怎么回输出”

@@ -14,9 +14,9 @@ updated: 2026-04-07
 
 ## Key Points
 
-- 这个主题已经出现两条可持续扩展的主线：一条是 [Agent Workflows](agent-workflows.md)，另一条是 [LLM Systems and Training](llm-systems-and-training.md)
+- 这个主题已经出现两条可持续扩展的主线：一条是 [[agent-workflows|Agent Workflows]]，另一条是 [[llm-systems-and-training|LLM Systems and Training]]
 - 前者更关注工具入口、上下文工程、prompting 与 deep research，后者更关注训练配方、并行系统、优化器和可解释性
-- reasoning / post-training 已经开始从两条主线的交界处独立出来，形成 [Reinforcement Learning and Post-Training](reinforcement-learning-and-post-training.md)
+- reasoning / post-training 已经开始从两条主线的交界处独立出来，形成 [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
 
 ## Subtopics
 
@@ -28,19 +28,19 @@ updated: 2026-04-07
 
 ## Related
 
-- [Agent Workflows](agent-workflows.md)
-- [LLM Systems and Training](llm-systems-and-training.md)
-- [Reinforcement Learning and Post-Training](reinforcement-learning-and-post-training.md)
-- [Knowledge Management](knowledge-management.md)
-- [Software Engineering](software-engineering.md)
-- [Learning and Research](../areas/learning-and-research.md)
+- [[agent-workflows|Agent Workflows]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
+- [[knowledge-management|Knowledge Management]]
+- [[software-engineering|Software Engineering]]
+- [[learning-and-research|Learning and Research]]
 
 ## Sources
 
-- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
-- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
 
 ## Open Questions
 

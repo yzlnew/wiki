@@ -86,7 +86,13 @@ updated: 2026-04-07
 
 ## 链接规则
 
-- 默认使用标准 markdown 相对链接，而不是依赖特定编辑器语法
+- `wiki/` 内部页面之间使用 Obsidian 双向链接语法 `[[page-name|显示文本]]`
+- 链接目标使用文件的 basename（不含 `.md` 后缀和路径前缀），例如 `[[agent-workflows|Agent Workflows]]`
+- 当显示文本与 basename 完全一致时可省略别名，写为 `[[page-name]]`
+- 带锚点的链接写为 `[[page-name#section|显示文本]]`
+- 指向 `wiki/` 以外的文件（如 `README.md`、`AGENTS.md`、`sources/` 中的资产）仍使用标准 markdown 相对链接
+- 图片嵌入仍使用标准 markdown 语法 `![alt](path)`
+- 外部 URL 使用标准 markdown 链接 `[text](https://...)`
 - 相关页面应双向可发现
 - 新建页面后，至少在一个现有导航页或主题页中加入链接
 - 若页面被合并或弃用，应在原页面留下说明并指向替代页

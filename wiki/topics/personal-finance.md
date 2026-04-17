@@ -19,8 +19,8 @@ updated: 2026-04-07
 
 ## Related
 
-- [Personal Life](../areas/personal-life.md)
-- [Career and Work](../areas/career-and-work.md)
+- [[personal-life|Personal Life]]
+- [[career-and-work|Career and Work]]
 
 ## Open Questions
 

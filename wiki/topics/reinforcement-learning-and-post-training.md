@@ -23,8 +23,8 @@ updated: 2026-04-07
 ### Current Judgment
 
 - 这个主题适合放 RLHF、GRPO、reasoning data、chat template、policy shaping 之类内容。
-- 它和 [LLM Systems and Training](llm-systems-and-training.md) 的边界在于：后者解决“如何把训练跑起来并稳定扩展”，这里解决“训练到底要优化什么行为”。
-- 它和 [Agent Workflows](agent-workflows.md) 的边界在于：后者关注运行时的工具使用与任务编排，这里关注模型在训练阶段被塑造成什么样的行为策略。
+- 它和 [[llm-systems-and-training|LLM Systems and Training]] 的边界在于：后者解决“如何把训练跑起来并稳定扩展”，这里解决“训练到底要优化什么行为”。
+- 它和 [[agent-workflows|Agent Workflows]] 的边界在于：后者关注运行时的工具使用与任务编排，这里关注模型在训练阶段被塑造成什么样的行为策略。
 - 如果后续书签继续增多，这里很可能要再拆成“RLHF / preference optimization”和“reasoning / post-training recipes”两页。
 
 ## Subtopics
@@ -37,15 +37,15 @@ updated: 2026-04-07
 
 ## Related
 
-- [AI and LLMs](ai-and-llms.md)
-- [LLM Systems and Training](llm-systems-and-training.md)
-- [Agent Workflows](agent-workflows.md)
-- [Knowledge Management](knowledge-management.md)
-- [Learning and Research](../areas/learning-and-research.md)
+- [[ai-and-llms|AI and LLMs]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[agent-workflows|Agent Workflows]]
+- [[knowledge-management|Knowledge Management]]
+- [[learning-and-research|Learning and Research]]
 
 ## Sources
 
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
 
 ## Open Questions
 

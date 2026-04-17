@@ -29,14 +29,14 @@ updated: 2026-04-07
 
 ## Related
 
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
-- [Software Engineering](software-engineering.md)
-- [Knowledge Management](knowledge-management.md)
-- [Learning and Research](../areas/learning-and-research.md)
+- [[home-ops-and-systems|Home Ops and Systems]]
+- [[software-engineering|Software Engineering]]
+- [[knowledge-management|Knowledge Management]]
+- [[learning-and-research|Learning and Research]]
 
 ## Sources
 
-- [Bookmarks Self-Hosting and Home Lab Batch 1](../syntheses/bookmarks-self-hosting-home-lab-batch-1.md)
+- [[bookmarks-self-hosting-home-lab-batch-1|Bookmarks Self-Hosting and Home Lab Batch 1]]
 
 ## Open Questions
 

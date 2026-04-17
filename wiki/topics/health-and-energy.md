@@ -19,7 +19,7 @@ updated: 2026-04-07
 
 ## Related
 
-- [Personal Life](../areas/personal-life.md)
+- [[personal-life|Personal Life]]
 
 ## Open Questions
 

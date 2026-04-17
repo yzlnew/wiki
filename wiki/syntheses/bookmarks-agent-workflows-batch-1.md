@@ -51,10 +51,10 @@ source_path: ../../sources/library/bookmarks/bookmarks.md
 
 ## Related
 
-- [Agent Workflows](../topics/agent-workflows.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Software Engineering](../topics/software-engineering.md)
-- [Knowledge Management](../topics/knowledge-management.md)
+- [[agent-workflows|Agent Workflows]]
+- [[ai-and-llms|AI and LLMs]]
+- [[software-engineering|Software Engineering]]
+- [[knowledge-management|Knowledge Management]]
 
 ## Follow-ups
 

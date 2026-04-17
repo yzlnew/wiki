@@ -20,18 +20,18 @@ updated: 2026-04-07
 
 ## Related
 
-- [Knowledge Management](../topics/knowledge-management.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Agent Workflows](../topics/agent-workflows.md)
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
+- [[knowledge-management|Knowledge Management]]
+- [[ai-and-llms|AI and LLMs]]
+- [[agent-workflows|Agent Workflows]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
 
 ## Sources
 
-- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
-- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
 
 ## Open Questions
 

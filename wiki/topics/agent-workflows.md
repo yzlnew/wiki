@@ -36,14 +36,14 @@ updated: 2026-04-07
 
 ## Related
 
-- [AI and LLMs](ai-and-llms.md)
-- [Software Engineering](software-engineering.md)
-- [Knowledge Management](knowledge-management.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
+- [[ai-and-llms|AI and LLMs]]
+- [[software-engineering|Software Engineering]]
+- [[knowledge-management|Knowledge Management]]
+- [[home-ops-and-systems|Home Ops and Systems]]
 
 ## Sources
 
-- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
 
 ## Open Questions
 

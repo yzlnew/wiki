@@ -36,10 +36,10 @@ source_path: ../../sources/library/bookmarks/bookmarks.md
 
 ## Related
 
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [Agent Workflows](../topics/agent-workflows.md)
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
+- [[ai-and-llms|AI and LLMs]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[agent-workflows|Agent Workflows]]
 
 ## Follow-ups
 

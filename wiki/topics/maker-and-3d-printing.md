@@ -29,14 +29,14 @@ updated: 2026-04-07
 
 ## Related
 
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
-- [Personal Life](../areas/personal-life.md)
-- [Software Engineering](software-engineering.md)
-- [Knowledge Management](knowledge-management.md)
+- [[home-ops-and-systems|Home Ops and Systems]]
+- [[personal-life|Personal Life]]
+- [[software-engineering|Software Engineering]]
+- [[knowledge-management|Knowledge Management]]
 
 ## Sources
 
-- [Bookmarks Maker / 3D Batch 1](../syntheses/bookmarks-maker-3d-batch-1.md)
+- [[bookmarks-maker-3d-batch-1|Bookmarks Maker / 3D Batch 1]]
 
 ## Open Questions
 

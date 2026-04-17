@@ -38,9 +38,9 @@ source_path: ../../sources/library/bookmarks/bookmarks.md
 
 ## Related
 
-- [Maker and 3D Printing](../topics/maker-and-3d-printing.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
-- [Personal Life](../areas/personal-life.md)
+- [[maker-and-3d-printing|Maker and 3D Printing]]
+- [[home-ops-and-systems|Home Ops and Systems]]
+- [[personal-life|Personal Life]]
 
 ## Follow-ups
 

@@ -19,8 +19,8 @@ updated: 2026-04-07
 
 ## Related
 
-- [Health and Energy](../topics/health-and-energy.md)
-- [Home Ops and Systems](home-ops-and-systems.md)
+- [[health-and-energy|Health and Energy]]
+- [[home-ops-and-systems|Home Ops and Systems]]
 
 ## Open Questions
 

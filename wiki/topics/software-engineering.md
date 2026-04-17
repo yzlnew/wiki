@@ -19,9 +19,9 @@ updated: 2026-04-07
 
 ## Related
 
-- [Career and Work](../areas/career-and-work.md)
-- [AI and LLMs](ai-and-llms.md)
-- [Writing and Communication](writing-and-communication.md)
+- [[career-and-work|Career and Work]]
+- [[ai-and-llms|AI and LLMs]]
+- [[writing-and-communication|Writing and Communication]]
 
 ## Open Questions
 

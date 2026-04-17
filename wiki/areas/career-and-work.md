@@ -19,8 +19,8 @@ updated: 2026-04-07
 
 ## Related
 
-- [Software Engineering](../topics/software-engineering.md)
-- [Writing and Communication](../topics/writing-and-communication.md)
+- [[software-engineering|Software Engineering]]
+- [[writing-and-communication|Writing and Communication]]
 
 ## Open Questions
 

@@ -14,38 +14,38 @@ updated: 2026-04-07
 
 ## Start Here
 
-- [Wiki Index](../index.md)
-- [Wiki Log](../log.md)
-- [Repo Architecture Baseline](../syntheses/repo-architecture-baseline.md)
-- [Taste and Interest Profile](../syntheses/taste-and-interest-profile.md)
-- [Knowledge Management](../topics/knowledge-management.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Software Engineering](../topics/software-engineering.md)
+- [[index|Wiki Index]]
+- [[log|Wiki Log]]
+- [[repo-architecture-baseline|Repo Architecture Baseline]]
+- [[taste-and-interest-profile|Taste and Interest Profile]]
+- [[knowledge-management|Knowledge Management]]
+- [[ai-and-llms|AI and LLMs]]
+- [[software-engineering|Software Engineering]]
 
 ## Recent Ingest
 
-- [Agent Workflows](../topics/agent-workflows.md)
-- [LLM Systems and Training](../topics/llm-systems-and-training.md)
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
-- [Self-Hosting and Home Lab](../topics/self-hosting-and-home-lab.md)
-- [Maker and 3D Printing](../topics/maker-and-3d-printing.md)
+- [[agent-workflows|Agent Workflows]]
+- [[llm-systems-and-training|LLM Systems and Training]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
+- [[self-hosting-and-home-lab|Self-Hosting and Home Lab]]
+- [[maker-and-3d-printing|Maker and 3D Printing]]
 
 ## Active Reading Batches
 
-- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
-- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
-- [Bookmarks Self-Hosting and Home Lab Batch 1](../syntheses/bookmarks-self-hosting-home-lab-batch-1.md)
-- [Bookmarks Maker 3D Batch 1](../syntheses/bookmarks-maker-3d-batch-1.md)
-- [Bookmarks Next Batches](../questions/bookmarks-next-batches.md)
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
+- [[bookmarks-self-hosting-home-lab-batch-1|Bookmarks Self-Hosting and Home Lab Batch 1]]
+- [[bookmarks-maker-3d-batch-1|Bookmarks Maker 3D Batch 1]]
+- [[bookmarks-next-batches|Bookmarks Next Batches]]
 
 ## Core Areas
 
-- [Personal Life](../areas/personal-life.md)
-- [Career and Work](../areas/career-and-work.md)
-- [Learning and Research](../areas/learning-and-research.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
+- [[personal-life|Personal Life]]
+- [[career-and-work|Career and Work]]
+- [[learning-and-research|Learning and Research]]
+- [[home-ops-and-systems|Home Ops and Systems]]
 
 ## Notes
 

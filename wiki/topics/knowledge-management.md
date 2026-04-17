@@ -21,18 +21,18 @@ updated: 2026-04-07
 
 ## Related
 
-- [Home](../maps/home.md)
-- [Learning and Research](../areas/learning-and-research.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
-- [AI and LLMs](ai-and-llms.md)
-- [Agent Workflows](agent-workflows.md)
-- [Self-Hosting and Home Lab](self-hosting-and-home-lab.md)
+- [[home|Home]]
+- [[learning-and-research|Learning and Research]]
+- [[home-ops-and-systems|Home Ops and Systems]]
+- [[ai-and-llms|AI and LLMs]]
+- [[agent-workflows|Agent Workflows]]
+- [[self-hosting-and-home-lab|Self-Hosting and Home Lab]]
 
 ## Sources
 
 - 当前仓库初始化说明见 [README](../../README.md)
-- 当前结构判断见 [Repo Architecture Baseline](../syntheses/repo-architecture-baseline.md)
-- `bookmarks` 落地到主题页的第一批结果见 [Bookmarks Self-Hosting and Home Lab Batch 1](../syntheses/bookmarks-self-hosting-home-lab-batch-1.md)
+- 当前结构判断见 [[repo-architecture-baseline|Repo Architecture Baseline]]
+- `bookmarks` 落地到主题页的第一批结果见 [[bookmarks-self-hosting-home-lab-batch-1|Bookmarks Self-Hosting and Home Lab Batch 1]]
 
 ## Open Questions
 

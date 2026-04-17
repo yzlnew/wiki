@@ -64,10 +64,10 @@ source_path: ../../sources/library/bookmarks/bookmarks.md
 
 ## Related
 
-- [Self-Hosting and Home Lab](../topics/self-hosting-and-home-lab.md)
-- [Home Ops and Systems](../areas/home-ops-and-systems.md)
-- [Software Engineering](../topics/software-engineering.md)
-- [Knowledge Management](../topics/knowledge-management.md)
+- [[self-hosting-and-home-lab|Self-Hosting and Home Lab]]
+- [[home-ops-and-systems|Home Ops and Systems]]
+- [[software-engineering|Software Engineering]]
+- [[knowledge-management|Knowledge Management]]
 
 ## Follow-ups
 

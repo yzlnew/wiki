@@ -532,13 +532,8 @@ def fetch_original_source_context(paper: Paper) -> tuple[str, str, str]:
     return paper.paper_url, "metadata fallback", truncate_text(paper.title, 1000)
 
 
-def invoke_codex_json(prompt_template: str, input_block: str) -> dict[str, Any]:
+def _run_codex(full_prompt: str, model: str, reasoning_effort: str, timeout: float) -> str:
     codex_bin = env("HF_DAILY_PAPERS_CODEX_BIN", required=False, default="codex")
-    model = env("HF_DAILY_PAPERS_MODEL", required=False, default="gpt-5.4-mini")
-    reasoning_effort = env("HF_DAILY_PAPERS_REASONING_EFFORT", required=False, default="low")
-    timeout = float(env("HF_DAILY_PAPERS_CODEX_TIMEOUT", required=False, default="240"))
-    full_prompt = f"{prompt_template}\n\n## Candidate\n\n```text\n{sanitize_prompt_text(input_block)}\n```\n"
-
     with tempfile.TemporaryDirectory(prefix="hf-daily-papers-") as temp_dir:
         output_path = Path(temp_dir) / "last-message.txt"
         cmd = [
@@ -573,11 +568,68 @@ def invoke_codex_json(prompt_template: str, input_block: str) -> dict[str, Any]:
             stdout = completed.stdout.strip()
             details = stderr or stdout or f"exit code {completed.returncode}"
             raise RuntimeError(f"codex exec failed: {details}")
-        raw = output_path.read_text(encoding="utf-8").strip()
-    parsed = parse_json_response(raw)
-    if not isinstance(parsed, dict):
-        raise RuntimeError("codex exec returned non-object JSON")
-    return parsed
+        return output_path.read_text(encoding="utf-8").strip()
+
+
+def _run_claude(full_prompt: str, model: str, effort: str, timeout: float) -> str:
+    claude_bin = env("HF_DAILY_PAPERS_CLAUDE_BIN", required=False, default="claude")
+    cmd = [
+        claude_bin,
+        "-p",
+        "--bare",
+        "--model",
+        model,
+        "--effort",
+        effort,
+        "--no-session-persistence",
+        "--output-format",
+        "text",
+    ]
+    completed = subprocess.run(
+        cmd,
+        input=full_prompt,
+        text=True,
+        capture_output=True,
+        timeout=timeout,
+        check=False,
+    )
+    if completed.returncode != 0:
+        stderr = completed.stderr.strip()
+        stdout = completed.stdout.strip()
+        details = stderr or stdout or f"exit code {completed.returncode}"
+        raise RuntimeError(f"claude exec failed: {details}")
+    return completed.stdout.strip()
+
+
+def invoke_codex_json(prompt_template: str, input_block: str) -> dict[str, Any]:
+    backend = env("HF_DAILY_PAPERS_BACKEND", required=False, default="codex").strip().lower()
+    model = env("HF_DAILY_PAPERS_MODEL", required=False, default="gpt-5.4-mini")
+    reasoning_effort = env("HF_DAILY_PAPERS_REASONING_EFFORT", required=False, default="low")
+    timeout = float(env("HF_DAILY_PAPERS_CODEX_TIMEOUT", required=False, default="240"))
+    fallback_model = env("HF_DAILY_PAPERS_FALLBACK_MODEL", required=False, default="haiku")
+    full_prompt = f"{prompt_template}\n\n## Candidate\n\n```text\n{sanitize_prompt_text(input_block)}\n```\n"
+
+    runners = []
+    if backend == "claude":
+        runners.append(("claude", lambda: _run_claude(full_prompt, model, reasoning_effort, timeout)))
+    else:
+        runners.append(("codex", lambda: _run_codex(full_prompt, model, reasoning_effort, timeout)))
+    if fallback_model:
+        runners.append(("claude-fallback", lambda: _run_claude(full_prompt, fallback_model, reasoning_effort, timeout)))
+
+    last_error: Exception | None = None
+    for label, runner in runners:
+        try:
+            raw = runner()
+            parsed = parse_json_response(raw)
+            if not isinstance(parsed, dict):
+                raise RuntimeError(f"{label} returned non-object JSON")
+            return parsed
+        except Exception as exc:
+            last_error = exc
+            print(f"[{label}] failed: {exc}", file=sys.stderr)
+            continue
+    raise RuntimeError(f"all backends failed, last error: {last_error}")
 
 
 def parse_json_response(text: str) -> Any:

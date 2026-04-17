@@ -19,8 +19,8 @@ updated: 2026-04-07
 
 ## Related
 
-- [Career and Work](../areas/career-and-work.md)
-- [Software Engineering](software-engineering.md)
+- [[career-and-work|Career and Work]]
+- [[software-engineering|Software Engineering]]
 
 ## Open Questions
 

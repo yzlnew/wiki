@@ -27,15 +27,15 @@ updated: 2026-04-07
 
 ## Related
 
-- [Bookmarks Agent Workflows Batch 1](../syntheses/bookmarks-agent-workflows-batch-1.md)
-- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
-- [Bookmarks Reinforcement Learning and Post-Training Batch 1](../syntheses/bookmarks-reinforcement-learning-and-post-training-batch-1.md)
-- [Bookmarks Self-Hosting and Home Lab Batch 1](../syntheses/bookmarks-self-hosting-home-lab-batch-1.md)
-- [Bookmarks Maker 3D Batch 1](../syntheses/bookmarks-maker-3d-batch-1.md)
-- [AI and LLMs](../topics/ai-and-llms.md)
-- [Reinforcement Learning and Post-Training](../topics/reinforcement-learning-and-post-training.md)
+- [[bookmarks-agent-workflows-batch-1|Bookmarks Agent Workflows Batch 1]]
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
+- [[bookmarks-reinforcement-learning-and-post-training-batch-1|Bookmarks Reinforcement Learning and Post-Training Batch 1]]
+- [[bookmarks-self-hosting-home-lab-batch-1|Bookmarks Self-Hosting and Home Lab Batch 1]]
+- [[bookmarks-maker-3d-batch-1|Bookmarks Maker 3D Batch 1]]
+- [[ai-and-llms|AI and LLMs]]
+- [[reinforcement-learning-and-post-training|Reinforcement Learning and Post-Training]]
 
 ## Sources
 
-- [Bookmarks](../../sources/library/bookmarks/bookmarks.md)
+- [[bookmarks|Bookmarks]]

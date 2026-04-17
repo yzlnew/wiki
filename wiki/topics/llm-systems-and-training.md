@@ -31,15 +31,15 @@ updated: 2026-04-07
 
 ## Related
 
-- [AI and LLMs](ai-and-llms.md)
-- [Software Engineering](software-engineering.md)
-- [Learning and Research](../areas/learning-and-research.md)
-- [Knowledge Management](knowledge-management.md)
+- [[ai-and-llms|AI and LLMs]]
+- [[software-engineering|Software Engineering]]
+- [[learning-and-research|Learning and Research]]
+- [[knowledge-management|Knowledge Management]]
 
 ## Sources
 
-- [Bookmarks LLM Systems Batch 1](../syntheses/bookmarks-llm-systems-batch-1.md)
-- [Bookmarks LLM Systems Batch 2](../syntheses/bookmarks-llm-systems-batch-2.md)
+- [[bookmarks-llm-systems-batch-1|Bookmarks LLM Systems Batch 1]]
+- [[bookmarks-llm-systems-batch-2|Bookmarks LLM Systems Batch 2]]
 
 ## Open Questions
 

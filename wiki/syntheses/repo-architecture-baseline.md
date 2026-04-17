@@ -26,9 +26,9 @@ updated: 2026-04-07
 
 ## Related
 
-- [Home](../maps/home.md)
-- [Knowledge Management](../topics/knowledge-management.md)
-- [Wiki Index](../index.md)
+- [[home|Home]]
+- [[knowledge-management|Knowledge Management]]
+- [[index|Wiki Index]]
 
 ## Sources
 

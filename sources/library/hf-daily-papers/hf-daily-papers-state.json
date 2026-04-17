@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-10T16:04:47+08:00",
+  "generated_at": "2026-04-16T09:43:52+08:00",
   "papers": {
     "2604.08172": {
       "title": "On the Global Photometric Alignment for Low-Level Vision",
@@ -24,7 +24,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-10T16:04:47+08:00"
+      "processed_at": "2026-04-12T09:43:04+08:00"
     },
     "2604.08064": {
       "title": "ImplicitMemBench: Measuring Unconscious Behavioral Adaptation in Large Language Models",
@@ -52,7 +52,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-10T16:04:47+08:00"
+      "processed_at": "2026-04-12T09:43:04+08:00"
     },
     "2604.07427": {
       "title": "Personalizing Text-to-Image Generation to Individual Taste",
@@ -84,7 +84,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-10T16:04:47+08:00"
+      "processed_at": "2026-04-12T09:43:04+08:00"
     },
     "2604.06938": {
       "title": "POS-ISP: Pipeline Optimization at the Sequence Level for Task-aware ISP",
@@ -110,7 +110,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-10T16:04:47+08:00"
+      "processed_at": "2026-04-12T09:43:04+08:00"
     },
     "2604.08168": {
       "title": "ViVa: A Video-Generative Value Model for Robot Reinforcement Learning",
@@ -160,7 +160,2321 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-08168-viva-a-video-generative-value-model-for-robot-reinforcement-learning.md",
       "source_url_used": "https://arxiv.org/abs/2604.08168",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-10T16:04:47+08:00"
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.07338": {
+      "title": "Appear2Meaning: A Cross-Cultural Benchmark for Structured Cultural Metadata Inference from Images",
+      "filter_result": {
+        "decision": "reject",
+        "score": 8,
+        "reason": "A cultural-heritage VLM benchmark with no clear RL, agents, or interpretability method depth.",
+        "matched_interests": [],
+        "weak_signals": [
+          "evaluation-benchmark",
+          "llm-as-judge",
+          "semantic-alignment"
+        ],
+        "downrank_signals": [
+          "vision-language",
+          "cultural-heritage",
+          "metadata-inference",
+          "no-agent-or-post-training-focus"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2602.06057": {
+      "title": "QEIL v2: Heterogeneous Computing for Edge Intelligence via Roofline-Derived Pareto-Optimal Energy Modeling and Multi-Objective Orchestration",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 38,
+        "reason": "Primarily an edge LLM inference efficiency paper, with only light overlap via sample verification and runtime orchestration.",
+        "matched_interests": [
+          "llm-systems",
+          "verification"
+        ],
+        "weak_signals": [
+          "progressive verification among repeated samples",
+          "runtime-adaptive resource allocation for LLM inference",
+          "energy/latency optimization could support agent runtimes"
+        ],
+        "downrank_signals": [
+          "not about reinforcement learning or post-training",
+          "not about agents or tool use",
+          "not about mechanistic interpretability",
+          "focused on edge hardware systems rather than core model behavior"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.06377": {
+      "title": "The Master Key Hypothesis: Unlocking Cross-Model Capability Transfer via Linear Subspace Alignment",
+      "filter_result": {
+        "decision": "accept",
+        "score": 90,
+        "reason": "Strong fit on post-training, reasoning behavior shaping, and activation-space analysis with a concrete transfer method.",
+        "matched_interests": [
+          "post-training",
+          "reasoning-behavior-shaping",
+          "mechanistic-interpretability",
+          "representation-analysis"
+        ],
+        "weak_signals": [
+          "training-free transfer of capability directions",
+          "linear subspace alignment across model scales",
+          "inference-time intervention with measurable reasoning gains"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper proposes that post-trained capabilities are encoded as transferable low-dimensional directions and presents UNLOCK, a training-free method for aligning and injecting those directions across models to elicit reasoning behaviors without retraining.",
+        "key_points": [
+          "Introduces the Master Key Hypothesis: capabilities correspond to directions in a low-dimensional latent subspace that can transfer across models via linear alignment.",
+          "UNLOCK extracts a capability direction by contrasting activations from capability-present and capability-absent source variants, then aligns that direction to a target model with a low-rank linear transform.",
+          "The method is training-free and label-free, and is applied at inference time to induce behaviors such as Chain-of-Thought and mathematical reasoning.",
+          "Reported transfers improve reasoning accuracy across scales, including a 12.1% gain on MATH when moving CoT reasoning from Qwen1.5-14B to Qwen1.5-7B.",
+          "The analysis suggests transfer works better when the relevant capability is already present from pre-training, and that the intervention sharpens output distributions toward successful reasoning trajectories."
+        ],
+        "why_relevant": "It is directly relevant to post-training and reasoning-shaping because it studies how learned capabilities can be transferred or amplified across models through representation-level interventions rather than additional training.",
+        "open_questions": [
+          "Which specific layer or representation space is used to extract and apply the capability direction?",
+          "How sensitive is UNLOCK to the choice of source variants and target-model architecture mismatch?",
+          "Does the method generalize beyond reasoning tasks such as CoT and math to other post-trained behaviors?",
+          "What are the limits of transfer when the target model lacks the relevant pre-trained capability?"
+        ],
+        "tags": [
+          "post-training",
+          "reasoning",
+          "representation-analysis",
+          "mechanistic-interpretability",
+          "model-transfer",
+          "inference-time-intervention"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-06377-the-master-key-hypothesis-unlocking-cross-model-capability-transfer-via-linear-s.md",
+      "source_url_used": "https://arxiv.org/abs/2604.06377",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.03841": {
+      "title": "Training a Student Expert via Semi-Supervised Foundation Model Distillation",
+      "filter_result": {
+        "decision": "reject",
+        "score": 5,
+        "reason": "This is a vision-model distillation paper for instance segmentation, with no clear RL, agents, or interpretability contribution.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "vision",
+          "knowledge-distillation",
+          "instance-segmentation",
+          "foundation-model-compression"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2511.16428": {
+      "title": "CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation",
+      "filter_result": {
+        "decision": "reject",
+        "score": 4,
+        "reason": "A multi-view depth estimation method for 3D perception, with no clear connection to RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "vision",
+          "depth-estimation",
+          "multimodal",
+          "perception"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08523": {
+      "title": "ClawBench: Can AI Agents Complete Everyday Online Tasks?",
+      "filter_result": {
+        "decision": "accept",
+        "score": 95,
+        "reason": "A strong real-world agent evaluation benchmark with production web tasks, multi-step workflows, and clear methodological value.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "tool-use",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "benchmark-design",
+          "real-world-web-interaction"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "ClawBench is a real-world web-agent benchmark with 153 everyday online tasks across 144 live platforms, designed to test whether AI agents can reliably handle multi-step, document-heavy workflows on production websites.",
+        "key_points": [
+          "Covers 153 tasks across 15 categories and 144 live platforms, including purchases, appointments, and job applications.",
+          "Targets capabilities beyond static benchmark pages: extracting information from user-provided documents, navigating multi-step workflows, and completing write-heavy forms accurately.",
+          "Runs on production websites instead of offline sandboxes, preserving dynamic real-world interaction complexity.",
+          "Uses a lightweight interception layer that blocks only the final submission request, enabling safe evaluation without real-world side effects.",
+          "Evaluations of 7 frontier models show that both proprietary and open-source agents complete only a small fraction of tasks; Claude Sonnet 4.6 reaches 33.3%."
+        ],
+        "why_relevant": "This is directly relevant to agent evaluation and tool-using systems because it measures how current frontier models perform on realistic web tasks that require planning, browser interaction, and form completion.",
+        "open_questions": [
+          "What scoring metric is used to define task success across the 153 tasks?",
+          "How are the 15 task categories distributed, and which categories are hardest?",
+          "What kinds of failures dominate agent performance on ClawBench: planning, navigation, document reading, or form entry?",
+          "Which of the 7 evaluated models were the strongest open-source systems, and how large was the gap to proprietary models?"
+        ],
+        "tags": [
+          "agents",
+          "benchmark",
+          "web-eval",
+          "tool-use",
+          "llm-systems"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-08523-clawbench-can-ai-agents-complete-everyday-online-tasks.md",
+      "source_url_used": "https://arxiv.org/abs/2604.08523",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08120": {
+      "title": "Small Vision-Language Models are Smart Compressors for Long Video Understanding",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "Primarily a multimodal video compression/systems paper with little direct connection to RL, agents, or interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "query-aware token allocation",
+          "dynamic routing",
+          "budgeted context compression"
+        ],
+        "downrank_signals": [
+          "broad multimodal video understanding",
+          "not about reinforcement learning or post-training",
+          "not about agents or mechanistic interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08476": {
+      "title": "Faithful GRPO: Improving Visual Spatial Reasoning in Multimodal Language Models via Constrained Policy Optimization",
+      "filter_result": {
+        "decision": "accept",
+        "score": 94,
+        "reason": "A concrete GRPO variant for RLVR that improves reasoning faithfulness and grounding fits post-training and reward-optimization priorities.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "post-training",
+          "reasoning-behavior-shaping",
+          "reward-modeling",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "multimodal-reasoning",
+          "visual-grounding",
+          "benchmark-evaluation"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "Faithful GRPO is a constrained GRPO variant for multimodal reasoning models that improves spatial reasoning by enforcing logical consistency and visual grounding during RL post-training.",
+        "key_points": [
+          "The paper argues that RL with verifiable rewards can boost benchmark accuracy while degrading Chain-of-Thought quality, producing answers that are inconsistent or poorly grounded in the image.",
+          "It studies this failure mode across seven real-world spatial reasoning benchmarks and reports that the issue affects existing MRMs including ViGoRL-Spatial, TreeVGR, and models trained with standard GRPO.",
+          "It defines reasoning quality along two axes: logical consistency between the CoT and final answer, and visual grounding of reasoning steps to objects, attributes, and spatial relations in the image.",
+          "Faithful GRPO (FGRPO) adds consistency and grounding as constraints via Lagrangian dual ascent, and folds batch-level constraint signals into group-level advantage computation with adaptive weighting.",
+          "On Qwen2.5-VL-7B and 3B across seven spatial datasets, FGRPO reduces inconsistency from 24.5% to 1.7%, improves grounding by 13%, and also improves final answer accuracy over plain GRPO."
+        ],
+        "why_relevant": "This is directly relevant to RL post-training and agentic reasoning because it shows how constrained policy optimization can shape not just accuracy but also the faithfulness of intermediate reasoning in multimodal models.",
+        "open_questions": [
+          "How are the consistency and grounding constraints computed in practice for each batch?",
+          "Does FGRPO generalize beyond spatial reasoning benchmarks to other multimodal tasks?",
+          "What are the compute or stability tradeoffs of the Lagrangian dual ascent procedure versus standard GRPO?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "post-training",
+          "multimodal",
+          "reasoning",
+          "grounding",
+          "constrained-optimization",
+          "grpo"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-08476-faithful-grpo-improving-visual-spatial-reasoning-in-multimodal-language-models-v.md",
+      "source_url_used": "https://arxiv.org/abs/2604.08476",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2601.20524": {
+      "title": "AnomalyVFM -- Transforming Vision Foundation Models into Zero-Shot Anomaly Detectors",
+      "filter_result": {
+        "decision": "reject",
+        "score": 4,
+        "reason": "Primarily a vision anomaly-detection method with no clear relevance to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "vision-foundation-models",
+          "zero-shot-anomaly-detection",
+          "computer-vision",
+          "domain-specific-detection"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.06628": {
+      "title": "Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability",
+      "filter_result": {
+        "decision": "accept",
+        "score": 92,
+        "reason": "Directly studies reasoning post-training generalization, optimization dynamics, and safety tradeoffs in SFT/RL-adjacent settings.",
+        "matched_interests": [
+          "post-training",
+          "reinforcement-learning",
+          "reasoning-behavior-shaping",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "cross-domain-generalization",
+          "optimization-dynamics",
+          "data-quality",
+          "model-capability"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper argues that reasoning SFT can generalize cross-domain, but only conditionally, with outcomes shaped by optimization length, training-data quality, and base-model capability, and with a tradeoff between reasoning gains and safety loss.",
+        "key_points": [
+          "Some apparent cross-domain failures are optimization artifacts: performance can dip early in training and recover with longer SFT, so short checkpoints can understate generalization.",
+          "Data quality and trace structure matter: low-quality solutions hurt generalization, while verified long chain-of-thought traces produce more consistent cross-domain gains.",
+          "Model capability changes what is learned: stronger models can internalize transferable procedures such as backtracking, while weaker models tend to mimic verbose surface form.",
+          "Generalization is asymmetric: the same reasoning SFT that improves reasoning behavior can also degrade safety.",
+          "The paper reframes the SFT-vs-RL generalization debate from a binary claim to a conditional question about when generalization appears and at what cost."
+        ],
+        "why_relevant": "It is directly relevant to post-training and reasoning-behavior shaping because it analyzes how supervised finetuning affects generalization, training dynamics, and safety tradeoffs in LLMs.",
+        "open_questions": [
+          "Which model families and reasoning datasets were used to establish the dip-and-recovery pattern?",
+          "How was cross-domain generalization measured, and across which target domains?",
+          "What criteria defined low-quality versus verified long-CoT traces?",
+          "How large was the reported safety degradation relative to the reasoning gains?"
+        ],
+        "tags": [
+          "post-training",
+          "supervised-finetuning",
+          "reasoning",
+          "generalization",
+          "safety",
+          "chain-of-thought"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-06628-rethinking-generalization-in-reasoning-sft-a-conditional-analysis-on-optimizatio.md",
+      "source_url_used": "https://arxiv.org/abs/2604.06628",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.07966": {
+      "title": "Lighting-grounded Video Generation with Renderer-based Agent Reasoning",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "Primarily a controllable video generation paper; the only agent component is an instruction-to-control translator and is not central to RL, agents, or interpretability.",
+        "matched_interests": [
+          "agents"
+        ],
+        "weak_signals": [
+          "scene-agent",
+          "instruction-to-control translation",
+          "automated control signal generation"
+        ],
+        "downrank_signals": [
+          "multimodal/video-generation",
+          "graphics/virtual-production",
+          "no RL or post-training method",
+          "no mechanistic or evaluation-focused contribution"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08544": {
+      "title": "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 49,
+        "reason": "A data-scaling sim-to-real method for policy learning in robotics is adjacent to RL/agents but not central to the target topics.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "policy-learning",
+          "synthetic-supervision",
+          "evaluation-methodology"
+        ],
+        "downrank_signals": [
+          "robotics-manipulation",
+          "deformable-objects",
+          "sim-to-real",
+          "not-rlhf-or-agent-centric"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.07776": {
+      "title": "Structured Distillation of Web Agent Capabilities Enables Generalization",
+      "filter_result": {
+        "decision": "accept",
+        "score": 96,
+        "reason": "A strong web-agent post-training method with structured synthetic data generation, clear ablations, and cross-environment evaluation.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems",
+          "post-training"
+        ],
+        "weak_signals": [
+          "supervised-finetuning",
+          "synthetic-trajectory-generation",
+          "web-environments"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper proposes Agent-as-Annotators, a supervised data-generation pipeline for web agents that uses a frontier teacher model to synthesize and filter trajectories, enabling a 9B open-weight student to outperform prior open and some closed web-agent baselines.",
+        "key_points": [
+          "Introduces Agent-as-Annotators, which maps web-trajectory synthesis onto annotation roles: Task Designer, Annotator, and Supervisor.",
+          "Uses Gemini 3 Pro as the teacher to generate 3,000 trajectories across six web environments, then fine-tunes a 9B student on the 2,322 trajectories that pass quality filtering.",
+          "Training is pure supervised learning, not RL, making the method a post-training/data-distillation approach for web agents.",
+          "Reports 41.5% on WebArena, above Claude 3.5 Sonnet (36.0%), GPT-4o (31.5%), and the previous open-weight best Go-Browse (21.7%) under the same protocol.",
+          "Shows transfer to unseen settings, including an 18.2 percentage point gain on WorkArena L1 and consistent improvements on three other benchmarks; ablations indicate filtering, evaluation hints, and reasoning traces each help."
+        ],
+        "why_relevant": "It is directly relevant to agents and post-training because it shows how structured synthetic supervision from a strong teacher can produce competitive web agents and transfer to unseen environments without RL.",
+        "open_questions": [
+          "What exact model architecture and prompting setup were used for the 9B student?",
+          "How much of the gain comes from each pipeline component individually versus their combination?",
+          "How were the quality filters and evaluation hints implemented in detail?",
+          "Are the reported gains stable across different teacher models or only with Gemini 3 Pro?"
+        ],
+        "tags": [
+          "web-agents",
+          "post-training",
+          "supervised-learning",
+          "synthetic-data",
+          "distillation",
+          "benchmarking"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-07776-structured-distillation-of-web-agent-capabilities-enables-generalization.md",
+      "source_url_used": "https://arxiv.org/abs/2604.07776",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2603.27070": {
+      "title": "Structural Graph Probing of Vision-Language Models",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 74,
+        "reason": "Mechanistic interpretability work with causal hub-neuron analysis, but it is centered on vision-language models rather than core RL/agent topics.",
+        "matched_interests": [
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "internal-dynamics"
+        ],
+        "weak_signals": [
+          "causal intervention on internal components",
+          "recoverable behavioral signal from topology",
+          "actionable interpretability framing"
+        ],
+        "downrank_signals": [
+          "vision-language-models",
+          "multimodal-focus",
+          "not-rLhf-or-agent-centric"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.07296": {
+      "title": "OpenSpatial: A Principled Data Engine for Empowering Spatial Intelligence",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "Primarily a spatial reasoning data-engine and benchmark paper, with little direct relevance to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems",
+          "evaluation-methodology"
+        ],
+        "downrank_signals": [
+          "vision",
+          "spatial-reasoning",
+          "dataset-construction",
+          "domain-specific-data"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08364": {
+      "title": "MegaStyle: Constructing Diverse and Scalable Style Dataset via Consistent Text-to-Image Style Mapping",
+      "filter_result": {
+        "decision": "reject",
+        "score": 5,
+        "reason": "Primarily a style transfer/data curation paper with no clear RL, agents, or interpretability method.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "vision",
+          "generative-models",
+          "style-transfer",
+          "dataset-curation"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.06231": {
+      "title": "Automating Database-Native Function Code Synthesis with LLMs",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 68,
+        "reason": "A database-specific LLM coding system with orchestration and validation is adjacent to agentic code synthesis and evaluation infrastructure.",
+        "matched_interests": [
+          "agents",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "coding-agent-style workflow",
+          "adaptive orchestration",
+          "progressive validation",
+          "tool-augmented synthesis"
+        ],
+        "downrank_signals": [
+          "domain-specific database engineering",
+          "not about reinforcement learning",
+          "not about interpretability",
+          "not about alignment or post-training"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.07823": {
+      "title": "LPM 1.0: Video-based Character Performance Model",
+      "filter_result": {
+        "decision": "reject",
+        "score": 12,
+        "reason": "Primarily a multimodal character video generation paper with little direct relevance to RL, agents, or interpretability.",
+        "matched_interests": [
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "interactive character performance",
+          "real-time inference",
+          "LPM-Bench"
+        ],
+        "downrank_signals": [
+          "broad multimodal/video generation",
+          "pure application focus",
+          "no RL/post-training/mechanistic method"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08545": {
+      "title": "Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models",
+      "filter_result": {
+        "decision": "accept",
+        "score": 93,
+        "reason": "Directly targets agentic tool-use post-training with a new RL objective that improves reasoning and tool efficiency.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "agents",
+          "tool-use",
+          "post-training",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "multimodal-agents",
+          "reward-modeling-like-optimization",
+          "reasoning-behavior-shaping"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper proposes HDPO, a reinforcement learning framework for agentic multimodal models that decouples accuracy optimization from tool-efficiency optimization to reduce blind tool use while improving reasoning accuracy.",
+        "key_points": [
+          "The problem is a meta-cognitive deficit in agents: they often invoke tools reflexively even when the answer is available from visual context alone.",
+          "The authors argue that standard scalarized rewards for tool penalties create a tradeoff: strong penalties suppress necessary tool use, while weak penalties get washed out during advantage normalization.",
+          "HDPO replaces reward scalarization with two separate optimization channels: one for task accuracy and one for tool efficiency.",
+          "The efficiency objective is applied only within accurate trajectories via conditional advantage estimation, so the model learns to be economical without sacrificing correctness.",
+          "The resulting model, Metis, is reported to cut tool invocations by orders of magnitude while also improving reasoning accuracy."
+        ],
+        "why_relevant": "It is directly relevant to reinforcement learning post-training for agents, especially tool-use control and training objectives for multimodal systems.",
+        "open_questions": [
+          "What exact RL algorithm or training loop does HDPO build on?",
+          "What tasks and benchmarks were used to evaluate tool usage reduction and reasoning accuracy?",
+          "How is conditional advantage estimation implemented in practice?",
+          "Does the approach generalize beyond multimodal visual agents to text-based tool-using agents?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "post-training",
+          "agents",
+          "tool-use",
+          "multimodal",
+          "rlhf",
+          "optimization"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-10-2604-08545-act-wisely-cultivating-meta-cognitive-tool-use-in-agentic-multimodal-models.md",
+      "source_url_used": "https://arxiv.org/abs/2604.08545",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.08546": {
+      "title": "When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models",
+      "filter_result": {
+        "decision": "reject",
+        "score": 12,
+        "reason": "Useful diffusion-control work, but it is focused on text-to-video counting rather than RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "attention-head analysis",
+          "evaluation benchmark"
+        ],
+        "downrank_signals": [
+          "vision/video generation",
+          "outside core RL-agent-interpretability scope",
+          "training-free control method with limited transfer"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-12T09:43:04+08:00"
+    },
+    "2604.11544": {
+      "title": "Time is Not a Label: Continuous Phase Rotation for Temporal Knowledge Graphs and Agentic Memory",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 74,
+        "reason": "A technical agentic-memory method with strong temporal reasoning results, but it is more memory/knowledge-graph systems than core RL or agent architecture work.",
+        "matched_interests": [
+          "agents",
+          "llm-systems",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "agentic-memory",
+          "multi-hop-reasoning",
+          "structured-memory",
+          "temporal-knowledge-graphs"
+        ],
+        "downrank_signals": [
+          "not-reinforcement-learning",
+          "not-mechanistic-interpretability",
+          "domain-specific-knowledge-graph-focus"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10708": {
+      "title": "Audio-Omni: Extending Multi-modal Understanding to Versatile Audio Generation and Editing",
+      "filter_result": {
+        "decision": "reject",
+        "score": 8,
+        "reason": "Primarily a multimodal audio generation/editing system with little relevance to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "multimodal-audio",
+          "audio-generation",
+          "audio-editing",
+          "general-foundation-model"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10539": {
+      "title": "IceCache: Memory-efficient KV-cache Management for Long-Sequence LLMs",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 63,
+        "reason": "Useful LLM systems work for long-context reasoning efficiency, but it is mainly KV-cache management rather than agents, RL, or interpretability.",
+        "matched_interests": [
+          "llm-systems",
+          "reasoning"
+        ],
+        "weak_signals": [
+          "supports long-generation chain-of-thought tasks",
+          "improves inference/memory efficiency for long-sequence scenarios",
+          "uses semantic token clustering with PagedAttention"
+        ],
+        "downrank_signals": [
+          "not about reinforcement learning or post-training",
+          "not about agents or tool use",
+          "not about mechanistic interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.06710": {
+      "title": "ATANT: An Evaluation Framework for AI Continuity",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 42,
+        "reason": "An evaluation framework for AI continuity and memory is adjacent to agent evaluation and LLM systems, but it is not directly about RL, post-training, or mechanistic interpretability.",
+        "matched_interests": [
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "evaluation framework",
+          "memory/continuity testing",
+          "system-agnostic benchmark",
+          "cumulative testing"
+        ],
+        "downrank_signals": [
+          "narrow focus on continuity",
+          "no new training or alignment method",
+          "not about internals or mechanistic analysis",
+          "mostly memory/RAG evaluation"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.05336": {
+      "title": "TRACE: Capability-Targeted Agentic Training",
+      "filter_result": {
+        "decision": "accept",
+        "score": 96,
+        "reason": "Directly targets agentic self-improvement with capability discovery, synthetic training environments, and RL-trained adapters.",
+        "matched_interests": [
+          "agents",
+          "reinforcement-learning",
+          "post-training",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "LoRA adapter routing",
+          "trajectory comparison",
+          "environment-specific training"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "TRACE is an environment-specific agent self-improvement system that infers missing capabilities from successful versus failed trajectories, builds synthetic training environments for those capabilities, and trains LoRA adapters with RL for routed inference.",
+        "key_points": [
+          "TRACE defines a capability as one or more actions in a trajectory that are necessary for solving a subset of tasks in an agentic environment.",
+          "It contrasts successful and failed trajectories to identify likely capability gaps instead of training on untargeted synthetic data or only on the target environment.",
+          "For each missing capability, TRACE synthesizes a training environment that rewards whether that capability was exercised, then trains a LoRA adapter via RL on that environment.",
+          "At inference time, the system routes to the adapter relevant to the task/capability.",
+          "The paper reports gains on customer-service and tool-use benchmarks, and says TRACE is more rollout-efficient than GRPO and GEPA under the same rollout budget."
+        ],
+        "why_relevant": "It is directly about post-training for agentic LLMs, combining trajectory-based analysis, RL, and adapter-based adaptation for tool-using systems.",
+        "open_questions": [
+          "How exactly does TRACE extract a capability label from paired successful and failed trajectories?",
+          "What is the design of the synthetic training environment and reward signal for each capability?",
+          "How are adapters selected or routed at inference time?",
+          "How many capabilities or adapters are typically created per environment?",
+          "How well does TRACE transfer to environments not covered by the reported benchmarks?"
+        ],
+        "tags": [
+          "agentic-llms",
+          "post-training",
+          "reinforcement-learning",
+          "tool-use",
+          "lora",
+          "trajectory-analysis",
+          "self-improvement"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-15-2604-05336-trace-capability-targeted-agentic-training.md",
+      "source_url_used": "https://arxiv.org/abs/2604.05336",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.08706": {
+      "title": "Efficient RL Training for LLMs with Experience Replay",
+      "filter_result": {
+        "decision": "accept",
+        "score": 95,
+        "reason": "Directly relevant post-training RL method that studies replay buffers and inference-compute tradeoffs for LLM training.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "post-training",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "experience-replay",
+          "policy-entropy",
+          "inference-compute"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper argues that experience replay is useful for LLM post-training and shows that a well-designed replay buffer can cut generation cost substantially without hurting, and sometimes improving, final performance.",
+        "key_points": [
+          "The work challenges the assumption that LLM post-training must rely on fresh on-policy samples.",
+          "It studies replay buffers systematically for LLM post-training and frames their design as a trade-off between staleness-induced variance, sample diversity, and generation cost.",
+          "The authors claim strict on-policy sampling is suboptimal when rollouts are expensive to generate.",
+          "Empirically, a well-designed replay buffer can reduce inference compute without degrading final model performance, and can sometimes improve it.",
+          "The method is reported to preserve policy entropy, suggesting replay need not collapse exploration behavior."
+        ],
+        "why_relevant": "It is directly relevant to reinforcement learning and post-training because it targets the data-efficiency and compute tradeoffs of rollout reuse in LLM training.",
+        "open_questions": [
+          "What specific replay buffer design choices are used to manage staleness versus diversity?",
+          "Which tasks or benchmarks were used to evaluate performance and compute savings?",
+          "How large were the gains in inference compute and final accuracy or reward?",
+          "Does the method depend on a particular RL objective or model class?",
+          "What does preserving policy entropy mean operationally in their setup?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "llm-post-training",
+          "experience-replay",
+          "replay-buffer",
+          "compute-efficiency"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-08706-efficient-rl-training-for-llms-with-experience-replay.md",
+      "source_url_used": "https://arxiv.org/abs/2604.08706",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11753": {
+      "title": "Agentic Aggregation for Parallel Scaling of Long-Horizon Agentic Tasks",
+      "filter_result": {
+        "decision": "accept",
+        "score": 91,
+        "reason": "A strong agents paper on parallel test-time scaling with a concrete aggregation-agent mechanism and broad benchmark gains.",
+        "matched_interests": [
+          "agents",
+          "tool-use",
+          "agent-architectures",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "parallel test-time scaling",
+          "trajectory aggregation",
+          "deep-research benchmarks"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "AggAgent is an aggregation agent for parallel test-time scaling on long-horizon agentic tasks that synthesizes multiple tool-augmented rollouts with lightweight inspection/search tools instead of concatenating full trajectories or keeping only final answers.",
+        "key_points": [
+          "The paper targets agentic search and deep research settings where multiple parallel rollouts must be merged into one response.",
+          "It argues that naive aggregation is hard because trajectories are long, multi-turn, tool-augmented, and open-ended, while full concatenation exceeds context limits.",
+          "AggAgent treats the set of trajectories as an environment and uses lightweight tools to inspect candidate solutions and search across trajectories on demand.",
+          "Across six benchmarks and three model families, the method beats existing aggregation approaches by up to 5.3% absolute on average and 10.3% on two deep research tasks.",
+          "The aggregation overhead is kept low, with cost bounded by a single agentic rollout."
+        ],
+        "why_relevant": "It is directly about agentic systems and tool-using post-training/test-time scaling behavior, with an evaluation setup centered on long-horizon tasks rather than simple reasoning benchmarks.",
+        "open_questions": [
+          "What exact lightweight tools does AggAgent use to inspect and search trajectories?",
+          "How is the aggregation agent trained or prompted, if at all?",
+          "Which six benchmarks were used, and how were the two deep research tasks defined?",
+          "What are the specific baseline aggregation methods it outperforms?",
+          "Does the approach generalize equally well across the three model families or depend on model-specific behavior?"
+        ],
+        "tags": [
+          "agents",
+          "tool-use",
+          "test-time-scaling",
+          "aggregation",
+          "deep-research",
+          "benchmarking"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-11753-agentic-aggregation-for-parallel-scaling-of-long-horizon-agentic-tasks.md",
+      "source_url_used": "https://arxiv.org/abs/2604.11753",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11004": {
+      "title": "Panoptic Pairwise Distortion Graph",
+      "filter_result": {
+        "decision": "reject",
+        "score": 5,
+        "reason": "This is a vision/MLLM image-assessment paper with no clear link to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "structured evaluation benchmark",
+          "interpretable graph representation"
+        ],
+        "downrank_signals": [
+          "multimodal-vision",
+          "pairwise-image-assessment",
+          "not-targeted-to-post-training-or-agents"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.04385": {
+      "title": "How Alignment Routes: Localizing, Scaling, and Controlling Policy Circuits in Language Models",
+      "filter_result": {
+        "decision": "accept",
+        "score": 96,
+        "reason": "Direct mechanistic interpretability of alignment policy circuits with causal interventions and scale analysis.",
+        "matched_interests": [
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "self-checking",
+          "post-training"
+        ],
+        "weak_signals": [
+          "alignment-routing",
+          "causal-circuit-localization",
+          "interchange-testing"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper localizes a policy-routing circuit in alignment-trained language models, where an intermediate attention gate detects content and activates deeper amplifier heads that drive refusal behavior.",
+        "key_points": [
+          "The proposed circuit has two parts: an intermediate-layer detection gate and deeper amplifier heads that amplify the signal toward refusal; in smaller models these may be single heads, while larger models use bands of heads across adjacent layers.",
+          "The gate has very small direct contribution to output DLA, but interchange testing and knockout cascades show it is causally necessary for the policy behavior.",
+          "Interchange screening across twelve models from six labs finds the same overall motif at scale, but the specific heads differ by lab; per-head ablation can miss gates that interchange identifies.",
+          "Continuously modulating the detection-layer signal can move behavior from hard refusal to evasion to factual answering, and on safety prompts can convert refusal into harmful guidance, suggesting the capability remains present but is routed differently.",
+          "The routing is described as early-commitment, and the circuit can shift across generations and by topic or input language without changing benchmark behavior."
+        ],
+        "why_relevant": "This is directly relevant to mechanistic interpretability and post-training alignment because it analyzes how refusal behavior is routed internally, how that routing scales, and how interventions can bypass or restore policy behavior in language models.",
+        "open_questions": [
+          "How general is the routing circuit across architectures beyond the twelve models tested?",
+          "Which specific training signals or alignment procedures create the gate-amplifier structure?",
+          "Can the circuit be robustly detected without interchange testing at very large scale?",
+          "Does the same routing mechanism govern other policy behaviors besides refusal and safety responses?",
+          "How stable is the circuit under further post-training or adversarial prompt formats?"
+        ],
+        "tags": [
+          "mechanistic-interpretability",
+          "alignment",
+          "policy-routing",
+          "refusal",
+          "attention-heads",
+          "post-training",
+          "interchange-testing",
+          "safety"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-04385-how-alignment-routes-localizing-scaling-and-controlling-policy-circuits-in-langu.md",
+      "source_url_used": "https://arxiv.org/abs/2604.04385",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11737": {
+      "title": "Learning Long-term Motion Embeddings for Efficient Kinematics Generation",
+      "filter_result": {
+        "decision": "reject",
+        "score": 6,
+        "reason": "Primarily a motion/video generation paper with no clear RL, agent, or interpretability relevance.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "vision",
+          "video-synthesis",
+          "conditional-generation",
+          "trajectory-modeling"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10039": {
+      "title": "Counting to Four is still a Chore for VLMs",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 52,
+        "reason": "Contains mechanistic analysis and an attention-based intervention, but the focus is VLM counting rather than core RL, agents, or interpretability.",
+        "matched_interests": [
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "self-checking"
+        ],
+        "weak_signals": [
+          "attention analysis",
+          "component-wise probing",
+          "modality attention intervention",
+          "counting benchmark"
+        ],
+        "downrank_signals": [
+          "vision-language-models",
+          "multimodal-reasoning",
+          "narrow grounding task"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10688": {
+      "title": "SCOPE: Signal-Calibrated On-Policy Distillation Enhancement with Dual-Path Adaptive Weighting",
+      "filter_result": {
+        "decision": "accept",
+        "score": 94,
+        "reason": "Directly targets on-policy reinforcement learning and reasoning alignment with a concrete adaptive post-training method.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "post-training",
+          "reasoning-behavior-shaping",
+          "reward-modeling"
+        ],
+        "weak_signals": [
+          "token-level credit assignment",
+          "benchmark-evaluation"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "SCOPE is a dual-path on-policy distillation method that routes rollouts by correctness and adapts the supervision signal to improve reasoning alignment in large language models.",
+        "key_points": [
+          "It targets the token-level credit assignment problem in on-policy reinforcement learning by adding dense supervision on top of outcome-level rewards.",
+          "Incorrect trajectories are trained with teacher-perplexity-weighted KL distillation so the method emphasizes teacher guidance where the teacher appears most corrective and down-weights unreliable signals.",
+          "Correct trajectories are trained with student-perplexity-weighted MLE so reinforcement is focused on low-confidence samples near the capability boundary rather than already-mastered ones.",
+          "Both supervision paths use group-level normalization to adjust weight distributions for prompt difficulty variation.",
+          "On six reasoning benchmarks, the paper reports average relative gains of 11.42% in Avg@32 and 7.30% in Pass@32 over competitive baselines."
+        ],
+        "why_relevant": "It is directly relevant to post-training and reinforcement-learning-based reasoning alignment because it proposes a concrete way to reshape supervision for better training signal quality in on-policy systems.",
+        "open_questions": [
+          "Which teacher and student models were used in the experiments?",
+          "How is trajectory correctness determined during training?",
+          "What exact baselines were compared against, and how large were the improvements on each benchmark?",
+          "How sensitive is SCOPE to the choice of perplexity weighting and group-level normalization?",
+          "Does the method generalize beyond reasoning benchmarks to other post-training tasks?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "post-training",
+          "on-policy-distillation",
+          "reasoning",
+          "kl-distillation",
+          "mle",
+          "credit-assignment"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-10688-scope-signal-calibrated-on-policy-distillation-enhancement-with-dual-path-adapti.md",
+      "source_url_used": "https://arxiv.org/abs/2604.10688",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11297": {
+      "title": "The Past Is Not Past: Memory-Enhanced Dynamic Reward Shaping",
+      "filter_result": {
+        "decision": "accept",
+        "score": 91,
+        "reason": "Directly relevant RL-for-LLMs work on dynamic reward shaping that targets repeated failure patterns and sampling diversity.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "post-training",
+          "reward-modeling",
+          "llm-systems",
+          "reasoning-behavior-shaping"
+        ],
+        "weak_signals": [
+          "historical-behavior-signal clustering",
+          "intermediate representations for reward shaping",
+          "behavioral-diversity evaluation"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "MEDS is a memory-enhanced reward shaping method for RL-trained LLMs that uses historical rollout representations to detect recurring error clusters and penalize them to improve diversity and performance.",
+        "key_points": [
+          "The paper targets a specific RL failure mode for LLMs: reduced sampling diversity, where similar erroneous behaviors keep repeating across rollouts.",
+          "MEDS stores intermediate model representations from past rollouts and uses density-based clustering to identify recurring error patterns.",
+          "Rollouts that fall into more prevalent error clusters receive stronger penalties, which is meant to push the policy toward broader exploration rather than repeated mistakes.",
+          "The method is evaluated across five datasets and three base models, with reported gains of up to 4.13 pass@1 and 4.37 pass@128 over baselines.",
+          "The authors report that both LLM-based annotations and quantitative diversity metrics indicate increased behavioral diversity during sampling."
+        ],
+        "why_relevant": "This is directly relevant to reinforcement learning post-training for LLMs because it changes reward design to shape generation behavior and reduce repeated failure modes during sampling.",
+        "open_questions": [
+          "How does MEDS compare to standard entropy regularization when matched for compute and sampling budget?",
+          "What intermediate representations are stored, and how sensitive is the method to the choice of representation layer or model state?",
+          "Which five datasets and three base models were used, and do the gains hold uniformly across them?",
+          "How costly is the clustering and memory mechanism during training or rollout collection?",
+          "Does the diversity improvement come with any degradation in calibration, stability, or final-answer quality on harder tasks?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "llm",
+          "reward-shaping",
+          "post-training",
+          "diversity",
+          "sampling",
+          "clustering",
+          "memory"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-11297-the-past-is-not-past-memory-enhanced-dynamic-reward-shaping.md",
+      "source_url_used": "https://arxiv.org/abs/2604.11297",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11259": {
+      "title": "Mobile GUI Agent Privacy Personalization with Trajectory Induced Preference Optimization",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 71,
+        "reason": "A method for preference optimization in mobile GUI agents that touches agent post-training and trajectory-level alignment, though the application is narrow.",
+        "matched_interests": [
+          "agents",
+          "post-training",
+          "reinforcement-learning",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "trajectory-induced preference optimization",
+          "preference-intensity weighting",
+          "persona alignment in GUI agents"
+        ],
+        "downrank_signals": [
+          "narrow mobile GUI personalization setting",
+          "privacy-focused application rather than general agent method"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11152": {
+      "title": "SHARE: Social-Humanities AI for Research and Education",
+      "filter_result": {
+        "decision": "reject",
+        "score": 8,
+        "reason": "A domain-specific pretraining and UI paper for social sciences and humanities, with no clear RL, agents, or interpretability method.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "generic-foundation-model",
+          "domain-pretraining",
+          "application-paper",
+          "no-agent-no-rl-no-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10628": {
+      "title": "BMdataset: A Musicologically Curated LilyPond Dataset",
+      "filter_result": {
+        "decision": "reject",
+        "score": 3,
+        "reason": "Symbolic music representation learning is outside the user's target areas and does not contribute to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "representation-learning",
+          "pre-training"
+        ],
+        "downrank_signals": [
+          "symbolic-music",
+          "music-understanding",
+          "codebert-adaptation",
+          "composer-classification"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10799": {
+      "title": "Advancing Polish Language Modeling through Tokenizer Optimization in the Bielik v3 7B and 11B Series",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 54,
+        "reason": "Mostly a language-specific tokenizer/training paper, but it includes post-training alignment and GRPO with verifiable rewards that may be reusable.",
+        "matched_interests": [
+          "post-training",
+          "reinforcement-learning"
+        ],
+        "weak_signals": [
+          "direct-preference-optimization",
+          "verifiable-rewards",
+          "training-curriculum"
+        ],
+        "downrank_signals": [
+          "language-specific-llm",
+          "tokenization",
+          "not-agent-focused",
+          "not-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.08570": {
+      "title": "QuanBench+: A Unified Multi-Framework Benchmark for LLM-Based Quantum Code Generation",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "A quantum code-generation benchmark with repair loops, but it is mainly domain-specific evaluation rather than agents, RL, or interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "functional-tests",
+          "feedback-based-repair",
+          "benchmarking"
+        ],
+        "downrank_signals": [
+          "quantum-code-generation",
+          "domain-specific",
+          "not-agentic",
+          "not-rlhf"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11290": {
+      "title": "Polyglot Teachers: Evaluating Language Models for Multilingual Synthetic Data Generation",
+      "filter_result": {
+        "decision": "reject",
+        "score": 24,
+        "reason": "This is a data-centric multilingual SFT study with limited overlap to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [
+          "post-training"
+        ],
+        "weak_signals": [
+          "synthetic-data",
+          "teacher-model-selection",
+          "evaluation-methodology"
+        ],
+        "downrank_signals": [
+          "multilingual-tasks",
+          "supervised-finetuning",
+          "no-agent-or-rl-component",
+          "no-interpretability-component"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.09557": {
+      "title": "SPEED-Bench: A Unified and Diverse Benchmark for Speculative Decoding",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 47,
+        "reason": "Benchmark work on speculative decoding is useful LLM systems infrastructure, but it is only indirectly related to agents or post-training.",
+        "matched_interests": [
+          "llm-systems",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "production-engine evaluation",
+          "throughput benchmarking",
+          "speculative-decoding"
+        ],
+        "downrank_signals": [
+          "no reinforcement-learning",
+          "no post-training",
+          "no mechanistic-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.02340": {
+      "title": "Not All Denoising Steps Are Equal: Model Scheduling for Faster Masked Diffusion Language Models",
+      "filter_result": {
+        "decision": "reject",
+        "score": 24,
+        "reason": "A sampling-efficiency paper for masked diffusion LMs, but it is not directly tied to RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "generic-efficiency",
+          "diffusion-language-models",
+          "not-agent-specific"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11666": {
+      "title": "Playing Along: Learning a Double-Agent Defender for Belief Steering via Theory of Mind",
+      "filter_result": {
+        "decision": "accept",
+        "score": 88,
+        "reason": "Strongly aligned with RL for agent behavior shaping and adversarial agent interaction, with a concrete ToM-based training method and evaluation.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "agents",
+          "agent-evals",
+          "post-training"
+        ],
+        "weak_signals": [
+          "llm-systems",
+          "alignment"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "The paper introduces ToM-SB, a privacy-themed theory-of-mind benchmark where a defender must mislead an attacker about extracting sensitive information, and shows that reinforcement learning can train AI double agents that improve both belief-steering and theory-of-mind performance.",
+        "key_points": [
+          "ToM-SB is a shared-universe adversarial dialogue task in which the defender acts as a double agent and must steer the attacker\u2019s beliefs under partial attacker prior knowledge.",
+          "The task is designed to test whether a model can form and use a theory of mind in a security- or privacy-flavored setting.",
+          "Strong frontier models such as Gemini3-Pro and GPT-5.4 struggle on hard ToM-SB scenarios, including when prompted to reason about the attacker\u2019s beliefs.",
+          "The authors train defender models with reinforcement learning using fooling rewards, theory-of-mind rewards, or both, and find a bidirectional relationship: optimizing one objective improves the other.",
+          "Across four attackers, six defender methods, in-distribution and out-of-distribution evaluation, combined ToM plus fooling rewards give the strongest results and outperform prompted frontier models on hard scenarios."
+        ],
+        "why_relevant": "It directly connects reinforcement learning, agentic interaction, and post-training behavior shaping, while also providing an evaluation setup for belief modeling in adversarial dialogue systems.",
+        "open_questions": [
+          "What exact reward formulations were used for the fooling and ToM objectives?",
+          "How was theory-of-mind measured quantitatively on ToM-SB?",
+          "What were the six defender methods compared in the experiments?",
+          "How much stronger were the out-of-distribution attackers, and what did upgradability require in practice?"
+        ],
+        "tags": [
+          "reinforcement-learning",
+          "agents",
+          "theory-of-mind",
+          "adversarial-interaction",
+          "post-training",
+          "evaluation"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-11666-playing-along-learning-a-double-agent-defender-for-belief-steering-via-theory-of.md",
+      "source_url_used": "https://arxiv.org/abs/2604.11666",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.10425": {
+      "title": "DiningBench: A Hierarchical Multi-view Benchmark for Perception and Reasoning in the Dietary Domain",
+      "filter_result": {
+        "decision": "reject",
+        "score": 8,
+        "reason": "A food-domain VLM benchmark with limited relevance to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "evaluation-benchmark",
+          "reasoning-analysis"
+        ],
+        "downrank_signals": [
+          "vision-language-models",
+          "multimodal",
+          "food-domain",
+          "application-paper"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.08121": {
+      "title": "Uni-ViGU: Towards Unified Video Generation and Understanding via A Diffusion-Based Video Generator",
+      "filter_result": {
+        "decision": "reject",
+        "score": 8,
+        "reason": "Primarily a unified video generation/understanding multimodal paper with little direct relevance to RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "multimodal-video",
+          "video-generation",
+          "video-understanding",
+          "foundation-model"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.11716": {
+      "title": "SWE-AGILE: A Software Agent Framework for Efficiently Managing Dynamic Reasoning Context",
+      "filter_result": {
+        "decision": "accept",
+        "score": 89,
+        "reason": "A technically focused software-agent framework for SWE with context management and SWE-Bench-Verified evaluation fits the agents and agent-evals priorities.",
+        "matched_interests": [
+          "agents",
+          "agent-architectures",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "reasoning-context-management",
+          "context-compression",
+          "swe-bench-verified"
+        ],
+        "downrank_signals": [
+          "software-engineering-focus-over-general-agent-research",
+          "not-rLHF-or-interpretability"
+        ]
+      },
+      "extraction_result": {
+        "one_sentence_summary": "SWE-AGILE is a software agent framework for multi-turn SWE tasks that manages reasoning context with a sliding window plus compressed reasoning digests to reduce context explosion while preserving continuity.",
+        "key_points": [
+          "The paper argues that ReAct-style SWE agents often lack explicit System-2 reasoning, which hurts deep analysis and edge-case handling.",
+          "It identifies a core tradeoff in multi-turn software engineering tasks: keeping full reasoning history causes context explosion and lost-in-the-middle degradation, while discarding history forces repeated re-reasoning.",
+          "SWE-AGILE's Dynamic Reasoning Context strategy keeps detailed recent reasoning in a sliding window and compresses older reasoning into concise Reasoning Digests.",
+          "The framework is reported to set a new standard for 7B-8B models on SWE-Bench-Verified, using 2.2k trajectories over 896 tasks.",
+          "The contribution is primarily an agent-system design for long-horizon reasoning management rather than a new base model or algorithmic RL method."
+        ],
+        "why_relevant": "It is directly relevant to agents and tool-using systems because it proposes a concrete context-management mechanism for long-horizon reasoning in software engineering agents, with benchmark evidence.",
+        "open_questions": [
+          "How are Reasoning Digests constructed and updated during a trajectory?",
+          "What exact SWE-Bench-Verified metrics improved, and by how much over baselines?",
+          "How much of the gain comes from the sliding window versus the digest compression?",
+          "Does the approach generalize beyond SWE-Bench-Verified or beyond 7B-8B models?"
+        ],
+        "tags": [
+          "agents",
+          "software-engineering",
+          "context-management",
+          "cot",
+          "swe-bench",
+          "reasoning"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-14-2604-11716-swe-agile-a-software-agent-framework-for-efficiently-managing-dynamic-reasoning-.md",
+      "source_url_used": "https://arxiv.org/abs/2604.11716",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-15T09:44:17+08:00"
+    },
+    "2604.05278": {
+      "title": "Spec Kit Agents: Context-Grounded Agentic Workflows",
+      "filter_result": {
+        "decision": "accept",
+        "score": 84,
+        "reason": "Directly about coding-agent workflows and evaluation, with concrete multi-agent architecture and benchmark results.",
+        "matched_interests": [
+          "agents",
+          "agent-architectures",
+          "agent-evals",
+          "llm-systems",
+          "tool-use",
+          "coding-agents"
+        ],
+        "weak_signals": [
+          "spec-driven-development",
+          "llm-as-judge",
+          "swe-bench-lite"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "Spec Kit Agents is a multi-agent spec-driven development pipeline that adds repository-grounding and validation hooks to reduce context blindness in AI coding workflows and improve judged quality without hurting test compatibility.",
+        "key_points": [
+          "It introduces a spec-driven development workflow with separate PM and developer roles for AI coding agents.",
+          "Phase-level read-only probing hooks ground the Specify, Plan, Tasks, and Implement stages in repository evidence.",
+          "Validation hooks check intermediate artifacts against the environment to catch mismatches before final implementation.",
+          "Across 128 runs on 32 features in five repositories, the hooks improved composite LLM-as-judge quality by +0.15 on a 1-5 scale while keeping repository-level test compatibility at 99.7-100%.",
+          "On SWE-bench Lite, augmentation hooks improved the baseline by 1.7 percentage points and reached 58.2% Pass@1."
+        ],
+        "why_relevant": "The paper is directly relevant to agentic tool-using systems because it studies how workflow structure, repository-grounded context, and validation hooks affect coding-agent performance.",
+        "open_questions": [
+          "Which specific repository evidence was most useful for each stage of the pipeline?",
+          "How were the PM and developer roles coordinated in the multi-agent setup?",
+          "What were the main failure modes that remained despite the grounding and validation hooks?",
+          "How large was the baseline on SWE-bench Lite before the 1.7% improvement?"
+        ],
+        "tags": [
+          "agents",
+          "tool-use",
+          "coding-agents",
+          "evals",
+          "sdd",
+          "llm-judge",
+          "swe-bench"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-16-2604-05278-spec-kit-agents-context-grounded-agentic-workflows.md",
+      "source_url_used": "https://arxiv.org/abs/2604.05278",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09687": {
+      "title": "Grid2Matrix: Revealing Digital Agnosia in Vision-Language Models",
+      "filter_result": {
+        "decision": "reject",
+        "score": 28,
+        "reason": "Useful VLM evaluation work, but it is mostly about visual-detail failures rather than RL, agents, or mechanistic interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "end-to-end evaluation",
+          "structured failure analysis",
+          "multimodal alignment"
+        ],
+        "downrank_signals": [
+          "not-rllm",
+          "not-agents",
+          "not-mechanistic-interpretability",
+          "vision-language-models"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.14025": {
+      "title": "Feed-Forward 3D Scene Modeling: A Problem-Driven Perspective",
+      "filter_result": {
+        "decision": "reject",
+        "score": 9,
+        "reason": "A 3D reconstruction survey with evaluation/dataset discussion, but it is mostly vision/graphics rather than the user\u2019s core RL, agents, or interpretability interests.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "computer-vision",
+          "3d-reconstruction",
+          "survey",
+          "world-modeling"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.10577": {
+      "title": "The Blind Spot of Agent Safety: How Benign User Instructions Expose Critical Vulnerabilities in Computer-Use Agents",
+      "filter_result": {
+        "decision": "accept",
+        "score": 92,
+        "reason": "A strong agent-safety evaluation paper on computer-use agents, multi-agent failure modes, and safety alignment dynamics.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems",
+          "alignment"
+        ],
+        "weak_signals": [
+          "computer-use agents",
+          "multi-agent systems",
+          "safety defenses",
+          "environment interaction"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "OS-BLIND is a benchmark for computer-use agents that tests whether benign user instructions can still lead to harmful execution, and finds severe safety failures even in frontier and safety-aligned systems.",
+        "key_points": [
+          "The paper targets a gap in CUA safety evaluation: cases where the prompt is benign but harm arises from task context or execution outcome rather than explicit malicious intent.",
+          "OS-BLIND contains 300 human-crafted tasks spanning 12 categories, 8 applications, and two threat clusters: environment-embedded threats and agent-initiated harms.",
+          "In evaluation, most tested CUAs exceeded 90% attack success rate, and Claude 4.5 Sonnet still reached 73.0% ASR despite safety alignment.",
+          "Deploying Claude 4.5 Sonnet in a multi-agent setup worsened outcomes substantially, increasing ASR from 73.0% to 92.7%.",
+          "The analysis suggests current defenses are weak in benign-instruction settings because safety alignment triggers early and does not reliably re-engage, while task decomposition in multi-agent systems can hide harmful intent."
+        ],
+        "why_relevant": "This paper is directly relevant to agent safety and tool-using systems because it studies failure modes of computer-use agents under realistic benign prompts, including multi-agent decomposition and safety alignment behavior.",
+        "open_questions": [
+          "How exactly are the 300 tasks distributed across the 12 categories and 8 applications?",
+          "What counts as a successful attack in OS-BLIND, and how is ASR measured operationally?",
+          "Which frontier models and agentic frameworks were evaluated besides Claude 4.5 Sonnet?",
+          "What specific safety defenses were tested, and how much did each reduce ASR?",
+          "What kinds of environment-embedded threats versus agent-initiated harms were most difficult to defend against?"
+        ],
+        "tags": [
+          "agents",
+          "computer-use",
+          "safety",
+          "benchmark",
+          "evaluation",
+          "multi-agent",
+          "alignment"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-16-2604-10577-the-blind-spot-of-agent-safety-how-benign-user-instructions-expose-critical-vuln.md",
+      "source_url_used": "https://arxiv.org/abs/2604.10577",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12946": {
+      "title": "Parcae: Scaling Laws For Stable Looped Language Models",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 54,
+        "reason": "Useful LLM systems/architecture work on stable looped models and scaling laws, but it is not directly about RL, agents, or interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "scaling-laws",
+          "architecture-trade-offs",
+          "test-time-compute"
+        ],
+        "downrank_signals": [
+          "not-rl",
+          "not-agents",
+          "not-mechanistic-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.11177": {
+      "title": "Do Thought Streams Matter? Evaluating Reasoning in Gemini Vision-Language Models for Video Scene Understanding",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 63,
+        "reason": "It studies internal reasoning traces and hallucination behavior, but the main setting is VLM video understanding rather than core RL/agents/interpretability.",
+        "matched_interests": [
+          "reasoning-behavior",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "internal reasoning traces",
+          "evaluation metrics for thought-final coverage",
+          "compression-step hallucination"
+        ],
+        "downrank_signals": [
+          "vision-language models",
+          "video scene understanding",
+          "not about RLHF or agents",
+          "limited direct interpretability depth"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.13015": {
+      "title": "Learning Versatile Humanoid Manipulation with Touch Dreaming",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 68,
+        "reason": "Technically strong humanoid manipulation paper with an RL-based controller and contact-aware policy learning, but it is more robotics than core RL/post-training or agents.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "post-training",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "behavioral-cloning",
+          "contact-aware-representations",
+          "architecture-tradeoffs",
+          "benchmark"
+        ],
+        "downrank_signals": [
+          "robotics",
+          "humanoid-manipulation",
+          "not-llm-centric"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12710": {
+      "title": "LASA: Language-Agnostic Semantic Alignment at the Semantic Bottleneck for LLM Safety",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 66,
+        "reason": "Representation-level safety alignment via semantic bottlenecks is adjacent to mechanistic/representation analysis, but the paper is primarily an LLM safety method rather than core RL or agents work.",
+        "matched_interests": [
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "post-training"
+        ],
+        "weak_signals": [
+          "alignment-method",
+          "language-agnostic representations",
+          "semantic bottleneck"
+        ],
+        "downrank_signals": [
+          "llm-safety",
+          "cross-lingual focus",
+          "not agents or rl"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.10812": {
+      "title": "PokeRL: Reinforcement Learning for Pokemon Red",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 72,
+        "reason": "A practical RL system paper with environment wrappers, anti-loop handling, and hierarchical reward design, but centered on a game benchmark rather than LLM post-training or agents.",
+        "matched_interests": [
+          "reinforcement-learning",
+          "environment-interaction",
+          "reward-modeling"
+        ],
+        "weak_signals": [
+          "systems-playbook",
+          "benchmark-design",
+          "implementation-details"
+        ],
+        "downrank_signals": [
+          "game-specific",
+          "not-llm",
+          "narrow-task-scope"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12978": {
+      "title": "GlotOCR Bench: OCR Models Still Struggle Beyond a Handful of Unicode Scripts",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "A multilingual OCR benchmark is useful, but it is not closely tied to RL, agents, or mechanistic interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems",
+          "benchmarking"
+        ],
+        "downrank_signals": [
+          "ocr",
+          "vision-language-models",
+          "multilingual-text",
+          "unicode-scripts"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09594": {
+      "title": "Spatial Competence Benchmark",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 48,
+        "reason": "A benchmark paper on spatial reasoning and internal representations with deterministic evaluators is adjacent to evaluation and representation analysis, but not a core target area.",
+        "matched_interests": [
+          "representation-analysis",
+          "llm-systems",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "deterministic-checkers",
+          "simulator-based-evaluators",
+          "internal-representation",
+          "action-planning"
+        ],
+        "downrank_signals": [
+          "spatial-reasoning-benchmark",
+          "limited-direct-rl-or-agents-content",
+          "single-benchmark-focus"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09497": {
+      "title": "BERT-as-a-Judge: A Robust Alternative to Lexical Methods for Efficient Reference-Based LLM Evaluation",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 68,
+        "reason": "A practical LLM evaluation method with implementation and tradeoff details, but it is not directly about RL, agents, or mechanistic interpretability.",
+        "matched_interests": [
+          "llm-systems",
+          "agent-evals"
+        ],
+        "weak_signals": [
+          "reference-based-evaluation",
+          "llm-as-a-judge",
+          "practical-benchmarking"
+        ],
+        "downrank_signals": [
+          "not-rl",
+          "not-agents",
+          "not-mechanistic-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12152": {
+      "title": "Domain-Specific Latent Representations Improve the Fidelity of Diffusion-Based Medical Image Super-Resolution",
+      "filter_result": {
+        "decision": "reject",
+        "score": 6,
+        "reason": "Medical image super-resolution with diffusion is technically solid but outside the user's core interests in RL, agents, and interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "medical-imaging",
+          "diffusion",
+          "super-resolution",
+          "not-about-reinforcement-learning",
+          "not-about-agents",
+          "not-about-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.11211": {
+      "title": "3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis",
+      "filter_result": {
+        "decision": "reject",
+        "score": 12,
+        "reason": "This is a real-time view synthesis and rendering paper, not focused on RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems"
+        ],
+        "downrank_signals": [
+          "computer-vision",
+          "real-time-rendering",
+          "multi-view-video",
+          "AR/VR"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.11784": {
+      "title": "ClawGUI: A Unified Framework for Training, Evaluating, and Deploying GUI Agents",
+      "filter_result": {
+        "decision": "accept",
+        "score": 94,
+        "reason": "Directly targets GUI agents with RL training, standardized evaluation, and deployment infrastructure.",
+        "matched_interests": [
+          "agents",
+          "reinforcement-learning",
+          "post-training",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "GUI agents",
+          "dense step-level supervision",
+          "cross-platform deployment",
+          "benchmark standardization"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "ClawGUI is an open-source end-to-end framework for GUI agents that unifies RL training, standardized evaluation, and cross-platform deployment across real devices and chat platforms.",
+        "key_points": [
+          "The paper argues that GUI agent progress is limited less by model capacity than by infrastructure gaps: unstable RL environments, drifting evaluation protocols, and weak real-device deployment.",
+          "ClawGUI-RL provides open-source GUI agent RL infrastructure with support for parallel virtual environments and real physical devices, combining GiGPO with a Process Reward Model for dense step-level supervision.",
+          "ClawGUI-Eval standardizes evaluation across 6 benchmarks and 11+ models and reports 95.8% reproduction against official baselines.",
+          "ClawGUI-Agent deploys trained agents to Android, HarmonyOS, and iOS through 12+ chat platforms using hybrid CLI-GUI control and persistent personalized memory.",
+          "An end-to-end trained ClawGUI-2B model reaches 17.1% success rate on MobileWorld GUI-Only, beating the same-scale MAI-UI-2B baseline by 6.0%."
+        ],
+        "why_relevant": "It is directly relevant to agents and post-training because it couples reinforcement learning, evaluation, and deployment into one infrastructure for GUI agents that operate on real devices.",
+        "open_questions": [
+          "What specific tasks and environments are covered by the 6 benchmarks used in ClawGUI-Eval?",
+          "How is the Process Reward Model trained and how are step-level rewards constructed?",
+          "What aspects of environment instability are addressed in the parallel virtual and physical device setup?",
+          "How does hybrid CLI-GUI control work in practice across the supported chat platforms?",
+          "What is the size, architecture, and training recipe for ClawGUI-2B beyond the reported success rate?"
+        ],
+        "tags": [
+          "gui-agents",
+          "reinforcement-learning",
+          "post-training",
+          "evaluation",
+          "deployment",
+          "mobile",
+          "tool-use"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-15-2604-11784-clawgui-a-unified-framework-for-training-evaluating-and-deploying-gui-agents.md",
+      "source_url_used": "https://arxiv.org/abs/2604.11784",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09574": {
+      "title": "Turing Test on Screen: A Benchmark for Mobile GUI Agent Humanization",
+      "filter_result": {
+        "decision": "accept",
+        "score": 82,
+        "reason": "A concrete benchmark and evaluation framework for mobile GUI agents, with technical details on behavior matching and performance trade-offs.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "adversarial-detection",
+          "behavioral-divergence",
+          "mobile-gui-agents"
+        ],
+        "downrank_signals": [
+          "not-rlhf",
+          "not-mechanistic-interpretability",
+          "narrow-domain-humanization"
+        ]
+      },
+      "extraction_result": {
+        "one_sentence_summary": "This paper proposes \u201cTuring Test on Screen,\u201d a benchmark and optimization framing for making mobile GUI agents less detectable by matching human touch behavior while preserving task performance.",
+        "key_points": [
+          "Models agent-vs-detector interaction as a MinMax problem where the agent minimizes behavioral divergence from human behavior.",
+          "Introduces a new high-fidelity dataset of mobile touch dynamics to analyze and compare agent behavior.",
+          "Finds that vanilla LMM-based GUI agents are easy to detect because their kinematics look unnatural.",
+          "Defines the Agent Humanization Benchmark (AHB) and detection metrics to measure the trade-off between imitability and utility.",
+          "Reports that heuristic noise and data-driven behavioral matching can improve human-likeness without sacrificing performance, at least in the paper's experiments."
+        ],
+        "why_relevant": "It is directly relevant to agentic systems and evaluation because it studies how autonomous GUI agents should behave under adversarial detection, not just whether they complete tasks.",
+        "open_questions": [
+          "What exact detector models and evaluation protocol were used in AHB?",
+          "How large and diverse is the mobile touch dynamics dataset?",
+          "Which behavioral matching method performed best, and on what tasks or devices?",
+          "How much performance trade-off remains under stronger detectors or more realistic platform defenses?"
+        ],
+        "tags": [
+          "gui-agents",
+          "evaluation",
+          "humanization",
+          "adversarial",
+          "mobile",
+          "benchmark"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-15-2604-09574-turing-test-on-screen-a-benchmark-for-mobile-gui-agent-humanization.md",
+      "source_url_used": "https://arxiv.org/abs/2604.09574",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.13023": {
+      "title": "SpotSound: Enhancing Large Audio-Language Models with Fine-Grained Temporal Grounding",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "It is an audio-language grounding paper, not a strong match for RL, agents, or mechanistic interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "temporal grounding",
+          "benchmarking",
+          "hallucination suppression"
+        ],
+        "downrank_signals": [
+          "audio-language-domain",
+          "outside-core-priorities",
+          "no-agent-or-rl-methodology"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12989": {
+      "title": "Accelerating Speculative Decoding with Block Diffusion Draft Trees",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 68,
+        "reason": "A speculative decoding systems paper with concrete drafter/tree verification mechanics, relevant to LLM efficiency but not a direct hit on agents, RL, or interpretability.",
+        "matched_interests": [
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "speculative-decoding",
+          "draft-models",
+          "architecture-trade-offs",
+          "benchmark-performance"
+        ],
+        "downrank_signals": [
+          "not-reinforcement-learning",
+          "not-agents",
+          "not-mechanistic-interpretability"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.11840": {
+      "title": "When Reasoning Models Hurt Behavioral Simulation: A Solver-Sampler Mismatch in Multi-Agent LLM Negotiation",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 71,
+        "reason": "Relevant to agent behavior and reasoning evaluation, but it is more about behavioral simulation than building or training agents.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "reasoning-behavior-shaping"
+        ],
+        "weak_signals": [
+          "multi-agent negotiation",
+          "bounded rationality",
+          "simulation fidelity",
+          "reflection conditions"
+        ],
+        "downrank_signals": [
+          "not RLHF/reward-modeling",
+          "not mechanistic-interpretability",
+          "limited systems/implementation depth"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12373": {
+      "title": "Masked by Consensus: Disentangling Privileged Knowledge in LLM Correctness",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 72,
+        "reason": "Uses hidden-state and layer-level analysis to study privileged internal knowledge in LLM correctness, which fits representation analysis and mechanistic interpretability.",
+        "matched_interests": [
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "internal-dynamics"
+        ],
+        "weak_signals": [
+          "correctness-classifiers",
+          "hidden-states",
+          "layerwise-analysis",
+          "self-vs-peer-probes"
+        ],
+        "downrank_signals": [
+          "not-about-reinforcement-learning",
+          "not-about-agents-or-tool-use",
+          "narrow-to-correctness-prediction"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.05072": {
+      "title": "Hierarchical SVG Tokenization: Learning Compact Visual Programs for Scalable Vector Graphics Modeling",
+      "filter_result": {
+        "decision": "reject",
+        "score": 18,
+        "reason": "This is a vector graphics tokenization paper with little direct relevance to RL, agents, or interpretability.",
+        "matched_interests": [],
+        "weak_signals": [
+          "llm-systems",
+          "sequence-efficiency",
+          "tokenization"
+        ],
+        "downrank_signals": [
+          "svg-generation",
+          "image-to-svg",
+          "text-to-svg",
+          "generic-generation"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09746": {
+      "title": "CONSCIENTIA: Can LLM Agents Learn to Strategize? Emergent Deception and Trust in a Multi-Agent NYC Simulation",
+      "filter_result": {
+        "decision": "accept",
+        "score": 92,
+        "reason": "Strong match on LLM agents, strategic behavior in multi-agent interaction, and post-training via KTO for behavior shaping.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "post-training",
+          "reinforcement-learning",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "multi-agent simulation",
+          "adversarial persuasion",
+          "selective trust",
+          "selective cooperation"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "This paper studies whether LLM agents can learn strategic behavior in a multi-agent NYC simulation and finds limited emergence of selective trust and deception, but persistent vulnerability to adversarial persuasion.",
+        "key_points": [
+          "The authors build a controlled multi-agent simulation of a simplified New York City where hidden identities and conflicting incentives force agents to decide whom to trust.",
+          "Blue agents are trained to reach destinations efficiently while reducing billboard exposure, while Red agents try to steer them toward billboard-heavy routes using persuasive language.",
+          "Policy learning is done through repeated interaction rounds with Kahneman-Tversky Optimization (KTO), allowing both Blue and Red policies to adapt over time.",
+          "The best Blue policy improves task success from 46.0% to 57.3%, but susceptibility to steering remains high at 70.7%.",
+          "Later policies show stronger selective cooperation while keeping trajectory efficiency, but the paper reports a persistent safety-helpfulness trade-off."
+        ],
+        "why_relevant": "It is directly relevant to agentic LLM post-training and multi-agent evaluation because it studies how training changes strategic behavior, trust, deception, and robustness under adversarial interaction.",
+        "open_questions": [
+          "How exactly is KTO applied to the agent policies in this simulation?",
+          "What model family or scale is used for the LLM-driven agents?",
+          "How is 'susceptibility' measured, and what counts as successful deception or selective cooperation?",
+          "Do the reported results generalize beyond the simplified NYC environment?"
+        ],
+        "tags": [
+          "llm-agents",
+          "multi-agent",
+          "post-training",
+          "reinforcement-learning",
+          "deception",
+          "trust",
+          "agent-evals"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-15-2604-09746-conscientia-can-llm-agents-learn-to-strategize-emergent-deception-and-trust-in-a.md",
+      "source_url_used": "https://arxiv.org/abs/2604.09746",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.12119": {
+      "title": "Beyond Perception Errors: Semantic Fixation in Large Vision-Language Models",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 68,
+        "reason": "Relevant for post-training, prompt interventions, and late-layer representation steering in VLMs, but not core RL or agents work.",
+        "matched_interests": [
+          "post-training",
+          "mechanistic-interpretability",
+          "representation-analysis",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "controlled benchmark",
+          "prompt interventions",
+          "late-layer activation steering",
+          "training transfer effects"
+        ],
+        "downrank_signals": [
+          "vision-language focus",
+          "no reinforcement-learning",
+          "not agentic",
+          "limited alignment framing"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.09443": {
+      "title": "Many-Tier Instruction Hierarchy in LLM Agents",
+      "filter_result": {
+        "decision": "accept",
+        "score": 78,
+        "reason": "Strongly relevant agent-evaluation work on scalable instruction conflict resolution in LLM agents.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "instruction-following",
+          "coding-tasks",
+          "architecture-tradeoffs"
+        ],
+        "downrank_signals": []
+      },
+      "extraction_result": {
+        "one_sentence_summary": "This paper proposes Many-Tier Instruction Hierarchy (ManyIH) for resolving instruction conflicts across arbitrarily many privilege levels in LLM agents and introduces ManyIH-Bench to evaluate it.",
+        "key_points": [
+          "ManyIH generalizes instruction hierarchy beyond the usual fixed, small set of role labels such as system > user.",
+          "ManyIH-Bench is the first benchmark for this setting and includes up to 12 levels of conflicting instructions.",
+          "The benchmark contains 853 agentic tasks, split between 427 coding tasks and 426 instruction-following tasks.",
+          "The test cases are built from constraints developed by LLMs and verified by humans, spanning 46 real-world agents.",
+          "The paper reports that frontier models still perform poorly, around 40% accuracy, when instruction conflict becomes more deeply layered."
+        ],
+        "why_relevant": "It is directly about agent instruction-following and conflict resolution in complex tool- and multi-source settings, which is central to robust LLM agents.",
+        "open_questions": [
+          "What specific prompting or architectural strategies improve ManyIH performance beyond current frontier models?",
+          "How does performance vary by task type, model family, or number of privilege levels?",
+          "How were the 46 real-world agents selected, and how transferable is the benchmark across agent frameworks?",
+          "Does the paper provide error analysis showing which kinds of instruction conflicts models fail on most often?"
+        ],
+        "tags": [
+          "llm-agents",
+          "instruction-hierarchy",
+          "benchmark",
+          "instruction-following",
+          "agent-evals"
+        ]
+      },
+      "inbox_path": "sources/inbox/hf-daily-papers/2026-04-15-2604-09443-many-tier-instruction-hierarchy-in-llm-agents.md",
+      "source_url_used": "https://arxiv.org/abs/2604.09443",
+      "source_basis": "original abstract page",
+      "processed_at": "2026-04-16T09:43:52+08:00"
+    },
+    "2604.11689": {
+      "title": "LARY: A Latent Action Representation Yielding Benchmark for Generalizable Vision-to-Action Alignment",
+      "filter_result": {
+        "decision": "maybe",
+        "score": 73,
+        "reason": "Strongly relevant to vision-to-action alignment and embodied agent control, with useful benchmark and representation analysis, but not directly about RLHF or mechanistic interpretability.",
+        "matched_interests": [
+          "agents",
+          "agent-evals",
+          "llm-systems"
+        ],
+        "weak_signals": [
+          "embodied-control",
+          "vision-to-action-alignment",
+          "benchmark",
+          "representation-analysis"
+        ],
+        "downrank_signals": [
+          "not-llm-post-training",
+          "not-mechanistic-interpretability",
+          "vision-centric-rather-than-core-rl"
+        ]
+      },
+      "extraction_result": null,
+      "inbox_path": "",
+      "source_url_used": "",
+      "source_basis": "",
+      "processed_at": "2026-04-16T09:43:52+08:00"
     }
   }
 }

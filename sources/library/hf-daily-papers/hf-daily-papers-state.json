@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T16:10:01+08:00",
+  "generated_at": "2026-04-29T16:17:08+08:00",
   "papers": {
     "2604.08172": {
       "title": "On the Global Photometric Alignment for Low-Level Vision",
@@ -7393,7 +7393,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-25719-step-audio-r1-5-technical-report.md",
       "source_url_used": "https://arxiv.org/abs/2604.25719",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25806": {
       "title": "MAIC-UI: Making Interactive Courseware with Generative UI",
@@ -7417,7 +7417,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25256": {
       "title": "AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery",
@@ -7464,7 +7464,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-25256-autoresearchbench-benchmarking-ai-agents-on-complex-scientific-literature-discov.md",
       "source_url_used": "https://arxiv.org/abs/2604.25256",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.21481": {
       "title": "Preferences of a Voice-First Nation: Large-Scale Pairwise Evaluation and Preference Analysis for TTS in Indian Languages",
@@ -7491,7 +7491,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.21523": {
       "title": "Seeing Isn't Believing: Uncovering Blind Spots in Evaluator Vision-Language Models",
@@ -7520,7 +7520,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24005": {
       "title": "TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents",
@@ -7570,7 +7570,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-24005-tcod-exploring-temporal-curriculum-in-on-policy-distillation-for-multi-turn-auto.md",
       "source_url_used": "https://arxiv.org/abs/2604.24005",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.23941": {
       "title": "GoClick: Lightweight Element Grounding Model for Autonomous GUI Interaction",
@@ -7620,7 +7620,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-23941-goclick-lightweight-element-grounding-model-for-autonomous-gui-interaction.md",
       "source_url_used": "https://arxiv.org/abs/2604.23941",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24441": {
       "title": "AutoGUI-v2: A Comprehensive Multi-Modal GUI Functionality Understanding Benchmark",
@@ -7670,7 +7670,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-24441-autogui-v2-a-comprehensive-multi-modal-gui-functionality-understanding-benchmark.md",
       "source_url_used": "https://arxiv.org/abs/2604.24441",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25203": {
       "title": "BARRED: Synthetic Training of Custom Policy Guardrails via Asymmetric Debate",
@@ -7700,7 +7700,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24842": {
       "title": "Co-Director: Agentic Generative Video Storytelling",
@@ -7729,7 +7729,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25819": {
       "title": "Mutual Forcing: Dual-Mode Self-Evolution for Fast Autoregressive Audio-Video Character Generation",
@@ -7752,7 +7752,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25636": {
       "title": "Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models",
@@ -7775,7 +7775,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25164": {
       "title": "IAM: Identity-Aware Human Motion and Shape Joint Generation",
@@ -7797,7 +7797,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25427": {
       "title": "A Systematic Post-Train Framework for Video Generation",
@@ -7829,7 +7829,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25727": {
       "title": "Toward Scalable Terminal Task Synthesis via Skill Graphs",
@@ -7879,7 +7879,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-25727-toward-scalable-terminal-task-synthesis-via-skill-graphs.md",
       "source_url_used": "https://arxiv.org/abs/2604.25727",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25914": {
       "title": "DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios",
@@ -7931,7 +7931,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-25914-dv-world-benchmarking-data-visualization-agents-in-real-world-scenarios.md",
       "source_url_used": "https://arxiv.org/abs/2604.25914",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24819": {
       "title": "Programming with Data: Test-Driven Data Engineering for Self-Improving LLMs from Raw Corpora",
@@ -7962,7 +7962,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.25917": {
       "title": "Recursive Multi-Agent Systems",
@@ -8013,7 +8013,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-25917-recursive-multi-agent-systems.md",
       "source_url_used": "https://arxiv.org/abs/2604.25917",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24625": {
       "title": "Meta-CoT: Enhancing Granularity and Generalization in Image Editing",
@@ -8039,7 +8039,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.18756": {
       "title": "Towards Understanding the Robustness of Sparse Autoencoders",
@@ -8086,7 +8086,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-18756-towards-understanding-the-robustness-of-sparse-autoencoders.md",
       "source_url_used": "https://arxiv.org/abs/2604.18756",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.23446": {
       "title": "IndustryAssetEQA: A Neurosymbolic Operational Intelligence System for Embodied Question Answering in Industrial Asset Maintenance",
@@ -8115,7 +8115,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.15574": {
       "title": "Why Fine-Tuning Encourages Hallucinations and How to Fix It",
@@ -8165,7 +8165,7 @@
       "inbox_path": "sources/inbox/hf-daily-papers/2026-04-29-2604-15574-why-fine-tuning-encourages-hallucinations-and-how-to-fix-it.md",
       "source_url_used": "https://arxiv.org/abs/2604.15574",
       "source_basis": "original abstract page",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.24040": {
       "title": "Improving Robustness of Tabular Retrieval via Representational Stability",
@@ -8192,7 +8192,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.21681": {
       "title": "Sapiens2",
@@ -8215,7 +8215,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     },
     "2604.23600": {
       "title": "Personality Shapes Gender Bias in Persona-Conditioned LLM Narratives Across English and Hindi: An Empirical Investigation",
@@ -8239,7 +8239,7 @@
       "inbox_path": "",
       "source_url_used": "",
       "source_basis": "",
-      "processed_at": "2026-04-29T16:10:01+08:00"
+      "processed_at": "2026-04-29T16:17:08+08:00"
     }
   }
 }

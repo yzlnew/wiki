@@ -11,7 +11,7 @@ generator: scripts/update_bookmarks.py
 
 ## Summary
 
-- generated_at: 2026-04-29T16:09:58+08:00
+- generated_at: 2026-04-29T16:17:05+08:00
 - total_links: 66
 - archived_links: 2
 - favourited_links: 0

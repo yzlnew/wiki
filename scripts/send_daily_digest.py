@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import html as html_lib
 import os
 import re
 import base64
@@ -97,17 +98,14 @@ def summary_value(report_text: str, key: str) -> str:
     return match.group(1).strip() if match else "unknown"
 
 
-def parse_markdown_links_under_section(report_text: str, section: str, limit: int = 5) -> list[str]:
+def parse_markdown_links_under_section(report_text: str, section: str, limit: int = 5) -> list[tuple[str, str]]:
     pattern = rf"^## {re.escape(section)}\n\n(.*?)(?=^## |\Z)"
     match = re.search(pattern, report_text, re.MULTILINE | re.DOTALL)
     if not match:
         return []
     block = match.group(1)
     items = re.findall(r"^- \[(.+?)\]\((.+?)\)", block, re.MULTILINE)
-    result: list[str] = []
-    for title, url in items[:limit]:
-        result.append(f"- {title} | {url}")
-    return result
+    return [(title, url) for title, url in items[:limit]]
 
 
 def parse_staged_files(report_text: str, limit: int = 10) -> list[str]:
@@ -117,9 +115,9 @@ def parse_staged_files(report_text: str, limit: int = 10) -> list[str]:
     return re.findall(r"^- `(.+?)`", match.group(1), re.MULTILINE)[:limit]
 
 
-def parse_bookmarks_latest(report_text: str) -> list[str]:
+def parse_bookmarks_latest(report_text: str, limit: int = 5) -> list[tuple[str, str, str]]:
     items = re.findall(r"^- \[(.+?)\]\((.+?)\)\n  - added: `([^`]+)`", report_text, re.MULTILINE)
-    return [f"- {title} | {added} | {url}" for title, url, added in items[:5]]
+    return [(title, url, added) for title, url, added in items[:limit]]
 
 
 def build_digest(results: list[CommandResult]) -> str:
@@ -155,7 +153,8 @@ def build_digest(results: list[CommandResult]) -> str:
     )
     latest_bookmarks = parse_bookmarks_latest(bookmarks_text)
     if latest_bookmarks:
-        lines.extend(latest_bookmarks)
+        for title, url, added in latest_bookmarks:
+            lines.append(f"- {title} | {added} | {url}")
     else:
         lines.append("- none")
 
@@ -173,10 +172,16 @@ def build_digest(results: list[CommandResult]) -> str:
         ]
     )
     freshrss_accept = parse_markdown_links_under_section(freshrss_text, "Accepted")
-    lines.extend(freshrss_accept or ["- none"])
+    if freshrss_accept:
+        lines.extend(f"- {title} | {url}" for title, url in freshrss_accept)
+    else:
+        lines.append("- none")
     lines.append("- maybe:")
     freshrss_maybe = parse_markdown_links_under_section(freshrss_text, "Maybe")
-    lines.extend(freshrss_maybe or ["- none"])
+    if freshrss_maybe:
+        lines.extend(f"- {title} | {url}" for title, url in freshrss_maybe)
+    else:
+        lines.append("- none")
     staged = parse_staged_files(freshrss_text)
     if staged:
         lines.append("- staged files:")
@@ -196,15 +201,176 @@ def build_digest(results: list[CommandResult]) -> str:
         ]
     )
     hf_accept = parse_markdown_links_under_section(hf_text, "Accept")
-    lines.extend(hf_accept or ["- none"])
+    if hf_accept:
+        lines.extend(f"- {title} | {url}" for title, url in hf_accept)
+    else:
+        lines.append("- none")
     lines.append("- maybe:")
     hf_maybe = parse_markdown_links_under_section(hf_text, "Maybe")
-    lines.extend(hf_maybe or ["- none"])
+    if hf_maybe:
+        lines.extend(f"- {title} | {url}" for title, url in hf_maybe)
+    else:
+        lines.append("- none")
 
     return "\n".join(lines).rstrip() + "\n"
 
 
-def build_message(subject: str, body: str) -> EmailMessage:
+def _h(s: str) -> str:
+    return html_lib.escape(s, quote=True)
+
+
+def _section_heading(text: str) -> str:
+    return (
+        f'<h3 style="margin:20px 0 8px 0;font-size:16px;border-bottom:1px solid #d0d7de;'
+        f'padding-bottom:4px;color:#1f2328;">{_h(text)}</h3>'
+    )
+
+
+def _kv_table(rows: list[tuple[str, str]]) -> str:
+    body = "".join(
+        f'<tr>'
+        f'<td style="padding:4px 10px;border:1px solid #d0d7de;color:#57606a;'
+        f'background:#f6f8fa;width:170px;font-family:ui-monospace,Menlo,Consolas,monospace;'
+        f'font-size:12px;">{_h(k)}</td>'
+        f'<td style="padding:4px 10px;border:1px solid #d0d7de;">{_h(v)}</td>'
+        f'</tr>'
+        for k, v in rows
+    )
+    return (
+        '<table style="border-collapse:collapse;font-size:13px;margin:0 0 12px 0;">'
+        f'{body}</table>'
+    )
+
+
+def _link_list(items: list[tuple[str, str]]) -> str:
+    if not items:
+        return '<p style="color:#57606a;font-size:13px;margin:0 0 12px 0;">none</p>'
+    li = "".join(
+        f'<li style="margin:4px 0;"><a href="{_h(url)}" '
+        f'style="color:#0969da;text-decoration:none;">{_h(title)}</a></li>'
+        for title, url in items
+    )
+    return f'<ul style="padding-left:22px;font-size:14px;margin:0 0 12px 0;">{li}</ul>'
+
+
+def _bookmarks_list(items: list[tuple[str, str, str]]) -> str:
+    if not items:
+        return '<p style="color:#57606a;font-size:13px;margin:0 0 12px 0;">none</p>'
+    li = "".join(
+        f'<li style="margin:4px 0;">'
+        f'<a href="{_h(url)}" style="color:#0969da;text-decoration:none;">{_h(title)}</a> '
+        f'<span style="color:#57606a;font-size:12px;">· added {_h(added)}</span>'
+        f'</li>'
+        for title, url, added in items
+    )
+    return f'<ul style="padding-left:22px;font-size:14px;margin:0 0 12px 0;">{li}</ul>'
+
+
+def _subheading(text: str) -> str:
+    return (
+        f'<div style="font-size:12px;color:#57606a;margin:8px 0 4px 0;'
+        f'text-transform:uppercase;letter-spacing:0.5px;">{_h(text)}</div>'
+    )
+
+
+def build_digest_html(results: list[CommandResult]) -> str:
+    bookmarks_text = read_text_if_exists(BOOKMARKS_REPORT)
+    freshrss_text = read_text_if_exists(FRESHRSS_REPORT)
+    hf_text = read_text_if_exists(HF_REPORT)
+    generated_at = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+
+    parts: list[str] = [
+        '<div style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif;'
+        'color:#1f2328;max-width:760px;margin:0 auto;padding:8px 12px;line-height:1.5;">',
+        '<h2 style="margin:0 0 4px 0;font-size:20px;">Wiki daily sources digest</h2>',
+        f'<div style="color:#57606a;font-size:12px;margin-bottom:12px;">{_h(generated_at)}</div>',
+    ]
+
+    parts.append(_section_heading("Run status"))
+    status_rows = []
+    for r in results:
+        if r.returncode == 0:
+            status_html = '<span style="color:#1a7f37;font-weight:600;">ok</span>'
+        else:
+            status_html = (
+                f'<span style="color:#cf222e;font-weight:600;">'
+                f'failed ({_h(str(r.returncode))})</span>'
+            )
+        detail_html = ""
+        if r.stderr and r.returncode != 0:
+            detail_html = (
+                f'<div style="color:#57606a;font-size:12px;margin-top:4px;'
+                f'font-family:ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;">'
+                f'{_h(r.stderr[:500])}</div>'
+            )
+        status_rows.append(
+            '<tr>'
+            f'<td style="padding:6px 10px;border:1px solid #d0d7de;'
+            f'font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;">{_h(r.name)}</td>'
+            f'<td style="padding:6px 10px;border:1px solid #d0d7de;">{status_html}{detail_html}</td>'
+            '</tr>'
+        )
+    parts.append(
+        '<table style="border-collapse:collapse;font-size:14px;margin:0 0 12px 0;width:100%;">'
+        '<thead><tr style="background:#f6f8fa;">'
+        '<th style="text-align:left;padding:6px 10px;border:1px solid #d0d7de;width:200px;">Step</th>'
+        '<th style="text-align:left;padding:6px 10px;border:1px solid #d0d7de;">Status</th>'
+        '</tr></thead>'
+        f'<tbody>{"".join(status_rows)}</tbody></table>'
+    )
+
+    parts.append(_section_heading("Bookmarks"))
+    parts.append(_kv_table([
+        ("generated_at", summary_value(bookmarks_text, "generated_at")),
+        ("total_links", summary_value(bookmarks_text, "total_links")),
+        ("archived_links", summary_value(bookmarks_text, "archived_links")),
+        ("favourited_links", summary_value(bookmarks_text, "favourited_links")),
+    ]))
+    parts.append(_subheading("Latest links"))
+    parts.append(_bookmarks_list(parse_bookmarks_latest(bookmarks_text)))
+
+    parts.append(_section_heading("FreshRSS"))
+    parts.append(_kv_table([
+        ("generated_at", summary_value(freshrss_text, "generated_at")),
+        ("total_items", summary_value(freshrss_text, "total_items")),
+        ("accepted", summary_value(freshrss_text, "accepted")),
+        ("maybe", summary_value(freshrss_text, "maybe")),
+        ("rejected", summary_value(freshrss_text, "rejected")),
+        ("staged_for_ingest", summary_value(freshrss_text, "staged_for_ingest")),
+    ]))
+    parts.append(_subheading("Accepted"))
+    parts.append(_link_list(parse_markdown_links_under_section(freshrss_text, "Accepted")))
+    parts.append(_subheading("Maybe"))
+    parts.append(_link_list(parse_markdown_links_under_section(freshrss_text, "Maybe")))
+    staged = parse_staged_files(freshrss_text)
+    if staged:
+        parts.append(_subheading("Staged files"))
+        items = "".join(
+            f'<li style="margin:2px 0;"><code style="background:#f6f8fa;padding:1px 6px;'
+            f'border-radius:3px;font-size:12px;">{_h(p)}</code></li>'
+            for p in staged
+        )
+        parts.append(f'<ul style="padding-left:22px;margin:0 0 12px 0;">{items}</ul>')
+
+    parts.append(_section_heading("HF Daily Papers"))
+    parts.append(_kv_table([
+        ("generated_at", summary_value(hf_text, "generated_at")),
+        ("total_items", summary_value(hf_text, "total_items")),
+        ("accepted", summary_value(hf_text, "accepted")),
+        ("maybe", summary_value(hf_text, "maybe")),
+        ("rejected", summary_value(hf_text, "rejected")),
+        ("staged_for_ingest", summary_value(hf_text, "staged_for_ingest")),
+    ]))
+    parts.append(_subheading("Accepted"))
+    parts.append(_link_list(parse_markdown_links_under_section(hf_text, "Accept")))
+    parts.append(_subheading("Maybe"))
+    parts.append(_link_list(parse_markdown_links_under_section(hf_text, "Maybe")))
+
+    parts.append("</div>")
+    return "".join(parts)
+
+
+def build_message(subject: str, body: str, html_body: str | None = None) -> EmailMessage:
     to_addr = env("DAILY_DIGEST_TO")
     from_addr = env("DAILY_DIGEST_FROM", required=False, default="")
     if not from_addr:
@@ -218,6 +384,8 @@ def build_message(subject: str, body: str) -> EmailMessage:
     if reply_to:
         msg["Reply-To"] = reply_to
     msg.set_content(body)
+    if html_body:
+        msg.add_alternative(html_body, subtype="html")
     return msg
 
 
@@ -333,8 +501,8 @@ def send_via_smtp(msg: EmailMessage) -> None:
         smtp.send_message(msg)
 
 
-def send_digest(subject: str, body: str) -> None:
-    msg = build_message(subject, body)
+def send_digest(subject: str, body: str, html_body: str | None = None) -> None:
+    msg = build_message(subject, body, html_body)
     smtp_host = env("DAILY_DIGEST_SMTP_HOST", required=False, default="")
     if smtp_host:
         send_via_smtp(msg)
@@ -355,7 +523,8 @@ def main() -> int:
     subject_prefix = env("DAILY_DIGEST_SUBJECT_PREFIX", required=False, default="[wiki]")
     subject = f"{subject_prefix} daily sources digest {datetime.now(timezone.utc).astimezone().date().isoformat()}"
     body = build_digest(results)
-    send_digest(subject, body)
+    html_body = build_digest_html(results)
+    send_digest(subject, body, html_body)
 
     failures = [result.name for result in results if result.returncode != 0]
     if failures:

@@ -11,7 +11,7 @@ generator: scripts/update_freshrss.py
 
 ## Summary
 
-- generated_at: 2026-04-29T16:09:58+08:00
+- generated_at: 2026-04-29T16:17:05+08:00
 - total_items: 50
 - accepted: 0
 - maybe: 7

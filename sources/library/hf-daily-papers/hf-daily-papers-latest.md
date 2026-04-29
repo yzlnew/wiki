@@ -11,7 +11,7 @@ generator: scripts/update_hf_daily_papers.py
 
 ## Summary
 
-- generated_at: 2026-04-29T16:10:01+08:00
+- generated_at: 2026-04-29T16:17:08+08:00
 - window_days: 3
 - total_items: 25
 - accepted: 10
@@ -32,7 +32,7 @@ generator: scripts/update_hf_daily_papers.py
 ## Accept
 
 - [Step-Audio-R1.5 Technical Report](https://huggingface.co/papers/2604.25719)
-  - paper_id: `2604.25719`; decision: `accept`; score: `84`; upvotes: `8`
+  - paper_id: `2604.25719`; decision: `accept`; score: `84`; upvotes: `9`
   - reason: Directly relevant post-training work on RLVR versus RLHF, with a concrete argument about reward design and reasoning behavior shaping.
   - matched: `reinforcement-learning`, `post-training`, `reward-modeling`, `rlhf`, `reasoning-behavior-shaping`, `llm-systems`
   - weak_signals: `audio-language-models`, `long-turn-dialogues`, `verifiable-rewards`
@@ -51,7 +51,7 @@ generator: scripts/update_hf_daily_papers.py
   - weak_signals: `temporal-curriculum`, `trajectory-level-kl`, `student-teacher-distillation`
   - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-24005-tcod-exploring-temporal-curriculum-in-on-policy-distillation-for-multi-turn-auto.md`
 - [GoClick: Lightweight Element Grounding Model for Autonomous GUI Interaction](https://huggingface.co/papers/2604.23941)
-  - paper_id: `2604.23941`; decision: `accept`; score: `88`; upvotes: `0`
+  - paper_id: `2604.23941`; decision: `accept`; score: `88`; upvotes: `1`
   - reason: A technically detailed GUI grounding model for autonomous agents and environment interaction, with clear deployment and architecture insights.
   - matched: `agents`, `tool-use`, `llm-systems`, `environment-interaction`, `agent-architectures`
   - weak_signals: `mobile-device-deployment`, `encoder-decoder-architecture`, `data-refinement-pipeline`
@@ -69,7 +69,7 @@ generator: scripts/update_hf_daily_papers.py
   - weak_signals: `multi-agent-harness`, `workflow-path-sampling`, `terminal-bench`
   - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25727-toward-scalable-terminal-task-synthesis-via-skill-graphs.md`
 - [DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios](https://huggingface.co/papers/2604.25914)
-  - paper_id: `2604.25914`; decision: `accept`; score: `82`; upvotes: `32`
+  - paper_id: `2604.25914`; decision: `accept`; score: `82`; upvotes: `33`
   - reason: A strong agent-evaluation benchmark for real-world environment interaction and task alignment in a practical workflow domain.
   - matched: `agents`, `agent-evals`, `llm-systems`
   - weak_signals: `benchmark`, `workflow`, `environment-interaction`
@@ -121,7 +121,7 @@ generator: scripts/update_hf_daily_papers.py
   - weak_signals: `systematic pipeline`, `implementation-details`, `evaluation-oriented`, `inference-optimization`
   - downrank: `video-generation-domain`, `not-agents`, `not-mechanistic-interpretability`, `adjacent-rather-than-core`
 - [Programming with Data: Test-Driven Data Engineering for Self-Improving LLMs from Raw Corpora](https://huggingface.co/papers/2604.24819)
-  - paper_id: `2604.24819`; decision: `maybe`; score: `72`; upvotes: `30`
+  - paper_id: `2604.24819`; decision: `maybe`; score: `72`; upvotes: `31`
   - reason: Strong LLM systems and post-training/data-debugging angle, but it is more about domain corpus engineering than core RL or agent methods.
   - matched: `llm-systems`, `post-training`, `reasoning-behavior-shaping`, `agent-evals`
   - weak_signals: `structured-evaluation`, `data-repair`, `benchmarking`, `unit-testing`, `debugging`

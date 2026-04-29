@@ -223,7 +223,9 @@ def build_message(subject: str, body: str) -> EmailMessage:
 
 def open_smtp_connection(host: str, port: int, security: str, timeout: int) -> smtplib.SMTP:
     if security == "ssl":
-        return smtplib.SMTP_SSL(host, port, timeout=timeout, context=ssl.create_default_context())
+        smtp = smtplib.SMTP_SSL(host, port, timeout=timeout, context=ssl.create_default_context())
+        smtp.ehlo()
+        return smtp
 
     smtp = smtplib.SMTP(host, port, timeout=timeout)
     smtp.ehlo()

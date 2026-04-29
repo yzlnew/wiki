@@ -2,8 +2,8 @@
 type: source-summary
 status: active
 tags: [bookmarks, generated]
-source_count: 64
-updated: 2026-04-17
+source_count: 66
+updated: 2026-04-29
 generator: scripts/update_bookmarks.py
 ---
 
@@ -11,8 +11,8 @@ generator: scripts/update_bookmarks.py
 
 ## Summary
 
-- generated_at: 2026-04-17T09:40:01+08:00
-- total_links: 64
+- generated_at: 2026-04-29T16:09:58+08:00
+- total_links: 66
 - archived_links: 2
 - favourited_links: 0
 - source: local bookmarks sync
@@ -26,6 +26,11 @@ generator: scripts/update_bookmarks.py
 
 ### 2026-04
 
+- [Keller Jordan on X: “Modded-NanoGPT Optimization Benchmark Hundreds of neural network optimizers have been proposed in the literature, recently including dozens citing Muon: MARS, SWAN, REG, ADANA, Newton-Muon, TrasMuon, AdaMuon, HTMuon, COSMOS, Conda, ASGO, SAGE, and Magma, to name a few. The https://t.co/y6RykqhzL2” / X](https://x.com/kellerjordan0/status/2049193527440187494)
+  - added: `2026-04-29T07:22:14.000Z`
+- [Leaderboard – Context Arena](https://contextarena.ai/?needles=8&models=openai/gpt-5.5%7Cmedium,openai/gpt-5.5%7Cxhigh,openai/gpt-5.5%7Chigh,openai/gpt-5.5%7Clow,anthropic/claude-opus-4.6%7Chigh,anthropic/claude-opus-4.6%7Cmedium,anthropic/claude-opus-4.6%7Clow,anthropic/claude-sonnet-4.6%7Chigh,anthropic/claude-sonnet-4.6%7Clow,anthropic/claude-sonnet-4.6%7Cmedium,google/gemini-3.1-pro-preview%7Chigh,openai/gpt-5.4%7Cxhigh,openai/gpt-5.4%7Chigh,openai/gpt-5.4%7Cmedium,google/gemini-3-flash-preview%7Chigh,google/gemini-3.1-pro-preview%7Clow,google/gemini-3-flash-preview%7Cmedium,openai/gpt-5.4%7Clow,google/gemini-3-flash-preview%7Clow,anthropic/claude-sonnet-4.6,deepseek/deepseek-v4-pro%7Cenabled,anthropic/claude-opus-4.6,deepseek/deepseek-v4-flash%7Cenabled,google/gemini-3-flash-preview,google/gemini-3.1-flash-lite-preview%7Chigh,openai/gpt-5.5,google/gemini-3.1-flash-lite-preview%7Clow,google/gemini-3.1-flash-lite-preview%7Cmedium,deepseek/deepseek-v4-pro,openai/gpt-5.4,xiaomi/mimo-v2.5%7Cenabled,x-ai/grok-4.20%7Cenabled,xiaomi/mimo-v2.5-pro%7Cenabled,google/gemini-3.1-flash-lite-preview,deepseek/deepseek-v4-flash,xiaomi/mimo-v2.5,xiaomi/mimo-v2.5-pro,xiaomi/mimo-v2-pro%7Cenabled,openai/gpt-5.4-nano%7Cxhigh,xiaomi/mimo-v2-pro,openai/gpt-5.4-mini%7Chigh,openai/gpt-5.4-mini%7Cxhigh,x-ai/grok-4.20,openai/gpt-5.4-mini%7Cmedium,openai/gpt-5.4-nano%7Chigh,moonshotai/kimi-k2.6%7Cenabled,openai/gpt-5.4-mini%7Clow,openai/gpt-5.4-nano%7Cmedium,nvidia/nemotron-3-super-120b-a12b%7Cenabled,moonshotai/kimi-k2.6,z-ai/glm-5.1%7Cenabled,anthropic/claude-opus-4.7%7Cmedium,anthropic/claude-opus-4.7%7Chigh,moonshotai/kimi-k2.5%7Cenabled,anthropic/claude-opus-4.7%7Cxhigh,anthropic/claude-opus-4.7%7Clow,moonshotai/kimi-k2.5,openai/gpt-5.4-nano%7Clow,openai/gpt-5.4-mini,anthropic/claude-opus-4.7,nvidia/nemotron-3-super-120b-a12b,z-ai/glm-5.1,xiaomi/mimo-v2-omni%7Cenabled,minimax/minimax-m2.7%7Cenabled,openai/gpt-5.4-nano,anthropic/claude-haiku-4.5%7Cenabled,xiaomi/mimo-v2-omni,anthropic/claude-haiku-4.5,mistralai/mistral-small-4%7Cenabled,mistralai/mistral-small-4)
+  - added: `2026-04-28T02:30:20.000Z`
+  - note: Context Arena — LLM long-context benchmark leaderboard
 - [Pretty Fish — Diagrams That Look Good](https://pretty.fish/)
   - added: `2026-04-16T05:59:34.000Z`
   - note: Free, open-source Mermaid diagram editor with live preview, 14+ diagram types, gorgeous themes, multi-page workspaces, and one-click SVG/PNG export. No sign-up required.

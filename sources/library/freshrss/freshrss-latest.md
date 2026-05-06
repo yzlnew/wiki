@@ -3,7 +3,7 @@ type: source-summary
 status: active
 tags: [freshrss, rss, generated]
 source_count: 50
-updated: 2026-04-29
+updated: 2026-05-06
 generator: scripts/update_freshrss.py
 ---
 
@@ -11,11 +11,11 @@ generator: scripts/update_freshrss.py
 
 ## Summary
 
-- generated_at: 2026-04-29T16:17:05+08:00
+- generated_at: 2026-05-06T09:40:02+08:00
 - total_items: 50
 - accepted: 0
-- maybe: 7
-- rejected: 43
+- maybe: 3
+- rejected: 47
 - staged_for_ingest: 0
 - filter_input: source + title only before article fetch
 
@@ -31,206 +31,208 @@ generator: scripts/update_freshrss.py
 
 ## Maybe
 
-- [I stumbled on a Gemma 4 chat template bug for tools and fixed it](https://old.reddit.com/r/LocalLLaMA/comments/1syps6i/i_stumbled_on_a_gemma_4_chat_template_bug_for/)
-  - source: `LocalLlama`; published: `2026-04-29T13:40:25+08:00`; decision: `maybe`; score: `70`
-  - reason: Relevant to post-training but signal is mixed before full-text fetch.
-  - matched: `post-training`
-- [Study: 2x+ coding performance of 7B model without touching the coding agent](https://old.reddit.com/r/LocalLLaMA/comments/1symfop/study_2x_coding_performance_of_7b_model_without/)
-  - source: `LocalLlama`; published: `2026-04-29T10:54:04+08:00`; decision: `maybe`; score: `74`
+- [I guess we expect that at some point RAM prices will start going back (close) to "normal", right? but what about GPUs?](https://old.reddit.com/r/LocalLLaMA/comments/1t4r5qi/i_guess_we_expect_that_at_some_point_ram_prices/)
+  - source: `LocalLlama`; published: `2026-05-06T04:18:29+08:00`; decision: `maybe`; score: `64`
+  - reason: Relevant to llm-systems but signal is mixed before full-text fetch.
+  - matched: `llm-systems`
+  - downrank: `question-title`
+- [GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents](https://arxiv.org/abs/2604.26752)
+  - source: `Hacker News`; published: `2026-05-06T01:52:31+08:00`; decision: `maybe`; score: `74`
   - reason: Relevant to agent-workflows but signal is mixed before full-text fetch.
   - matched: `agent-workflows`
-- [Show HN: Auto-Architecture: Karpathy's Loop, pointed at a CPU](https://github.com/FeSens/auto-arch-tournament/blob/main/docs/auto-arch-tournament-blog-post.md)
-  - source: `Hacker News`; published: `2026-04-29T01:12:30+08:00`; decision: `maybe`; score: `56`
-  - reason: Relevant to operational-depth but signal is mixed before full-text fetch.
-  - matched: `operational-depth`
-- [Regression: malware reminder on every read still causes subagent refusals](https://github.com/anthropics/claude-code/issues/49363)
-  - source: `Hacker News`; published: `2026-04-29T07:59:57+08:00`; decision: `maybe`; score: `74`
+- [Use Qwen3.6 right way -＞ send it to pi coding agent and forget](https://old.reddit.com/r/LocalLLaMA/comments/1t4ji36/use_qwen36_right_way_send_it_to_pi_coding_agent/)
+  - source: `LocalLlama`; published: `2026-05-05T23:53:42+08:00`; decision: `maybe`; score: `74`
   - reason: Relevant to agent-workflows but signal is mixed before full-text fetch.
   - matched: `agent-workflows`
-- [Mistral Workflows](https://old.reddit.com/r/LocalLLaMA/comments/1sydpg7/mistral_workflows/)
-  - source: `LocalLlama`; published: `2026-04-29T04:45:02+08:00`; decision: `maybe`; score: `56`
-  - reason: Relevant to operational-depth but signal is mixed before full-text fetch.
-  - matched: `operational-depth`
-- [XiaomiMiMo MiMo-V2.5 (not pro) - Architecture: Sparse MoE (Mixture of Experts), 310B total / 15B activated parameters](https://old.reddit.com/r/LocalLLaMA/comments/1sy9u3h/xiaomimimo_mimov25_not_pro_architecture_sparse/)
-  - source: `LocalLlama`; published: `2026-04-29T02:27:13+08:00`; decision: `maybe`; score: `56`
-  - reason: Relevant to operational-depth but signal is mixed before full-text fetch.
-  - matched: `operational-depth`
-- [Benchmarking Local LLM/Harness Combinations](https://old.reddit.com/r/LocalLLaMA/comments/1sy6orl/benchmarking_local_llmharness_combinations/)
-  - source: `LocalLlama`; published: `2026-04-29T00:38:45+08:00`; decision: `maybe`; score: `56`
-  - reason: Relevant to operational-depth but signal is mixed before full-text fetch.
-  - matched: `operational-depth`
 
 ## Reject
 
-- [Germany Overtakes US in Ammunition Production Capacity](https://www.newsweek.com/germany-overtakes-us-in-ammunition-production-capacity-11886409)
-  - source: `Hacker News`; published: `2026-04-29T14:46:42+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [HardenedBSD Is Now Officially on Radicle](https://hardenedbsd.org/article/shawn-webb/2026-04-26/hardenedbsd-officially-radicle)
-  - source: `Hacker News`; published: `2026-04-29T14:38:44+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [AMD has invented something that lets you use AI at home! They call it a "computer"](https://old.reddit.com/r/LocalLLaMA/comments/1syphxh/amd_has_invented_something_that_lets_you_use_ai/)
-  - source: `LocalLlama`; published: `2026-04-29T13:25:08+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [著名终端 Warp 开源，由 OpenAI 赞助](https://www.appinn.com/warp-open-source-now/)
-  - source: `小众软件`; published: `2026-04-29T13:16:37+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Gallium oxide electronics withstand extreme cold](https://discovery.kaust.edu.sa/en/article/26858/gallium-oxide-electronics-withstand-extreme-cold/)
-  - source: `Hacker News`; published: `2026-04-27T19:31:20+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [MiMo-V2.5-GGUF (preview available)](https://old.reddit.com/r/LocalLLaMA/comments/1syphr9/mimov25gguf_preview_available/)
-  - source: `LocalLlama`; published: `2026-04-29T13:24:54+08:00`; decision: `reject`; score: `0`
-  - reason: Low-value metadata due to consumer-lifestyle.
-  - downrank: `consumer-lifestyle`, `no-strong-interest-match`
-- [Hipfire dev update: full AMD arch validation incoming (RDNA 1 thru 4, plus Strix Halo and bc250)](https://old.reddit.com/r/LocalLLaMA/comments/1syp3un/hipfire_dev_update_full_amd_arch_validation/)
-  - source: `LocalLlama`; published: `2026-04-29T13:04:33+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Deepseek v4 pricing is genuinely silly, did the math and now i am questioning my entire stack](https://old.reddit.com/r/LocalLLaMA/comments/1syolyk/deepseek_v4_pricing_is_genuinely_silly_did_the/)
-  - source: `LocalLlama`; published: `2026-04-29T12:39:14+08:00`; decision: `reject`; score: `2`
-  - reason: Low-value metadata due to low-context-discussion.
-  - downrank: `low-context-discussion`, `no-strong-interest-match`
-- [Notepad++ for Mac 发布，全新项目，与原版、原作者无关](https://www.appinn.com/notepad-plus-plus-for-mac/)
-  - source: `小众软件`; published: `2026-04-29T12:14:50+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [When the Internet Was a Place](https://www.frontporchrepublic.com/2025/09/when-the-internet-was-a-place/)
-  - source: `Hacker News`; published: `2026-04-29T09:36:52+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Withnail's Coat and I](https://ontherow.substack.com/p/withnails-coat-and-i)
-  - source: `Hacker News`; published: `2026-04-28T03:27:47+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Building a Hamiltonian Path Puzzle](https://www.4rknova.com//blog/2026/04/24/number-trail)
-  - source: `Hacker News`; published: `2026-04-27T21:22:52+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16 · Hugging Face](https://old.reddit.com/r/LocalLLaMA/comments/1synobs/nvidianemotron3nanoomni30ba3breasoningbf16/)
-  - source: `LocalLlama`; published: `2026-04-29T11:52:56+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Xiami mimo-v2.5 pro MIT license surpasses Opus 4.5 on arena](https://old.reddit.com/r/LocalLLaMA/comments/1sylydi/xiami_mimov25_pro_mit_license_surpasses_opus_45/)
-  - source: `LocalLlama`; published: `2026-04-29T10:32:17+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Bugs Rust won't catch](https://corrode.dev/blog/bugs-rust-wont-catch/)
-  - source: `Hacker News`; published: `2026-04-29T10:19:11+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Bridging West Papua Through Dispossession](https://failedarchitecture.com/bridging-west-papua-through-dispossession/)
-  - source: `Hacker News`; published: `2026-04-28T03:35:08+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [We still don't have a more precise value for "Big G"](https://arstechnica.com/science/2026/04/we-still-dont-have-a-more-precise-value-for-big-g/)
-  - source: `Hacker News`; published: `2026-04-27T20:17:19+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [100M tokens for $2.65 (Deepseek V4 Pro)](https://old.reddit.com/r/LocalLLaMA/comments/1symhp8/100m_tokens_for_265_deepseek_v4_pro/)
-  - source: `LocalLlama`; published: `2026-04-29T10:56:34+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Apple CMF (Color-Matching Functions) 2026](https://www.lttlabs.com/articles/2026/04/11/apple-studio-display-xdr-display-testing-results)
-  - source: `Hacker News`; published: `2026-04-29T07:43:53+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Nonlinearity Affects a Pendulum](https://www.johndcook.com/blog/2026/04/24/nonlinear-pendulum/)
-  - source: `Hacker News`; published: `2026-04-27T22:56:21+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [We decreased our LLM costs with Opus](https://www.mendral.com/blog/frontier-model-lower-costs)
-  - source: `Hacker News`; published: `2026-04-29T08:57:12+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Why isn’t LLM reasoning done in vector space instead of natural language?](https://old.reddit.com/r/LocalLLaMA/comments/1syjidd/why_isnt_llm_reasoning_done_in_vector_space/)
-  - source: `LocalLlama`; published: `2026-04-29T08:42:31+08:00`; decision: `reject`; score: `8`
+- [12M Context Window and some some sprinkle of lies?](https://old.reddit.com/r/LocalLLaMA/comments/1t4wv6c/12m_context_window_and_some_some_sprinkle_of_lies/)
+  - source: `LocalLlama`; published: `2026-05-06T08:04:28+08:00`; decision: `reject`; score: `8`
   - reason: Low-value metadata due to question-title.
   - downrank: `question-title`, `no-strong-interest-match`
-- [llama.cpp's Preliminary SM120 Native NVFP4 MMQ Is Merged](https://old.reddit.com/r/LocalLLaMA/comments/1syjflw/llamacpps_preliminary_sm120_native_nvfp4_mmq_is/)
-  - source: `LocalLlama`; published: `2026-04-29T08:39:05+08:00`; decision: `reject`; score: `16`
+- [Xbox CEO ends Copilot AI development and overhauls leadership](https://www.dexerto.com/gaming/xbox-ceo-ends-copilot-ai-development-overhauls-leadership-3361353/)
+  - source: `Hacker News`; published: `2026-05-06T06:43:47+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [2026 04 29 HackerNews](https://supertechfans.com/cn/post/2026-04-29-HackerNews/)
-  - source: `HackerNews每日摘要 on SuperTechFans`; published: `2026-04-29T08:10:08+08:00`; decision: `reject`; score: `16`
+- [Past Ferrari Models, 1947–2023](https://www.ferrari.com/en-US/auto/past-model)
+  - source: `Hacker News`; published: `2026-05-04T02:09:34+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [How ChatGPT serves ads](https://www.buchodi.com/how-chatgpt-serves-ads-heres-the-full-attribution-loop/)
-  - source: `Hacker News`; published: `2026-04-29T07:54:14+08:00`; decision: `reject`; score: `16`
+- [2026 05 06 HackerNews](https://supertechfans.com/cn/post/2026-05-06-HackerNews/)
+  - source: `HackerNews每日摘要 on SuperTechFans`; published: `2026-05-06T07:24:59+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [Claude for Creative Work](https://www.anthropic.com/news/claude-for-creative-work)
-  - source: `Hacker News`; published: `2026-04-29T07:46:56+08:00`; decision: `reject`; score: `16`
+- [Common and Obscure Models and Ways to Find Them \[ Human Written \]](https://old.reddit.com/r/LocalLLaMA/comments/1t4vmgu/common_and_obscure_models_and_ways_to_find_them/)
+  - source: `LocalLlama`; published: `2026-05-06T07:11:18+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [The biggest insect ever was a "dragonfly"](https://eartharchives.org/index.html)
-  - source: `Hacker News`; published: `2026-04-27T09:02:32+08:00`; decision: `reject`; score: `16`
+- [Claude Code @ Opus 4.7 vs OpenCode @ qwen3.6:27b. Both shipped a playable cozy roguelite.](https://old.reddit.com/r/LocalLLaMA/comments/1t4vb57/claude_code_opus_47_vs_opencode_qwen3627b_both/)
+  - source: `LocalLlama`; published: `2026-05-06T06:58:39+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [Carrot Disclosure: Forgejo](https://dustri.org/b/carrot-disclosure-forgejo.html)
-  - source: `Hacker News`; published: `2026-04-29T06:14:29+08:00`; decision: `reject`; score: `16`
+- [MTP on strix halo with llama.cpp (PR #22673)](https://old.reddit.com/r/LocalLLaMA/comments/1t4uj9h/mtp_on_strix_halo_with_llamacpp_pr_22673/)
+  - source: `LocalLlama`; published: `2026-05-06T06:26:41+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [Parry Parries Again: Reanimating the Famous Paranoid Chatbot (In a Day)](https://sites.google.com/view/elizagen-org/blog/parry-parries-again)
-  - source: `Hacker News`; published: `2026-04-27T10:32:32+08:00`; decision: `reject`; score: `16`
+- [Zuckerberg 'personally authorized' Meta's copyright infringement, publishers say](https://apnews.com/article/meta-mark-zuckerberg-ai-publishers-lawsuit-llama-5609846d4d840014974a847b01079c32)
+  - source: `Hacker News`; published: `2026-05-06T06:07:18+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [ggml-cuda: add flash-attn support for DKQ=320/DV=256 with ncols2=32 (… by lnigam · Pull Request #22286 · ggml-org/llama.cpp](https://old.reddit.com/r/LocalLLaMA/comments/1syfenw/ggmlcuda_add_flashattn_support_for_dkq320dv256/)
-  - source: `LocalLlama`; published: `2026-04-29T05:48:52+08:00`; decision: `reject`; score: `16`
+- [A website ranking judges by elo for the cases they dismiss in SF](https://sfcrime.pages.dev/)
+  - source: `Hacker News`; published: `2026-05-06T05:44:17+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [Before GitHub](https://lucumr.pocoo.org/2026/4/28/before-github/)
-  - source: `Hacker News`; published: `2026-04-29T05:17:40+08:00`; decision: `reject`; score: `16`
+- [Urban Birds Are Rising Earlier Because of Traffic Noise (2013)](https://www.audubon.org/news/urban-birds-are-rising-earlier-because-traffic-noise)
+  - source: `Hacker News`; published: `2026-05-04T04:02:21+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [Behavioral timescale synaptic plasticity rewires the brain after an experience](https://www.quantamagazine.org/a-new-type-of-neuroplasticity-rewires-the-brain-after-a-single-experience-20260424/)
-  - source: `Hacker News`; published: `2026-04-27T21:54:47+08:00`; decision: `reject`; score: `16`
+- [I completed 100 Days of Java over 5 years and mapped the journey as a graph](https://mohibulsblog.netlify.app/java/100daysofjava/graph/)
+  - source: `Hacker News`; published: `2026-05-03T21:25:59+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [APL\? (1990)](https://dl.acm.org/doi/epdf/10.1145/97811.97845)
-  - source: `Hacker News`; published: `2026-04-25T02:49:26+08:00`; decision: `reject`; score: `16`
+- [NPR finds "no sign" of Polymarket at its Panama HQ address](https://www.npr.org/2026/05/05/nx-s1-5807918/polymarket-panama-prediction-market)
+  - source: `Hacker News`; published: `2026-05-06T05:50:21+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
   - downrank: `no-strong-interest-match`
-- [I won a championship that doesn't exist](https://ron.stoner.com/How_I_Won_a_Championship_That_Doesnt_Exist/)
-  - source: `Hacker News`; published: `2026-04-29T04:38:21+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Drone pilot makes US rescind no-fly zones around unmarked, moving ICE vehicles](https://arstechnica.com/gadgets/2026/04/no-fly-zones-around-moving-ice-vehicles-this-drone-pilot-fought-back-and-won/)
-  - source: `Hacker News`; published: `2026-04-29T04:30:35+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Mistral-Medium 3.5 (128B) spotted ?](https://old.reddit.com/r/LocalLLaMA/comments/1sycgzj/mistralmedium_35_128b_spotted/)
-  - source: `LocalLlama`; published: `2026-04-29T04:00:31+08:00`; decision: `reject`; score: `8`
-  - reason: Low-value metadata due to question-title.
-  - downrank: `question-title`, `no-strong-interest-match`
-- [Ghostty is leaving GitHub](https://mitchellh.com/writing/ghostty-leaving-github)
-  - source: `Hacker News`; published: `2026-04-29T03:44:52+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs](https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/)
-  - source: `Hacker News`; published: `2026-04-29T03:24:43+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Claude.ai unavailable and elevated errors on the API](https://status.claude.com/incidents/9l93x2ht4s5w)
-  - source: `Hacker News`; published: `2026-04-29T02:01:21+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Show HN: Drive any macOS app in the background without stealing the cursor](https://github.com/trycua/cua)
-  - source: `Hacker News`; published: `2026-04-29T00:03:34+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Warp is now open-source](https://www.warp.dev/blog/warp-is-now-open-source)
-  - source: `Hacker News`; published: `2026-04-28T23:58:30+08:00`; decision: `reject`; score: `16`
-  - reason: Low-value metadata due to no-strong-interest-match.
-  - downrank: `no-strong-interest-match`
-- [Intel Arc Pro B70 Review](https://www.pugetsystems.com/labs/articles/intel-arc-pro-b70-review/)
-  - source: `Hacker News`; published: `2026-04-24T12:44:49+08:00`; decision: `reject`; score: `0`
+- [US and tech firms strike deal to review AI models for national security before public release | Technology](https://old.reddit.com/r/LocalLLaMA/comments/1t4tj11/us_and_tech_firms_strike_deal_to_review_ai_models/)
+  - source: `LocalLlama`; published: `2026-05-06T05:46:36+08:00`; decision: `reject`; score: `0`
   - reason: Low-value metadata due to consumer-lifestyle.
   - downrank: `consumer-lifestyle`, `no-strong-interest-match`
-- [CJIT: C, Just in Time](https://dyne.org/cjit/)
-  - source: `Hacker News`; published: `2026-04-29T03:10:14+08:00`; decision: `reject`; score: `16`
+- [Write some software, give it away for free](https://nonogra.ph/write-some-software-give-it-away-for-free-05-05-2026)
+  - source: `Hacker News`; published: `2026-05-06T05:26:50+08:00`; decision: `reject`; score: `16`
   - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Why most product tours get skipped](https://productonboarding.com/articles/why-product-tours-get-skipped)
+  - source: `Hacker News`; published: `2026-05-06T05:05:19+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [DeepSeek V4 being 17x cheaper got me to actually measure what I send to cloud vs what I could run locally. the results are stupid.](https://old.reddit.com/r/LocalLLaMA/comments/1t4s6g2/deepseek_v4_being_17x_cheaper_got_me_to_actually/)
+  - source: `LocalLlama`; published: `2026-05-06T04:55:56+08:00`; decision: `reject`; score: `0`
+  - reason: Low-value metadata due to promo-pricing.
+  - downrank: `promo-pricing`, `no-strong-interest-match`
+- [I know this isn’t technically an LLM but OmniVoice is FUCKING AMAZING.](https://old.reddit.com/r/LocalLLaMA/comments/1t4rst5/i_know_this_isnt_technically_an_llm_but_omnivoice/)
+  - source: `LocalLlama`; published: `2026-05-06T04:41:56+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Apple Cuts More Mac Studio and Mac Mini RAM Options as Memory Shortage Worsens](https://www.macrumors.com/2026/05/05/apple-mac-studio-mac-mini-ram-cuts/)
+  - source: `Hacker News`; published: `2026-05-06T04:35:03+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [.de TLD offline due to DNSSEC?](https://dnssec-analyzer.verisignlabs.com/nic.de)
+  - source: `Hacker News`; published: `2026-05-06T04:16:35+08:00`; decision: `reject`; score: `8`
+  - reason: Low-value metadata due to question-title.
+  - downrank: `question-title`, `no-strong-interest-match`
+- [Why run local? Count the money](https://old.reddit.com/r/LocalLLaMA/comments/1t4qwzf/why_run_local_count_the_money/)
+  - source: `LocalLlama`; published: `2026-05-06T04:09:57+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Reducing MP3 compression bias in music datasets via codec-aware reconstruction](https://old.reddit.com/r/LocalLLaMA/comments/1t4pilx/reducing_mp3_compression_bias_in_music_datasets/)
+  - source: `LocalLlama`; published: `2026-05-06T03:20:12+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Zuckerberg 'Personally Authorized and Encouraged' Meta's Copyright Infringement](https://variety.com/2026/digital/news/meta-ai-mark-zuckerberg-copyright-infringement-lawsuit-publishers-scott-turow-1236738383/)
+  - source: `Hacker News`; published: `2026-05-06T02:04:25+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Today I've made the difficult decision to reduce the size of Coinbase by ~14%](https://twitter.com/brian_armstrong/status/2051616759145185723)
+  - source: `Hacker News`; published: `2026-05-05T20:10:24+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [The extended predicative Mahlo universe in Martin-Löf type theory](https://academic.oup.com/logcom/article/34/6/1032/7158523)
+  - source: `Hacker News`; published: `2026-05-03T20:43:12+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Researchers print structural colour with an inkjet printer](https://physicsworld.com/a/researchers-print-structural-colour-with-an-inkjet-printer/)
+  - source: `Hacker News`; published: `2026-05-03T16:58:50+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [California farmers to destroy 420k peach trees following Del Monte bankruptcy](https://www.sfgate.com/centralcoast/article/usda-aid-california-farmers-22240694.php)
+  - source: `Hacker News`; published: `2026-05-06T02:13:47+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Show HN: Explore color palettes inspired by 3000 master painter artworks](https://paletteinspiration.com/)
+  - source: `Hacker News`; published: `2026-05-06T02:13:14+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Dense Model Shoot-Off: Gemma 4 31B vs Qwen3.6/5 27B... Result is Slower is Faster.](https://old.reddit.com/r/LocalLLaMA/comments/1t4nkez/dense_model_shootoff_gemma_4_31b_vs_qwen365_27b/)
+  - source: `LocalLlama`; published: `2026-05-06T02:12:20+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Clarification on the Notepad++ Trademark Issue](https://notepad-plus-plus.org/news/clarify-npp-trademark-infringement/)
+  - source: `Hacker News`; published: `2026-05-06T02:04:20+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Adding a feature to a closed-source app](https://www.stavros.io/posts/adding-a-feature-to-a-closed-source-app/)
+  - source: `Hacker News`; published: `2026-05-04T20:12:42+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Quantum Key Distribution (QKD) and Quantum Cryptography (QC)](https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/)
+  - source: `Hacker News`; published: `2026-05-06T01:38:17+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [IBM didn't want Microsoft to use the Tab key to move between dialog fields](https://devblogs.microsoft.com/oldnewthing/20260505-00/?p=112298)
+  - source: `Hacker News`; published: `2026-05-06T01:28:18+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Released a TurboQuant-compatible KV backend evaluation SDK](https://old.reddit.com/r/LocalLLaMA/comments/1t4ls7i/released_a_turboquantcompatible_kv_backend/)
+  - source: `LocalLlama`; published: `2026-05-06T01:12:04+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Proliferate (YC S25) Is Hiring- 200k for junior engineers](https://www.ycombinator.com/companies/proliferate/jobs/L3copvK-founding-engineer)
+  - source: `Hacker News`; published: `2026-05-06T01:00:16+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Open Source TranslateGemma Tools Comparison](https://old.reddit.com/r/LocalLLaMA/comments/1t4l6wd/open_source_translategemma_tools_comparison/)
+  - source: `LocalLlama`; published: `2026-05-06T00:52:14+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Computer Use is 45x more expensive than structured APIs](https://reflex.dev/blog/computer-use-is-45x-more-expensive-than-structured-apis/)
+  - source: `Hacker News`; published: `2026-05-06T00:34:48+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Accelerating Gemma 4: faster inference with multi-token prediction drafters](https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/)
+  - source: `Hacker News`; published: `2026-05-06T00:14:17+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [UK: Two millionth electric car registered as market rebounds strongly](https://www.smmt.co.uk/two-millionth-electric-car-registered-as-market-rebounds-strongly-from-tax-changes/)
+  - source: `Hacker News`; published: `2026-05-06T00:03:17+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [I'm scared about biological computing](https://kuber.studio/blog/Reflections/I%27m-Scared-About-Biological-Computing)
+  - source: `Hacker News`; published: `2026-05-06T00:03:06+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Instagram Encrypted Messaging Ends on Friday, May 8](https://www.macrumors.com/2026/05/05/psa-instagram-encrypted-messaging-ends-may-8/)
+  - source: `Hacker News`; published: `2026-05-05T23:49:34+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Collaborative Editing in CodeMirror (2020)](https://marijnhaverbeke.nl/blog/collaborative-editing-cm.html)
+  - source: `Hacker News`; published: `2026-05-04T01:39:17+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Gemma 4 MTP released](https://old.reddit.com/r/LocalLLaMA/comments/1t4jq6h/gemma_4_mtp_released/)
+  - source: `LocalLlama`; published: `2026-05-06T00:01:17+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Supercharging LLM inference on Google TPUs: Achieving 3X speedups with diffusion-style speculative decoding- Google Developers Blog](https://old.reddit.com/r/LocalLLaMA/comments/1t4jehc/supercharging_llm_inference_on_google_tpus/)
+  - source: `LocalLlama`; published: `2026-05-05T23:50:13+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [EEVblog: The 555 Timer is 55 years old \[video\]](https://www.youtube.com/watch?v=6JhK8iCQuqI)
+  - source: `Hacker News`; published: `2026-05-05T23:47:18+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [ProgramBench: Can we really rebuild huge binaries from scratch? (doesn't look like it)](https://old.reddit.com/r/LocalLLaMA/comments/1t4j4s9/programbench_can_we_really_rebuild_huge_binaries/)
+  - source: `LocalLlama`; published: `2026-05-05T23:40:52+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [Three Inverse Laws of AI](https://susam.net/inverse-laws-of-robotics.html)
+  - source: `Hacker News`; published: `2026-05-05T23:27:18+08:00`; decision: `reject`; score: `16`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - downrank: `no-strong-interest-match`
+- [New Landing Page for Awesome PaaS](https://debarshibasak.github.io/awesome-paas/)
+  - source: `Hacker News`; published: `2026-05-05T23:15:55+08:00`; decision: `reject`; score: `4`
+  - reason: Low-value metadata due to no-strong-interest-match.
+  - weak_signals: `generic-resource-list`
   - downrank: `no-strong-interest-match`

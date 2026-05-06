@@ -2,8 +2,8 @@
 type: source-summary
 status: active
 tags: [hf-daily-papers, papers, generated]
-source_count: 25
-updated: 2026-04-29
+source_count: 21
+updated: 2026-05-05
 generator: scripts/update_hf_daily_papers.py
 ---
 
@@ -11,14 +11,14 @@ generator: scripts/update_hf_daily_papers.py
 
 ## Summary
 
-- generated_at: 2026-04-29T16:17:08+08:00
+- generated_at: 2026-05-05T09:42:59+08:00
 - window_days: 3
-- total_items: 25
-- accepted: 10
-- maybe: 6
-- rejected: 9
-- staged_for_ingest: 10
-- reused_from_state: 25
+- total_items: 21
+- accepted: 6
+- maybe: 4
+- rejected: 11
+- staged_for_ingest: 6
+- reused_from_state: 2
 - filter_mode: cheap Codex subagent over title + abstract + HF AI summary
 - extraction_mode: cheap Codex subagent grounded in original paper pages or arXiv abstract pages when available
 
@@ -31,155 +31,126 @@ generator: scripts/update_hf_daily_papers.py
 
 ## Accept
 
-- [Step-Audio-R1.5 Technical Report](https://huggingface.co/papers/2604.25719)
-  - paper_id: `2604.25719`; decision: `accept`; score: `84`; upvotes: `9`
-  - reason: Directly relevant post-training work on RLVR versus RLHF, with a concrete argument about reward design and reasoning behavior shaping.
-  - matched: `reinforcement-learning`, `post-training`, `reward-modeling`, `rlhf`, `reasoning-behavior-shaping`, `llm-systems`
-  - weak_signals: `audio-language-models`, `long-turn-dialogues`, `verifiable-rewards`
-  - downrank: `domain-specific-audio-focus`, `technical-report-not-core-agent-work`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25719-step-audio-r1-5-technical-report.md`
-- [AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery](https://huggingface.co/papers/2604.25256)
-  - paper_id: `2604.25256`; decision: `accept`; score: `92`; upvotes: `21`
-  - reason: A strong agent-evaluation benchmark for autonomous scientific literature discovery, directly relevant to agent architectures and evaluation.
-  - matched: `agents`, `agent-evals`, `llm-systems`
-  - weak_signals: `scientific-literature-discovery`, `autonomous-research`, `web-browsing-benchmark`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25256-autoresearchbench-benchmarking-ai-agents-on-complex-scientific-literature-discov.md`
-- [TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents](https://huggingface.co/papers/2604.24005)
-  - paper_id: `2604.24005`; decision: `accept`; score: `92`; upvotes: `5`
-  - reason: Strong match on agent training and post-training: it studies on-policy distillation stability for multi-turn autonomous agents with benchmark gains.
-  - matched: `agents`, `post-training`, `reinforcement-learning`, `agent-evals`, `llm-systems`
-  - weak_signals: `temporal-curriculum`, `trajectory-level-kl`, `student-teacher-distillation`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-24005-tcod-exploring-temporal-curriculum-in-on-policy-distillation-for-multi-turn-auto.md`
-- [GoClick: Lightweight Element Grounding Model for Autonomous GUI Interaction](https://huggingface.co/papers/2604.23941)
-  - paper_id: `2604.23941`; decision: `accept`; score: `88`; upvotes: `1`
-  - reason: A technically detailed GUI grounding model for autonomous agents and environment interaction, with clear deployment and architecture insights.
-  - matched: `agents`, `tool-use`, `llm-systems`, `environment-interaction`, `agent-architectures`
-  - weak_signals: `mobile-device-deployment`, `encoder-decoder-architecture`, `data-refinement-pipeline`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-23941-goclick-lightweight-element-grounding-model-for-autonomous-gui-interaction.md`
-- [AutoGUI-v2: A Comprehensive Multi-Modal GUI Functionality Understanding Benchmark](https://huggingface.co/papers/2604.24441)
-  - paper_id: `2604.24441`; decision: `accept`; score: `85`; upvotes: `1`
-  - reason: A technically useful benchmark for GUI agents that measures functionality understanding, grounding, and interaction outcome prediction.
-  - matched: `agents`, `agent-evals`, `llm-systems`
-  - weak_signals: `gui-navigation`, `digital-autonomy`, `benchmark`, `semantic-grounding`, `dynamic-state-prediction`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-24441-autogui-v2-a-comprehensive-multi-modal-gui-functionality-understanding-benchmark.md`
-- [Toward Scalable Terminal Task Synthesis via Skill Graphs](https://huggingface.co/papers/2604.25727)
-  - paper_id: `2604.25727`; decision: `accept`; score: `88`; upvotes: `5`
-  - reason: Directly targets terminal agents, trajectory synthesis, and benchmark-driven training for agentic system improvement.
-  - matched: `agents`, `agent-evals`, `llm-systems`, `environment-interaction`, `post-training`
-  - weak_signals: `multi-agent-harness`, `workflow-path-sampling`, `terminal-bench`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25727-toward-scalable-terminal-task-synthesis-via-skill-graphs.md`
-- [DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios](https://huggingface.co/papers/2604.25914)
-  - paper_id: `2604.25914`; decision: `accept`; score: `82`; upvotes: `33`
-  - reason: A strong agent-evaluation benchmark for real-world environment interaction and task alignment in a practical workflow domain.
-  - matched: `agents`, `agent-evals`, `llm-systems`
-  - weak_signals: `benchmark`, `workflow`, `environment-interaction`
-  - downrank: `domain-specific-dv`, `not-rlhf`, `not-mechanistic-interpretability`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25914-dv-world-benchmarking-data-visualization-agents-in-real-world-scenarios.md`
-- [Recursive Multi-Agent Systems](https://huggingface.co/papers/2604.25917)
-  - paper_id: `2604.25917`; decision: `accept`; score: `92`; upvotes: `53`
-  - reason: A technically grounded multi-agent architecture paper with recursive reasoning, credit assignment, and evaluation across code and reasoning benchmarks.
-  - matched: `agents`, `agent-architectures`, `reasoning`, `llm-systems`, `agent-evals`
-  - weak_signals: `code-generation`, `tool-use-adjacent`, `efficiency/latency trade-offs`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-25917-recursive-multi-agent-systems.md`
-- [Towards Understanding the Robustness of Sparse Autoencoders](https://huggingface.co/papers/2604.18756)
-  - paper_id: `2604.18756`; decision: `accept`; score: `82`; upvotes: `1`
-  - reason: Sparse autoencoders for jailbreak robustness directly ties mechanistic interpretability to alignment/security behavior shaping.
-  - matched: `mechanistic-interpretability`, `representation-analysis`, `alignment`, `post-training`
-  - weak_signals: `llm-systems`, `reasoning-behavior-shaping`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-18756-towards-understanding-the-robustness-of-sparse-autoencoders.md`
-- [Why Fine-Tuning Encourages Hallucinations and How to Fix It](https://huggingface.co/papers/2604.15574)
-  - paper_id: `2604.15574`; decision: `accept`; score: `88`; upvotes: `13`
-  - reason: Directly addresses post-training hallucination mitigation with continual-learning methods and a mechanism analysis of interference.
-  - matched: `post-training`, `reinforcement-learning`, `mechanistic-interpretability`, `llm-systems`
-  - weak_signals: `self-distillation`, `continual-learning`, `representation-interference`, `hallucination-mitigation`
-  - inbox_file: `sources/inbox/hf-daily-papers/2026-04-29-2604-15574-why-fine-tuning-encourages-hallucinations-and-how-to-fix-it.md`
+- [Odysseus: Scaling VLMs to 100+ Turn Decision-Making in Games via Reinforcement Learning](https://huggingface.co/papers/2605.00347)
+  - paper_id: `2605.00347`; decision: `accept`; score: `94`; upvotes: `7`
+  - reason: Long-horizon RL training for VLM agents with PPO/GRPO comparisons and practical stability guidance is directly aligned with agents and post-training.
+  - matched: `reinforcement-learning`, `agents`, `post-training`, `llm-systems`, `agent-evals`
+  - weak_signals: `vision-language-models`, `long-horizon-decision-making`, `generalization`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-05-2605-00347-odysseus-scaling-vlms-to-100-turn-decision-making-in-games-via-reinforcement-lea.md`
+- [MASCing: Configurable Mixture-of-Experts Behavior via Activation Steering Masks](https://huggingface.co/papers/2604.27818)
+  - paper_id: `2604.27818`; decision: `accept`; score: `86`; upvotes: `2`
+  - reason: Technically detailed MoE behavior steering for safety reconfiguration without retraining, which is useful for post-training and model control work.
+  - matched: `post-training`, `llm-systems`, `mechanistic-interpretability`, `reasoning-behavior-shaping`
+  - weak_signals: `routing-dependencies`, `expert-circuits`, `safety-reconfiguration`
+  - downrank: `safety-focused rather than core RL/agent work`, `no direct RLHF or tool-use component`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-05-2604-27818-mascing-configurable-mixture-of-experts-behavior-via-activation-steering-masks.md`
+- [Web2BigTable: A Bi-Level Multi-Agent LLM System for Internet-Scale Information Search and Extraction](https://huggingface.co/papers/2604.27221)
+  - paper_id: `2604.27221`; decision: `accept`; score: `92`; upvotes: `27`
+  - reason: A technically detailed multi-agent web-search/extraction system with coordinated agents, decomposition, and verification fits the agents and LLM-systems priorities.
+  - matched: `agents`, `llm-systems`, `agent-evals`, `tool-use`
+  - weak_signals: `parallel execution`, `shared workspace`, `run-verify-reflect`, `external memory`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-04-2604-27221-web2bigtable-a-bi-level-multi-agent-llm-system-for-internet-scale-information-se.md`
+- [From Skill Text to Skill Structure: The Scheduling-Structural-Logical Representation for Agent Skills](https://huggingface.co/papers/2604.24026)
+  - paper_id: `2604.24026`; decision: `accept`; score: `88`; upvotes: `11`
+  - reason: Proposes a structured skill representation for agent systems and shows gains on skill discovery and risk assessment.
+  - matched: `agents`, `llm-systems`, `agent-architectures`, `agent-evals`
+  - weak_signals: `skill-representation`, `risk-assessment`, `skill-discovery`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-04-2604-24026-from-skill-text-to-skill-structure-the-scheduling-structural-logical-representat.md`
+- [Learning while Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies](https://huggingface.co/papers/2605.00416)
+  - paper_id: `2605.00416`; decision: `accept`; score: `88`; upvotes: `10`
+  - reason: Strongly relevant fleet-scale reinforcement learning post-training for embodied policies with deployment-time learning and real-world evaluation.
+  - matched: `reinforcement-learning`, `post-training`, `llm-systems`, `agent-environment-interaction`
+  - weak_signals: `robotics rather than language-model agents`, `policy improvement and evaluation methodology`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-04-2605-00416-learning-while-deploying-fleet-scale-reinforcement-learning-for-generalist-robot.md`
+- [Themis: Training Robust Multilingual Code Reward Models for Flexible Multi-Criteria Scoring](https://huggingface.co/papers/2605.00754)
+  - paper_id: `2605.00754`; decision: `accept`; score: `92`; upvotes: `2`
+  - reason: Directly on reward models and post-training, with concrete code-oriented evaluation and multilingual preference training.
+  - matched: `post-training`, `reinforcement-learning`, `reward-modeling`, `llm-systems`
+  - weak_signals: `code-generation`, `benchmarking`, `cross-lingual-transfer`, `multi-criteria-scoring`
+  - inbox_file: `sources/inbox/hf-daily-papers/2026-05-04-2605-00754-themis-training-robust-multilingual-code-reward-models-for-flexible-multi-criter.md`
 
 ## Maybe
 
-- [Seeing Isn't Believing: Uncovering Blind Spots in Evaluator Vision-Language Models](https://huggingface.co/papers/2604.21523)
-  - paper_id: `2604.21523`; decision: `maybe`; score: `58`; upvotes: `1`
-  - reason: Useful evaluation work on VLM judges and benchmarking reliability, but it is adjacent to rather than centered on the main RL/agent/interpretability priorities.
-  - matched: `llm-systems`, `agent-evals`
-  - weak_signals: `benchmarking`, `evaluation reliability`, `pairwise comparison`, `factual grounding`
-  - downrank: `vision-language models`, `image-to-text`, `text-to-image`, `consumer-eval-focus`
-- [BARRED: Synthetic Training of Custom Policy Guardrails via Asymmetric Debate](https://huggingface.co/papers/2604.25203)
-  - paper_id: `2604.25203`; decision: `maybe`; score: `68`; upvotes: `5`
-  - reason: Relevant to alignment and post-training via synthetic data, debate-based verification, and custom guardrail training, but it is not primarily an RL or agent-methods paper.
-  - matched: `post-training`, `alignment`, `agent-evals`, `llm-systems`
-  - weak_signals: `multi-agent debate`, `synthetic training data`, `fine-tuning`, `custom guardrails`
-  - downrank: `not core reinforcement learning`, `not mechanistic-interpretability`, `guardrail/classifier focus rather than agent architecture`
-- [Co-Director: Agentic Generative Video Storytelling](https://huggingface.co/papers/2604.24842)
-  - paper_id: `2604.24842`; decision: `maybe`; score: `54`; upvotes: `6`
-  - reason: Agentic multi-agent orchestration and bandit-based optimization are methodologically relevant, but the application is video storytelling rather than core agent/RL work.
-  - matched: `agents`, `llm-systems`
-  - weak_signals: `hierarchical-multi-agent-framework`, `agentic-pipelines`, `multi-armed-bandit`, `self-refinement`
-  - downrank: `application-domain-video-storytelling`, `no-rllhfrlpost-training`, `not-mechanistic-interpretability`, `limited-direct-agent-eval-focus`
-- [A Systematic Post-Train Framework for Video Generation](https://huggingface.co/papers/2604.25427)
-  - paper_id: `2604.25427`; decision: `maybe`; score: `62`; upvotes: `1`
-  - reason: Applies RLHF and GRPO in a concrete post-training pipeline, but the target domain is video generation rather than LLM agents or RL research.
-  - matched: `post-training`, `reinforcement-learning`, `rlhf`, `grpo`, `llm-systems`
-  - weak_signals: `systematic pipeline`, `implementation-details`, `evaluation-oriented`, `inference-optimization`
-  - downrank: `video-generation-domain`, `not-agents`, `not-mechanistic-interpretability`, `adjacent-rather-than-core`
-- [Programming with Data: Test-Driven Data Engineering for Self-Improving LLMs from Raw Corpora](https://huggingface.co/papers/2604.24819)
-  - paper_id: `2604.24819`; decision: `maybe`; score: `72`; upvotes: `31`
-  - reason: Strong LLM systems and post-training/data-debugging angle, but it is more about domain corpus engineering than core RL or agent methods.
-  - matched: `llm-systems`, `post-training`, `reasoning-behavior-shaping`, `agent-evals`
-  - weak_signals: `structured-evaluation`, `data-repair`, `benchmarking`, `unit-testing`, `debugging`
-  - downrank: `not-rl`, `not-agent-architecture`, `not-mechanistic-interpretability`
-- [IndustryAssetEQA: A Neurosymbolic Operational Intelligence System for Embodied Question Answering in Industrial Asset Maintenance](https://huggingface.co/papers/2604.23446)
-  - paper_id: `2604.23446`; decision: `maybe`; score: `68`; upvotes: `1`
-  - reason: Technically useful neurosymbolic EQA and counterfactual reasoning system for safety-critical operations, but it is only indirectly related to the top-priority RL/agents/interpreting topics.
-  - matched: `llm-systems`, `reasoning`, `alignment`
-  - weak_signals: `neurosymbolic`, `counterfactual-reasoning`, `explainability`, `knowledge-graph`
-  - downrank: `industrial-maintenance`, `embodied-question-answering`, `domain-specific-application`
+- [Stable-GFlowNet: Toward Diverse and Robust LLM Red-Teaming via Contrastive Trajectory Balance](https://huggingface.co/papers/2605.00553)
+  - paper_id: `2605.00553`; decision: `maybe`; score: `68`; upvotes: `10`
+  - reason: Technically useful for post-training and reward-driven optimization, but it is primarily about LLM red-teaming via GFlowNets rather than core RLHF or agent work.
+  - matched: `post-training`, `reward-modeling`, `llm-systems`
+  - weak_signals: `distribution-matching`, `training-stability`, `mode-collapse`, `robust-optimization`
+  - downrank: `red-teaming-focus`, `not-agents`, `not-mechanistic-interpretability`, `adjacent-to-core-rlhf`
+- [Online Self-Calibration Against Hallucination in Vision-Language Models](https://huggingface.co/papers/2605.00323)
+  - paper_id: `2605.00323`; decision: `maybe`; score: `67`; upvotes: `2`
+  - reason: Uses online preference alignment and DPO to reduce hallucination, which is adjacent to post-training and reward-based shaping but not core RL/agents work.
+  - matched: `post-training`, `alignment`, `llm-systems`
+  - weak_signals: `preference-data`, `online-learning`, `direct-preference-optimization`, `self-supervision`
+  - downrank: `vision-language-models`, `hallucination-mitigation`, `multimodal-focus`
+- [Learning to Act and Cooperate for Distributed Black-Box Consensus Optimization](https://huggingface.co/papers/2605.00691)
+  - paper_id: `2605.00691`; decision: `maybe`; score: `58`; upvotes: `2`
+  - reason: Relevant as an LLM-guided multi-agent coordination method, but it is optimization/control rather than core RL, RLHF, or agent tool-use work.
+  - matched: `agents`, `llm-systems`, `agent-architectures`
+  - weak_signals: `multiagent-systems`, `agent-cooperation`, `trajectory-driven guidance`, `distributed optimization`
+  - downrank: `not-rlhf`, `not-mechanistic-interpretability`, `not-agent-tool-use`, `niche-optimization-benchmark`
+- [Let ViT Speak: Generative Language-Image Pre-training](https://huggingface.co/papers/2605.00809)
+  - paper_id: `2605.00809`; decision: `maybe`; score: `36`; upvotes: `10`
+  - reason: Technical multimodal pretraining work for MLLMs, but it is not directly about RL, agents, or interpretability.
+  - matched: `llm-systems`
+  - weak_signals: `multimodal-pretraining`, `vision-language-models`, `architecture-tradeoffs`, `benchmark-results`
+  - downrank: `outside-core-priorities`, `no-agent-or-rl-component`, `no-mechanistic-interpretability`
 
 ## Reject
 
-- [MAIC-UI: Making Interactive Courseware with Generative UI](https://huggingface.co/papers/2604.25806)
-  - paper_id: `2604.25806`; decision: `reject`; score: `12`; upvotes: `3`
-  - reason: This is an educational generative-UI authoring system, not work on RL, agents, or mechanistic interpretability.
+- [Soft Anisotropic Diagrams for Differentiable Image Representation](https://huggingface.co/papers/2604.21984)
+  - paper_id: `2604.21984`; decision: `reject`; score: `3`; upvotes: `0`
+  - reason: This is a differentiable image representation/compression paper, not aligned with RL, agents, interpretability, or alignment work.
+  - weak_signals: `differentiable-pipelines`, `gpu-systems`
+  - downrank: `computer-vision`, `image-representation`, `compression`, `no-agent-or-reasoning-focus`
+- [Better Models, Faster Training: Sigmoid Attention for single-cell Foundation Models](https://huggingface.co/papers/2604.27124)
+  - paper_id: `2604.27124`; decision: `reject`; score: `18`; upvotes: `2`
+  - reason: Strong technical work on attention for biological foundation models, but it is outside the user’s main RL, agent, and interpretability priorities.
+  - weak_signals: `llm-systems`, `architecture-tradeoffs`, `training-stability`
+  - downrank: `biology-domain`, `not-rlhf`, `not-agents`, `not-mechanistic-interpretability`
+- [Prox-E: Fine-Grained 3D Shape Editing via Primitive-Based Abstractions](https://huggingface.co/papers/2604.23774)
+  - paper_id: `2604.23774`; decision: `reject`; score: `8`; upvotes: `13`
+  - reason: This is a 3D editing method with VLM guidance, not aligned with RL, agents, or interpretability priorities.
   - weak_signals: `llm-systems`
-  - downrank: `education`, `generative-ui`, `zero-code-authoring`, `no-agent-loop`, `no-training-or-eval-focus`
-- [Preferences of a Voice-First Nation: Large-Scale Pairwise Evaluation and Preference Analysis for TTS in Indian Languages](https://huggingface.co/papers/2604.21481)
-  - paper_id: `2604.21481`; decision: `reject`; score: `24`; upvotes: `1`
-  - reason: Useful evaluation methodology, but the paper is about multilingual TTS preference analysis rather than RL, agents, or interpretability.
+  - downrank: `3d-editing`, `vision-language-model`, `geometry`, `graphics`
+- [When Do Diffusion Models learn to Generate Multiple Objects?](https://huggingface.co/papers/2605.00273)
+  - paper_id: `2605.00273`; decision: `reject`; score: `18`; upvotes: `5`
+  - reason: Focuses on diffusion image generation and compositional data effects, which is outside the core RL/agents/interpretability priorities.
+  - weak_signals: `compositional-generalization`, `benchmarking`
+  - downrank: `diffusion-models`, `text-to-image`, `no-agent-or-rl-angle`
+- [Trees to Flows and Back: Unifying Decision Trees and Diffusion Models](https://huggingface.co/papers/2605.00414)
+  - paper_id: `2605.00414`; decision: `reject`; score: `18`; upvotes: `5`
+  - reason: Primarily about decision trees and diffusion-model theory, with no clear RL, agent, or interpretability focus.
+  - weak_signals: `llm-systems`
+  - downrank: `generative-models`, `decision-trees`, `diffusion-models`, `theoretical-unification`
+- [Talker-T2AV: Joint Talking Audio-Video Generation with Autoregressive Diffusion Modeling](https://huggingface.co/papers/2604.23586)
+  - paper_id: `2604.23586`; decision: `reject`; score: `4`; upvotes: `1`
+  - reason: This is a talking-head generation paper, not aligned with RL, agents, or interpretability.
+  - weak_signals: `llm-systems`
+  - downrank: `audio-video-generation`, `talking-head-synthesis`, `cross-modal-generation`
+- [LASE: Language-Adversarial Speaker Encoding for Indic Cross-Script Identity Preservation](https://huggingface.co/papers/2605.00777)
+  - paper_id: `2605.00777`; decision: `reject`; score: `11`; upvotes: `1`
+  - reason: This is a speech representation paper about cross-script speaker encoding, not core RL, agents, or mechanistic interpretability.
+  - weak_signals: `representation-analysis`
+  - downrank: `speech`, `voice-cloning`, `multilingual-speech`, `identity-preservation`, `diarisation`
+- [AnalogRetriever: Learning Cross-Modal Representations for Analog Circuit Retrieval](https://huggingface.co/papers/2604.23195)
+  - paper_id: `2604.23195`; decision: `reject`; score: `18`; upvotes: `2`
+  - reason: Focused on analog circuit retrieval, with only a minor agentic-RAG connection and little relevance to RL, agents, or interpretability.
   - matched: `llm-systems`
-  - weak_signals: `pairwise-evaluation`, `benchmarking`, `leaderboard-analysis`
-  - downrank: `tts`, `speech-perception`, `linguistic-diversity`, `outside-core-topics`
-- [Mutual Forcing: Dual-Mode Self-Evolution for Fast Autoregressive Audio-Video Character Generation](https://huggingface.co/papers/2604.25819)
-  - paper_id: `2604.25819`; decision: `reject`; score: `12`; upvotes: `12`
-  - reason: Focused on efficient audio-video generation, not RL, agents, or interpretability.
+  - weak_signals: `agentic-framework`, `retrieval-augmented-generation`
+  - downrank: `domain-specific-cad`, `analog-circuit-design`, `cross-modal-retrieval`
+- [UniVidX: A Unified Multimodal Framework for Versatile Video Generation via Diffusion Priors](https://huggingface.co/papers/2605.00658)
+  - paper_id: `2605.00658`; decision: `reject`; score: `12`; upvotes: `69`
+  - reason: This is a video generation framework, not directly about RL, agents, or interpretability.
   - weak_signals: `llm-systems`
-  - downrank: `multimodal-generation`, `audio-video-synthesis`, `architecture-only`, `no-agent-or-reasoning-focus`
-- [Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models](https://huggingface.co/papers/2604.25636)
-  - paper_id: `2604.25636`; decision: `reject`; score: `18`; upvotes: `20`
-  - reason: Focuses on multimodal image refinement rather than RL, agents, or mechanistic interpretability.
+  - downrank: `video-generation`, `multimodal-graphics`, `conditional-generation`
+- [Map2World: Segment Map Conditioned Text to 3D World Generation](https://huggingface.co/papers/2605.00781)
+  - paper_id: `2605.00781`; decision: `reject`; score: `8`; upvotes: `13`
+  - reason: A 3D world generation method is not meaningfully aligned with RL, agents, or interpretability.
   - weak_signals: `llm-systems`
-  - downrank: `vision-generation`, `multimodal-models`, `text-to-image`, `image-editing`
-- [IAM: Identity-Aware Human Motion and Shape Joint Generation](https://huggingface.co/papers/2604.25164)
-  - paper_id: `2604.25164`; decision: `reject`; score: `4`; upvotes: `1`
-  - reason: This is about identity-aware human motion generation, not RL, agents, or interpretability.
+  - downrank: `3d-generation`, `scene-generation`, `content-creation`
+- [End-to-End Autoregressive Image Generation with 1D Semantic Tokenizer](https://huggingface.co/papers/2605.00503)
+  - paper_id: `2605.00503`; decision: `reject`; score: `8`; upvotes: `4`
+  - reason: Mostly a vision generative modeling paper with no clear connection to RL, agents, or mechanistic interpretability.
   - weak_signals: `llm-systems`
-  - downrank: `computer-vision`, `motion-generation`, `human-shape-modeling`
-- [Meta-CoT: Enhancing Granularity and Generalization in Image Editing](https://huggingface.co/papers/2604.24625)
-  - paper_id: `2604.24625`; decision: `reject`; score: `22`; upvotes: `22`
-  - reason: Primarily an image-editing method; only a light reward-shaping hook and no clear RL, agents, or interpretability focus.
-  - matched: `reasoning-behavior-shaping`
-  - weak_signals: `CoT-Editing Consistency Reward`, `training strategy for generalization`, `behavior alignment via reward`
-  - downrank: `image-editing`, `multimodal-understanding`, `limited relevance to RLHF or agents`
-- [Improving Robustness of Tabular Retrieval via Representational Stability](https://huggingface.co/papers/2604.24040)
-  - paper_id: `2604.24040`; decision: `reject`; score: `22`; upvotes: `1`
-  - reason: Focuses on table retrieval robustness and embedding geometry, which is useful systems work but not aligned with the core RL, agents, or interpretability priorities.
-  - matched: `llm-systems`
-  - weak_signals: `retrieval-benchmarks`, `representation-stability`, `encoder-geometry`
-  - downrank: `outside-core-priorities`, `no-rl-or-agents`, `no-mechanistic-interpretability`, `applied-retrieval-only`
-- [Sapiens2](https://huggingface.co/papers/2604.21681)
-  - paper_id: `2604.21681`; decision: `reject`; score: `12`; upvotes: `11`
-  - reason: A human-centric vision model family with no substantive RL, agents, or interpretability content.
-  - weak_signals: `llm-systems`
-  - downrank: `computer-vision`, `dense-prediction`, `human-centric-vision`, `benchmark-improvement`
-- [Personality Shapes Gender Bias in Persona-Conditioned LLM Narratives Across English and Hindi: An Empirical Investigation](https://huggingface.co/papers/2604.23600)
-  - paper_id: `2604.23600`; decision: `reject`; score: `18`; upvotes: `0`
-  - reason: This is a bias study of persona-conditioned narrative generation, not a strong fit for RL, agents, or mechanistic interpretability.
-  - weak_signals: `llm-systems`, `alignment`
-  - downrank: `persona-conditioning`, `gender-bias`, `story-generation`, `representational-harms`
+  - downrank: `computer-vision`, `image-generation`, `benchmark-only`

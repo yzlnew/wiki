@@ -9,6 +9,7 @@ import os
 import re
 import socket
 import ssl
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -571,8 +572,21 @@ def _run_codex(full_prompt: str, model: str, reasoning_effort: str, timeout: flo
         return output_path.read_text(encoding="utf-8").strip()
 
 
+def _resolve_claude_bin() -> str:
+    configured = env("HF_DAILY_PAPERS_CLAUDE_BIN", required=False, default="claude")
+    if os.path.sep in configured or configured.startswith("~"):
+        return os.path.expanduser(configured)
+    found = shutil.which(configured)
+    if found:
+        return found
+    for candidate in ("/root/.local/bin/claude", "/usr/local/bin/claude"):
+        if os.path.exists(candidate):
+            return candidate
+    return configured
+
+
 def _run_claude(full_prompt: str, model: str, effort: str, timeout: float) -> str:
-    claude_bin = env("HF_DAILY_PAPERS_CLAUDE_BIN", required=False, default="claude")
+    claude_bin = _resolve_claude_bin()
     cmd = [
         claude_bin,
         "-p",
@@ -634,17 +648,47 @@ def invoke_codex_json(prompt_template: str, input_block: str) -> dict[str, Any]:
 
 def parse_json_response(text: str) -> Any:
     clean = text.strip()
-    if clean.startswith("```"):
-        clean = re.sub(r"^```[a-zA-Z0-9_-]*\n", "", clean)
-        clean = re.sub(r"\n```$", "", clean)
-        clean = clean.strip()
+    fence_match = re.search(r"```(?:[a-zA-Z0-9_-]*)\n(.*?)\n```", clean, re.DOTALL)
+    if fence_match:
+        clean = fence_match.group(1).strip()
     try:
         return json.loads(clean)
     except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", clean, re.DOTALL)
-        if not match:
-            raise
-        return json.loads(match.group(0))
+        pass
+    candidate = _extract_balanced_json(clean)
+    if candidate is None:
+        raise json.JSONDecodeError("no JSON object found in response", clean, 0)
+    return json.loads(candidate)
+
+
+def _extract_balanced_json(text: str) -> str | None:
+    depth = 0
+    start = -1
+    in_string = False
+    escape = False
+    for idx, ch in enumerate(text):
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+            continue
+        if ch == "{":
+            if depth == 0:
+                start = idx
+            depth += 1
+        elif ch == "}":
+            if depth == 0:
+                continue
+            depth -= 1
+            if depth == 0 and start != -1:
+                return text[start : idx + 1]
+    return None
 
 
 def parse_filter_result(payload: dict[str, Any]) -> FilterResult:

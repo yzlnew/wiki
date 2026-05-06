@@ -348,7 +348,51 @@ python3 scripts/send_daily_digest.py
 4. 读取三份最新报告并整理成一封邮件
 5. 通过 SMTP 或本机 `sendmail` 发到 `.env.daily-digest.local` 配置的收件人
 
-本地配置：
+### 反馈链路
+
+整个"每日更新 → 反馈给我"的链路是：
+
+```mermaid
+flowchart LR
+    Cron["cron<br/>40 9 * * *"] --> Driver["send_daily_digest.py"]
+    Driver --> B["update_bookmarks.py"]
+    Driver --> F["update_freshrss.py"]
+    Driver --> H["update_hf_daily_papers.py"]
+    B --> RB["sources/library/bookmarks/<br/>bookmarks.md"]
+    F --> RF["sources/library/freshrss/<br/>freshrss-latest.md"]
+    H --> RH["sources/library/hf-daily-papers/<br/>hf-daily-papers-latest.md"]
+    RB --> Build["build_digest()<br/>build_digest_html()"]
+    RF --> Build
+    RH --> Build
+    Build --> Msg["EmailMessage<br/>(text + html alternative)"]
+    Msg --> Pick{DAILY_DIGEST_<br/>SMTP_HOST?}
+    Pick -->|set| SMTP["send_via_smtp()"]
+    Pick -->|unset| SM["send_via_sendmail()"]
+    SMTP --> Inbox["收件人邮箱"]
+    SM --> Inbox
+    Driver -->|stdout / stderr| Log["/tmp/wiki-daily-digest.log"]
+```
+
+要点：
+
+- 三个 `update` 子脚本各自有自己的去重 / state 文件，互不干扰；任一失败不会中止后续步骤，邮件 "Run status" 节会显式标记 `failed(<rc>)`
+- 邮件正文（plain-text）和 HTML 都在内存里拼好直接走 `EmailMessage.add_alternative(..., subtype="html")`，**目前不在本地落盘**；如需归档可在 `send_digest()` 调用前后把 `body` / `html_body` 写到 `sources/library/digests/YYYY-MM-DD.{md,html}`
+- cron stdout / stderr 全部追加到 `/tmp/wiki-daily-digest.log`，发件失败的栈信息也在这里
+
+### Gmail 发送链路
+
+`send_via_smtp()` 走 Gmail 时的运行时步骤（`DAILY_DIGEST_SMTP_AUTH_METHOD=gmail-oauth2`）：
+
+1. `fetch_gmail_oauth_access_token()` 用本地 `refresh_token` POST `https://oauth2.googleapis.com/token`，换一次性 `access_token`
+2. `smtplib.SMTP_SSL("smtp.gmail.com", 465)` 建链，**手动 `EHLO`**（`SMTP_SSL` 默认不发，Gmail 会拒绝后续命令）
+3. `AUTH XOAUTH2 <base64(user=<addr>\x01auth=Bearer <token>\x01\x01)>` 完成认证
+4. `smtp.send_message(msg)` 发出 `multipart/alternative`
+
+走 app password 路径：`DAILY_DIGEST_SMTP_AUTH_METHOD=password` + `DAILY_DIGEST_SMTP_PASSWORD`，跳过步骤 1，第 3 步换成 `smtp.login(user, password)`。
+
+走 sendmail 兜底：未设 `DAILY_DIGEST_SMTP_HOST` 时改用本机 `/usr/sbin/sendmail -t -oi`（路径可用 `DAILY_DIGEST_SENDMAIL_BIN` 覆盖）。
+
+### 本地配置
 
 1. 复制 `.env.daily-digest.example` 为 `.env.daily-digest.local`
 2. 确认 `DAILY_DIGEST_TO`
@@ -374,7 +418,7 @@ python3 scripts/send_daily_digest.py
 注意：
 
 - `update` 只负责同步和筛选，不会自动 ingest 到 `wiki/`
-- 这封邮件是“来源更新摘要”，不是自动知识整理
+- 这封邮件是"来源更新摘要"，不是自动知识整理
 - 脚本会优先使用 SMTP 配置；只有未设置 `DAILY_DIGEST_SMTP_HOST` 时才回退到 `sendmail`
 - Gmail OAuth2 需要你先在 Google Cloud 创建 OAuth client，并拿到带 `https://mail.google.com/` scope 的 refresh token
 - 如果不用 OAuth2，也可以继续使用 app password；不要直接用账号主密码

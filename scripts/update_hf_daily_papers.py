@@ -648,25 +648,91 @@ def invoke_codex_json(prompt_template: str, input_block: str) -> dict[str, Any]:
 
 def parse_json_response(text: str) -> Any:
     clean = text.strip()
-    fence_match = re.search(r"```(?:[a-zA-Z0-9_-]*)\n(.*?)\n```", clean, re.DOTALL)
-    if fence_match:
-        clean = fence_match.group(1).strip()
-    try:
-        return json.loads(clean)
-    except json.JSONDecodeError:
-        pass
-    candidate = _extract_balanced_json(clean)
-    if candidate is None:
-        raise json.JSONDecodeError("no JSON object found in response", clean, 0)
-    return json.loads(candidate)
+    errors: list[str] = []
+    for candidate in _json_response_candidates(clean):
+        for variant in _json_candidate_variants(candidate):
+            try:
+                return json.loads(variant)
+            except json.JSONDecodeError as exc:
+                errors.append(f"{exc.msg} at line {exc.lineno} column {exc.colno}")
+    detail = errors[-1] if errors else "no JSON object found in response"
+    raise ValueError(f"{detail}; response preview: {preview_text(clean, 600)}")
 
 
-def _extract_balanced_json(text: str) -> str | None:
+def _json_response_candidates(text: str) -> list[str]:
+    candidates: list[str] = []
+    seen: set[str] = set()
+
+    def add(candidate: str) -> None:
+        value = candidate.strip()
+        if value and value not in seen:
+            seen.add(value)
+            candidates.append(value)
+
+    add(text)
+    for fence_match in re.finditer(r"```(?:[a-zA-Z0-9_-]*)\s*\n(.*?)\n```", text, re.DOTALL):
+        add(fence_match.group(1))
+    for candidate in _extract_balanced_json_objects(text):
+        add(candidate)
+    return candidates
+
+
+def _json_candidate_variants(candidate: str) -> list[str]:
+    variants = [candidate]
+    without_trailing_commas = _remove_trailing_json_commas(candidate)
+    if without_trailing_commas != candidate:
+        variants.append(without_trailing_commas)
+    return variants
+
+
+def _remove_trailing_json_commas(text: str) -> str:
+    result: list[str] = []
+    in_string = False
+    escape = False
+    idx = 0
+    while idx < len(text):
+        ch = text[idx]
+        if in_string:
+            result.append(ch)
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            idx += 1
+            continue
+        if ch == '"':
+            in_string = True
+            result.append(ch)
+            idx += 1
+            continue
+        if ch == ",":
+            probe = idx + 1
+            while probe < len(text) and text[probe].isspace():
+                probe += 1
+            if probe < len(text) and text[probe] in "}]":
+                idx += 1
+                continue
+        result.append(ch)
+        idx += 1
+    return "".join(result)
+
+
+def _extract_balanced_json_objects(text: str) -> list[str]:
+    objects: list[str] = []
     depth = 0
     start = -1
     in_string = False
     escape = False
     for idx, ch in enumerate(text):
+        if depth == 0:
+            if ch == "{":
+                start = idx
+                depth = 1
+                in_string = False
+                escape = False
+            continue
         if in_string:
             if escape:
                 escape = False
@@ -679,16 +745,20 @@ def _extract_balanced_json(text: str) -> str | None:
             in_string = True
             continue
         if ch == "{":
-            if depth == 0:
-                start = idx
             depth += 1
         elif ch == "}":
-            if depth == 0:
-                continue
             depth -= 1
             if depth == 0 and start != -1:
-                return text[start : idx + 1]
-    return None
+                objects.append(text[start : idx + 1])
+                start = -1
+    return objects
+
+
+def preview_text(text: str, limit: int = 300) -> str:
+    clean = collapse_whitespace(text)
+    if len(clean) <= limit:
+        return clean
+    return clean[: limit - 3].rstrip() + "..."
 
 
 def parse_filter_result(payload: dict[str, Any]) -> FilterResult:
@@ -721,6 +791,52 @@ def parse_extraction_result(payload: dict[str, Any]) -> ExtractionResult:
         open_questions=ensure_list_of_strings(payload.get("open_questions")),
         tags=ensure_list_of_strings(payload.get("tags")),
     )
+
+
+def fallback_extraction_result(
+    paper: Paper,
+    filter_result: FilterResult,
+    source_basis: str,
+    source_text: str,
+) -> ExtractionResult:
+    basis_text = source_text or paper.summary or paper.ai_summary or paper.title
+    summary = first_sentence_or_truncated(basis_text, 320)
+    if not summary:
+        summary = f"{paper.title} was selected by the interest filter, but structured extraction failed."
+
+    key_points: list[str] = []
+    if paper.summary:
+        key_points.append(f"Abstract: {truncate_text(paper.summary, 420)}")
+    elif source_text:
+        key_points.append(f"Source excerpt: {truncate_text(source_text, 420)}")
+    if paper.ai_keywords:
+        key_points.append("HF keywords: " + ", ".join(paper.ai_keywords[:8]))
+    if source_basis:
+        key_points.append(f"Source basis: {source_basis}")
+    key_points.append(f"Filter reason: {filter_result.reason}")
+    key_points.append("Structured extraction failed; review the source before ingest.")
+
+    matched = ", ".join(filter_result.matched_interests) if filter_result.matched_interests else "the configured interests"
+    why_relevant = f"The filter matched {matched}: {filter_result.reason}"
+    open_questions = ["What method details and evaluation results are supported by the full paper text?"]
+    tags = dedupe_preserve_order(filter_result.matched_interests + ["extraction-fallback"])
+    return ExtractionResult(
+        one_sentence_summary=summary,
+        key_points=key_points,
+        why_relevant=why_relevant,
+        open_questions=open_questions,
+        tags=tags,
+    )
+
+
+def first_sentence_or_truncated(text: str, limit: int) -> str:
+    clean = collapse_whitespace(text)
+    if not clean:
+        return ""
+    match = re.search(r"^(.{20,}?[.!?])(?:\s|$)", clean)
+    if match:
+        return truncate_text(match.group(1), limit)
+    return truncate_text(clean, limit)
 
 
 def include_maybe() -> bool:
@@ -1107,11 +1223,18 @@ def main() -> int:
         source_basis = ""
         if should_stage(filter_result):
             source_url_used, source_basis, source_text = fetch_original_source_context(paper)
-            extraction_payload = invoke_codex_json(
-                extraction_prompt,
-                build_extraction_input(paper, filter_result, source_url_used, source_basis, source_text),
-            )
-            extraction_result = parse_extraction_result(extraction_payload)
+            try:
+                extraction_payload = invoke_codex_json(
+                    extraction_prompt,
+                    build_extraction_input(paper, filter_result, source_url_used, source_basis, source_text),
+                )
+                extraction_result = parse_extraction_result(extraction_payload)
+            except Exception as exc:
+                print(
+                    f"[extraction] failed for {paper.paper_id}: {exc}; using conservative fallback",
+                    file=sys.stderr,
+                )
+                extraction_result = fallback_extraction_result(paper, filter_result, source_basis, source_text)
             inbox_path = write_inbox_file(
                 paper,
                 filter_result,
